@@ -1,0 +1,9 @@
+{
+  "id": 276769267,
+  "tag_name": "v0.7.0",
+  "name": "v0.7.0",
+  "body": "## Features\n\n### Voice Templates\n- Add database schema and Durable Object infrastructure for voice templates\n- Add API routes with CRUD operations and middleware enhancements\n- Add frontend template management components (TemplateList, TemplateEditor, TemplateGallery)\n- Integrate voice templates into app navigation\n- Add comprehensive API endpoint tests\n\n## Fixes\n\n- Fix TemplateGallery card styling\n- Resolve test failures across frontend and API workers\n  - Update Base UI selectors for component tests\n  - Fix route conflicts in API worker\n  - Add proper OpenAPI schema metadata\n\n## Documentation\n\n- Add voice templates feature documentation\n\n---\n\n**Full Changelog**: https://github.com/keyreply/kira-cloudflare/compare/v0.6.0...v0.7.0",
+  "published_at": "2026-01-14T15:36:24Z",
+  "html_url": "https://github.com/keyreply/kira-cloudflare/releases/tag/v0.7.0",
+  "assets": []
+}

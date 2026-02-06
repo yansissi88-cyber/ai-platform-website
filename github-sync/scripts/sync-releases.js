@@ -2,17 +2,31 @@
 /**
  * GitHub Releases 同步脚本
  * 从 GitHub 获取 Releases 内容并更新到网站
+ * 
+ * 私有仓库访问需要设置 GITHUB_TOKEN
  */
 
 const fs = require('fs');
 const path = require('path');
 const https = require('https');
 
+// 加载 .env 文件
+const envPath = path.join(__dirname, '..', '.env');
+if (fs.existsSync(envPath)) {
+  const envContent = fs.readFileSync(envPath, 'utf-8');
+  envContent.split('\n').forEach(line => {
+    const match = line.match(/^([^=]+)=(.*)$/);
+    if (match && !process.env[match[1]]) {
+      process.env[match[1]] = match[2];
+    }
+  });
+}
+
 // 配置
 const CONFIG = {
-  // GitHub 仓库信息
-  owner: process.env.GITHUB_OWNER || 'yansissi88-cyber',
-  repo: process.env.GITHUB_REPO || 'ai-platform-website',
+  // GitHub 仓库信息 - keyreply/kira-cloudflare (私有仓库)
+  owner: process.env.GITHUB_OWNER || 'keyreply',
+  repo: process.env.GITHUB_REPO || 'kira-cloudflare',
   
   // 输出路径
   outputDir: path.join(__dirname, '..', 'releases'),

@@ -1,0 +1,65 @@
+name: 🤖 Auto Sync from kira-cloudflare
+
+on:
+  # 每小时检查一次
+  schedule:
+    - cron: '0 * * * *'
+  
+  # 手动触发
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+        
+    - name: Install Playwright
+      run: |
+        npm install -g playwright
+        npx playwright install chromium
+        
+    - name: Run Smart Sync
+      env:
+        GITHUB_OWNER: keyreply
+        GITHUB_REPO: kira-cloudflare
+        GITHUB_TOKEN: ${{ secrets.KIRA_CLOUDFLARE_TOKEN }}
+      run: |
+        cd github-sync/scripts
+        node smart-sync.js
+        
+    - name: Check for changes
+      id: check_changes
+      run: |
+        if [ -n "$(git status --porcelain)" ]; then
+          echo "has_changes=true" >> $GITHUB_OUTPUT
+        else
+          echo "has_changes=false" >> $GITHUB_OUTPUT
+        fi
+        
+    - name: Commit and push changes
+      if: steps.check_changes.outputs.has_changes == 'true'
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add -A
+        git commit -m "🤖 Auto sync: Update from kira-cloudflare releases
+        
+        - Sync latest releases
+        - Capture feature screenshots
+        - Update website content"
+        git push
+        
+    - name: Deploy to GitHub Pages
+      if: steps.check_changes.outputs.has_changes == 'true'
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./src/updates

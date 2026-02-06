@@ -10,9 +10,9 @@ const https = require('https');
 
 // 配置
 const CONFIG = {
-  // GitHub 仓库信息 - 请修改为实际的仓库
-  owner: process.env.GITHUB_OWNER || 'your-org',
-  repo: process.env.GITHUB_REPO || 'your-repo',
+  // GitHub 仓库信息
+  owner: process.env.GITHUB_OWNER || 'yansissi88-cyber',
+  repo: process.env.GITHUB_REPO || 'ai-platform-website',
   
   // 输出路径
   outputDir: path.join(__dirname, '..', 'releases'),

@@ -5,5 +5,60 @@
   "body": "## Highlights\n\nThis release introduces a comprehensive **Campaign Creation Wizard** and a completely redesigned **Contact Management** experience with DISC profiling support.\n\n## New Features\n\n### Campaign Creation Wizard\n- Multi-step wizard with 3-step flow: Basic Info → Scheduling → Compliance\n- **Audience Selector** with tag-based filtering and file upload support\n- **Template Preview** for voice, email, and WhatsApp channels\n- **Schedule Preview** with calendar visualization\n- **Auto-save** drafts with recovery banner\n- **Import Campaign** dialog for duplicating existing campaigns\n- Anti-harassment compliance settings with reviewer assignment\n- Backend services: `AudienceService`, `ComplianceService`\n- Database migrations for enhanced campaigns and compliance tracking\n\n### Contact Management Redesign\n- **Grid View** with contact cards showing key metrics\n- **Compact Stats Bar** for quick overview\n- **DISC Profiling** integration for personality insights\n- Improved search and filtering\n\n### Agent Skills Open Standard\n- Implements [Agent Skills](https://agentskills.io) specification\n- SKILL.md format with YAML frontmatter + Markdown body\n- Validation tooling: `bun run skills:validate`\n- Full specification compliance with `allowed-tools` support\n\n### MCP Server\n- Standalone MCP server with comprehensive tool coverage\n- Complete CRUD operations for agents, customers, conversations\n- Knowledge base search and document management\n- Analytics and feedback tools\n- PII detection and redaction\n\n## UI/UX Improvements\n\n- **Animated Tab Indicators** in AgentBuilder\n- **Motion Animations** across Campaigns, Workflows, and UI primitives\n- **Emotion-aware SynapticLogo** in GlobalAIAgent\n- **Collapsible Chat Widget** with 3-state animation system\n- **PromptEditor** improvements and fixes\n- Fixed border styling issues across components\n\n## Bug Fixes\n\n- Fix GlobalAIAgent message styling and Settings nav consistency\n- Fix PATCH endpoint middleware for agents\n- Fix collapsed mode in sidebar\n- Fix border styling in Agent builder Skills tab\n\n## Technical Changes\n\n- Enhanced `CampaignDO` with status management and filtering\n- New routes: `campaign-audience.ts` for audience management\n- Connection status banner with `useConnectionStatus` hook\n- Updated dependencies\n\n---\n\n**Full Changelog**: https://github.com/keyreply/kira-cloudflare/compare/v0.5.0...v0.6.0",
   "published_at": "2026-01-14T11:46:38Z",
   "html_url": "https://github.com/keyreply/kira-cloudflare/releases/tag/v0.6.0",
-  "assets": []
+  "features": [
+    {
+      "keyword": "campaign",
+      "path": "/campaigns",
+      "selector": "[data-testid=\"campaigns-page\"], .campaigns-container, main",
+      "release": "v0.6.0"
+    },
+    {
+      "keyword": "agent",
+      "path": "/agent-builder",
+      "selector": "[data-testid=\"agent-builder\"], .agent-builder, main",
+      "release": "v0.6.0"
+    },
+    {
+      "keyword": "contact",
+      "path": "/contacts",
+      "selector": "[data-testid=\"contacts\"], .contacts-page, main",
+      "release": "v0.6.0"
+    },
+    {
+      "keyword": "mcp",
+      "path": "/mcp-store",
+      "selector": "[data-testid=\"mcp-store\"], .mcp-store, main",
+      "release": "v0.6.0"
+    },
+    {
+      "keyword": "voice",
+      "path": "/testing",
+      "selector": "[data-testid=\"testing\"], .testing-page, main",
+      "release": "v0.6.0"
+    },
+    {
+      "keyword": "template",
+      "path": "/templates",
+      "selector": "[data-testid=\"templates\"], .templates-page",
+      "release": "v0.6.0"
+    },
+    {
+      "keyword": "workflow",
+      "path": "/workflows",
+      "selector": "[data-testid=\"workflows\"], .workflows-page, main",
+      "release": "v0.6.0"
+    },
+    {
+      "keyword": "knowledge",
+      "path": "/knowledge-base",
+      "selector": "[data-testid=\"knowledge\"], .knowledge-page, main",
+      "release": "v0.6.0"
+    },
+    {
+      "keyword": "setting",
+      "path": "/settings",
+      "selector": "[data-testid=\"settings\"], .settings-page, main",
+      "release": "v0.6.0"
+    }
+  ]
 }

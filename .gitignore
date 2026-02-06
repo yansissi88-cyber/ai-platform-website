@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Screenshots temp files
+*.tmp.png
+*.tmp.jpg
+
+# Local environment
+.env
+.env.local
+
+# Large binary files (screenshots and temp images)
+*.backup.png
+result.png
+final_result.png
+updated_result.png
+react_site.png
+reference-screenshot.png
+verify_contact.png
+
+# Update docs archives
+update_docs/*.tar.gz
+update_docs/*.png
+
+# Node modules
+node_modules/
+*.log

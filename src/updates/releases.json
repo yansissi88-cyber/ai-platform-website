@@ -1,11 +1,11 @@
 {
-  "last_updated": "2026-02-06T16:48:00+08:00",
+  "last_updated": "2026-02-06T09:18:49.583Z",
   "releases": [
     {
       "version": "v1.0.0",
       "title": "🚀 初始发布 - AI 客服平台上线",
-      "date": "2026-02-06T16:48:00Z",
-      "content": "## 主要功能\n\n### ✨ 新功能\n- **统一收件箱**：集中管理所有渠道的客户对话\n- **AI 智能回复建议**：基于上下文自动生成回复建议\n- **对话摘要面板**：右侧边栏显示对话统计和客户状态\n- **智能标签系统**：自动为对话添加标签分类\n- **Kira AI 助手**：右下角悬浮 AI 助手提供实时协助\n\n### 📱 多平台支持\n- 桌面端 (1920x1080) 完整支持\n- 平板端 (768x1024) 适配\n- 移动端 (375x812) 响应式设计\n\n### 🔧 技术特性\n- 支持 Messenger、WhatsApp、Email、Instagram、SMS 多渠道\n- 工作流自动化 (Campaigns & Workflows)\n- Agent 构建器自定义 AI 机器人\n- MCP Store 扩展 AI 功能\n- 知识库管理系统\n\n### 📸 参考截图\n基于 kira.keyreply.com 界面分析提取",
+      "date": "2026-02-06T09:18:42Z",
+      "content": "## 主要功能\n\n### ✨ 新功能\n- **统一收件箱**：集中管理所有渠道的客户对话\n- **AI 智能回复建议**：基于上下文自动生成回复建议  \n- **对话摘要面板**：右侧边栏显示对话统计和客户状态\n- **智能标签系统**：自动为对话添加标签分类\n- **Kira AI 助手**：右下角悬浮 AI 助手提供实时协助\n\n### 📱 多平台支持\n- 桌面端 (1920x1080) 完整支持\n- 平板端 (768x1024) 适配\n- 移动端 (375x812) 响应式设计\n\n### 🔧 技术特性\n- 支持 Messenger、WhatsApp、Email、Instagram、SMS 多渠道\n- 工作流自动化 (Campaigns & Workflows)\n- Agent 构建器自定义 AI 机器人\n- MCP Store 扩展 AI 功能\n- 知识库管理系统\n\n截图来源: https://kira.keyreply.com/",
       "url": "https://github.com/yansissi88-cyber/ai-platform-website/releases/tag/v1.0.0"
     }
   ]

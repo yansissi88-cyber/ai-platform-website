@@ -2,12 +2,12 @@
   "last_updated": "2026-02-06T16:23:00+08:00",
   "source": "https://kira.keyreply.com/",
   "screenshots": {
-    "desktop_hero": "github-sync/screenshots/desktop_hero_2026-02-06.png",
-    "desktop_full": "github-sync/screenshots/desktop_full_2026-02-06.png",
-    "tablet_hero": "github-sync/screenshots/tablet_hero_2026-02-06.png",
-    "tablet_full": "github-sync/screenshots/tablet_full_2026-02-06.png",
-    "mobile_hero": "github-sync/screenshots/mobile_hero_2026-02-06.png",
-    "mobile_full": "github-sync/screenshots/mobile_full_2026-02-06.png"
+    "desktop_hero": "../../github-sync/screenshots/desktop_hero_2026-02-06.png",
+    "desktop_full": "../../github-sync/screenshots/desktop_full_2026-02-06.png",
+    "tablet_hero": "../../github-sync/screenshots/tablet_hero_2026-02-06.png",
+    "tablet_full": "../../github-sync/screenshots/tablet_full_2026-02-06.png",
+    "mobile_hero": "../../github-sync/screenshots/mobile_hero_2026-02-06.png",
+    "mobile_full": "../../github-sync/screenshots/mobile_full_2026-02-06.png"
   },
   "features": [
     {

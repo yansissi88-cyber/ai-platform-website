@@ -1,23 +1,23 @@
 {
-  "last_updated": "2026-02-09T23:26:40.800Z",
+  "last_updated": "2026-02-10T01:11:59.057Z",
   "screenshots": [
     {
       "feature": "campaign",
       "release": "v0.8.0",
-      "path": "/github-sync/screenshots/feature_campaign_v0.8.0_2026-02-09.png",
-      "filename": "feature_campaign_v0.8.0_2026-02-09.png"
+      "path": "/github-sync/screenshots/feature_campaign_v0.8.0_2026-02-10.png",
+      "filename": "feature_campaign_v0.8.0_2026-02-10.png"
     },
     {
       "feature": "disc",
       "release": "v0.8.0",
-      "path": "/github-sync/screenshots/feature_disc_v0.8.0_2026-02-09.png",
-      "filename": "feature_disc_v0.8.0_2026-02-09.png"
+      "path": "/github-sync/screenshots/feature_disc_v0.8.0_2026-02-10.png",
+      "filename": "feature_disc_v0.8.0_2026-02-10.png"
     },
     {
       "feature": "dashboard",
       "release": "v0.8.0",
-      "path": "/github-sync/screenshots/feature_dashboard_v0.8.0_2026-02-09.png",
-      "filename": "feature_dashboard_v0.8.0_2026-02-09.png"
+      "path": "/github-sync/screenshots/feature_dashboard_v0.8.0_2026-02-10.png",
+      "filename": "feature_dashboard_v0.8.0_2026-02-10.png"
     }
   ]
 }

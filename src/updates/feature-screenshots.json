@@ -1,23 +1,47 @@
 {
-  "last_updated": "2026-02-06T11:55:47.301Z",
+  "last_updated": "2026-02-10T10:48:51.801Z",
   "screenshots": [
     {
       "feature": "campaign",
-      "release": "v0.8.0",
-      "path": "/github-sync/screenshots/feature_campaign_v0.8.0_2026-02-06.png",
-      "filename": "feature_campaign_v0.8.0_2026-02-06.png"
+      "release": "v0.9.0",
+      "path": "/github-sync/screenshots/feature_campaign_v0.9.0_2026-02-10.png",
+      "filename": "feature_campaign_v0.9.0_2026-02-10.png"
     },
     {
-      "feature": "disc",
-      "release": "v0.8.0",
-      "path": "/github-sync/screenshots/feature_disc_v0.8.0_2026-02-06.png",
-      "filename": "feature_disc_v0.8.0_2026-02-06.png"
+      "feature": "agent",
+      "release": "v0.9.0",
+      "path": "/github-sync/screenshots/feature_agent_v0.9.0_2026-02-10.png",
+      "filename": "feature_agent_v0.9.0_2026-02-10.png"
     },
     {
-      "feature": "dashboard",
-      "release": "v0.8.0",
-      "path": "/github-sync/screenshots/feature_dashboard_v0.8.0_2026-02-06.png",
-      "filename": "feature_dashboard_v0.8.0_2026-02-06.png"
+      "feature": "contact",
+      "release": "v0.9.0",
+      "path": "/github-sync/screenshots/feature_contact_v0.9.0_2026-02-10.png",
+      "filename": "feature_contact_v0.9.0_2026-02-10.png"
+    },
+    {
+      "feature": "mcp",
+      "release": "v0.9.0",
+      "path": "/github-sync/screenshots/feature_mcp_v0.9.0_2026-02-10.png",
+      "filename": "feature_mcp_v0.9.0_2026-02-10.png"
+    },
+    {
+      "feature": "voice",
+      "release": "v0.9.0",
+      "path": "/github-sync/screenshots/feature_voice_v0.9.0_2026-02-10.png",
+      "filename": "feature_voice_v0.9.0_2026-02-10.png"
+    },
+    {
+      "feature": "template",
+      "release": "v0.9.0",
+      "path": "/github-sync/screenshots/feature_template_v0.9.0_2026-02-10.png",
+      "filename": "feature_template_v0.9.0_2026-02-10.png"
+    },
+    {
+      "feature": "workflow",
+      "release": "v0.9.0",
+      "path": "/github-sync/screenshots/feature_workflow_v0.9.0_2026-02-10.png",
+      "filename": "feature_workflow_v0.9.0_2026-02-10.png"
     }
   ]
 }

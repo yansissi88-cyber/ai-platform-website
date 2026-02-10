@@ -1,0 +1,52 @@
+{
+  "id": 284659222,
+  "tag_name": "v0.9.0",
+  "name": "v0.9.0 - Vertical Modules, SDOH Screening & Dynamic Voice Tools",
+  "body": "## What's New in v0.9.0\n\n### Omni-Channel Platform\nConnect with customers across 12 messaging channels from a single interface. Each channel has a unified adapter with setup wizard, OAuth flows, health monitoring, and webhook routing.\n\n**Channels:** WhatsApp Business, Telegram, Slack, Microsoft Teams, WeChat, Facebook Messenger, Instagram Direct, LINE, Viber, Discord, SMS (Twilio), Email (Resend)\n\n### Unified Agent Builder\nAgent Builder, Voice Agents, and Voice AI consolidated into one builder with 7 configuration tabs — Identity, Goals, Script, Skills Marketplace, Execution, Optimization (A/B testing), and Runtime Adaptations. Agents can now be linked to campaigns and conversations, and each agent has a dedicated chat endpoint for testing.\n\n### Voice Infrastructure\n- **Dual-stack telephony:** SIP (Janus Gateway on Cloudflare Containers, B3Networks bridge) and Telnyx with audio recording to R2\n- **xAI Grok** as default LLM with intelligent model routing\n- **Minimax TTS** with per-agent and per-tenant voice configuration\n- **Dynamic tool dispatch:** voice agents now use their own tool definitions instead of hardcoded lead capture tools\n- **Call Logs page** with unified SIP + Telnyx query and recording playback\n\n### Vertical Industry Modules\nModule framework supporting industry-specific archetypes, tool definitions, disposition codes, and prompts. Ships with 4 verticals: healthcare, real estate, debt collection, and retail.\n\n- **Healthcare SDOH Screening:** archetype following Healthy People 2030 framework with 11 intervention tools, 6 disposition codes, and HIPAA-compliant prompt with crisis routing (911/988)\n- **Disposition auto-tagging:** contacts automatically tagged based on call outcomes using industry-specific templates\n\n### CLI Control Plane\nFull-featured CLI (`kira`) with 276 subcommands — SSO login, agent management, campaigns, contacts, conversations, workflows, documents, MCP registry, voice providers, channels, and database sync/export/import. Includes shell completion and JSON/table/minimal output formatters.\n\n### Workflows & Automation\n30 pre-built workflow templates across 6 industries (healthcare, retail, telecoms, transportation, travel, finance). Workflow canvas with improved layout, AI Decision panel, execution history, and phone call node support.\n\n### Security & Compliance\n- **Compliance framework:** LGPD, HIPAA, CFM, PDPA, GDPR declarations per tenant\n- **Adaptive security guardrails** (Phase 1 + 2) with fail-closed patterns\n- **Entra ID OIDC** and multi-provider auth abstraction via WorkOS AuthKit\n- **Hardened API:** session token hashing, WebSocket ticket auth, PII masking, parameterized queries, CORS hardening, webhook signature verification\n\n### Platform\n- MCP server expanded from 18 to 64 tools for full CLI coverage\n- Marketing deck generation system\n- Data tables (TanStack Table) for Campaigns, Workflows, and Conversations\n- Seed data management UI with demo data presets\n- Campaign performance analytics and contact statistics API\n- Dark mode improvements across all views\n- CI consistency checks on pushes to main\n\n## Full Changelog\nhttps://github.com/keyreply/kira-cloudflare/compare/v0.8.0...v0.9.0",
+  "published_at": "2026-02-10T04:00:40Z",
+  "html_url": "https://github.com/keyreply/kira-cloudflare/releases/tag/v0.9.0",
+  "features": [
+    {
+      "keyword": "campaign",
+      "path": "/campaigns",
+      "selector": "[data-testid=\"campaigns-page\"], .campaigns-container, main",
+      "release": "v0.9.0"
+    },
+    {
+      "keyword": "agent",
+      "path": "/agent-builder",
+      "selector": "[data-testid=\"agent-builder\"], .agent-builder, main",
+      "release": "v0.9.0"
+    },
+    {
+      "keyword": "contact",
+      "path": "/contacts",
+      "selector": "[data-testid=\"contacts\"], .contacts-page, main",
+      "release": "v0.9.0"
+    },
+    {
+      "keyword": "mcp",
+      "path": "/mcp-store",
+      "selector": "[data-testid=\"mcp-store\"], .mcp-store, main",
+      "release": "v0.9.0"
+    },
+    {
+      "keyword": "voice",
+      "path": "/testing",
+      "selector": "[data-testid=\"testing\"], .testing-page, main",
+      "release": "v0.9.0"
+    },
+    {
+      "keyword": "template",
+      "path": "/templates",
+      "selector": "[data-testid=\"templates\"], .templates-page",
+      "release": "v0.9.0"
+    },
+    {
+      "keyword": "workflow",
+      "path": "/workflows",
+      "selector": "[data-testid=\"workflows\"], .workflows-page, main",
+      "release": "v0.9.0"
+    }
+  ]
+}

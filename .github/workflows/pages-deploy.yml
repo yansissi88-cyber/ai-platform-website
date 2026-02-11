@@ -1,0 +1,40 @@
+name: 🚀 Deploy to GitHub Pages
+
+on:
+  # 每次推送到 main 分支时触发
+  push:
+    branches: [main]
+  
+  # 手动触发
+  workflow_dispatch:
+
+# 给 Actions 写权限
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 允许同时只有一个部署
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Setup Pages
+      uses: actions/configure-pages@v4
+      
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: .
+        
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4

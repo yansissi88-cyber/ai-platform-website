@@ -30,6 +30,9 @@ jobs:
     - name: Setup Pages
       uses: actions/configure-pages@v4
       
+    - name: Create CNAME file
+      run: echo "kira.Keyreply-promotional-website.com" > CNAME
+      
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:

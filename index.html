@@ -1,13 +1,449 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>KeyReply Kira - AI-Powered Customer Engagement Platform</title>
-    <script type="module" crossorigin src="./assets/index-BmyOWSdF.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/index-Es1Ol9Z-.css">
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>产品更新中心 - Kira AI Platform</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    
+    header {
+      text-align: center;
+      margin-bottom: 50px;
+      padding: 40px 0;
+      background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+      border-radius: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></svg>');
+      background-size: 50px 50px;
+      opacity: 0.5;
+    }
+    
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    header p {
+      opacity: 0.9;
+      font-size: 1.2rem;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .sync-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.2);
+      padding: 8px 20px;
+      border-radius: 30px;
+      margin-top: 20px;
+      font-size: 0.9rem;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .sync-badge .dot {
+      width: 8px;
+      height: 8px;
+      background: #22c55e;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    
+    .section {
+      margin-bottom: 50px;
+    }
+    
+    .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 25px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .section-title span {
+      font-size: 2rem;
+    }
+    
+    /* Release Cards */
+    .release-timeline {
+      position: relative;
+      padding-left: 30px;
+    }
+    
+    .release-timeline::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, #3b82f6, #8b5cf6);
+    }
+    
+    .release-card {
+      background: #1e293b;
+      border-radius: 16px;
+      padding: 30px;
+      margin-bottom: 30px;
+      position: relative;
+      border: 1px solid #334155;
+      transition: all 0.3s;
+    }
+    
+    .release-card:hover {
+      border-color: #3b82f6;
+      transform: translateX(5px);
+    }
+    
+    .release-card::before {
+      content: '';
+      position: absolute;
+      left: -36px;
+      top: 35px;
+      width: 12px;
+      height: 12px;
+      background: #3b82f6;
+      border-radius: 50%;
+      border: 3px solid #0f172a;
+    }
+    
+    .release-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .version-badge {
+      background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+      color: white;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+    
+    .release-date {
+      color: #94a3b8;
+      font-size: 0.9rem;
+    }
+    
+    .release-title {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: #f8fafc;
+    }
+    
+    .release-content {
+      color: #cbd5e1;
+      line-height: 1.8;
+    }
+    
+    .release-content h3 {
+      color: #60a5fa;
+      margin: 20px 0 10px;
+      font-size: 1.1rem;
+    }
+    
+    .release-content ul {
+      margin-left: 20px;
+      margin-bottom: 15px;
+    }
+    
+    .release-content li {
+      margin-bottom: 8px;
+    }
+    
+    .release-content code {
+      background: #334155;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-family: 'Monaco', monospace;
+      font-size: 0.9em;
+    }
+    
+    /* Feature Screenshots */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+      gap: 25px;
+    }
+    
+    .feature-card {
+      background: #1e293b;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #334155;
+      transition: all 0.3s;
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-5px);
+      border-color: #3b82f6;
+      box-shadow: 0 10px 40px rgba(59, 130, 246, 0.2);
+    }
+    
+    .feature-image {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      background: #0f172a;
+    }
+    
+    .feature-info {
+      padding: 20px;
+    }
+    
+    .feature-tag {
+      display: inline-block;
+      background: rgba(59, 130, 246, 0.2);
+      color: #60a5fa;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      margin-bottom: 10px;
+    }
+    
+    .feature-name {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+      color: #f8fafc;
+    }
+    
+    .feature-release {
+      color: #94a3b8;
+      font-size: 0.9rem;
+    }
+    
+    /* Auto Sync Info */
+    .sync-info {
+      background: #1e293b;
+      border-radius: 16px;
+      padding: 25px;
+      border: 1px solid #334155;
+    }
+    
+    .sync-info h3 {
+      margin-bottom: 15px;
+      color: #60a5fa;
+    }
+    
+    .sync-info code {
+      background: #0f172a;
+      padding: 15px;
+      border-radius: 8px;
+      display: block;
+      font-family: 'Monaco', monospace;
+      color: #22c55e;
+      overflow-x: auto;
+    }
+    
+    .sync-info p {
+      margin-top: 15px;
+      color: #94a3b8;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .release-card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🚀 产品更新中心</h1>
+      <p>自动同步 keyreply/kira-cloudflare Releases 与 kira.keyreply.com 截图</p>
+      <div class="sync-badge">
+        <span class="dot"></span>
+        <span id="syncStatus">自动同步已启用</span>
+      </div>
+    </header>
+
+    <!-- Feature Screenshots Section -->
+    <section class="section">
+      <h2 class="section-title"><span>📸</span> 功能截图</h2>
+      <div class="feature-grid" id="featureGrid">
+        <div class="feature-card">
+          <div style="padding: 40px; text-align: center; color: #64748b;">
+            <p>加载中...</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Releases Section -->
+    <section class="section">
+      <h2 class="section-title"><span>📦</span> 版本更新</h2>
+      <div class="release-timeline" id="releaseTimeline">
+        <div class="release-card">
+          <div style="text-align: center; color: #64748b; padding: 40px;">
+            <p>加载中...</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Auto Sync Info -->
+    <section class="section">
+      <h2 class="section-title"><span>⚙️</span> 自动同步配置</h2>
+      <div class="sync-info">
+        <h3>手动触发同步</h3>
+        <code>node github-sync/scripts/smart-sync.js</code>
+        <p>当 keyreply/kira-cloudflare 有新的 Release 时，脚本会自动：</p>
+        <ul style="margin-top: 10px; margin-left: 20px; color: #94a3b8;">
+          <li>分析 Release 内容提取新功能</li>
+          <li>访问 kira.keyreply.com 找到对应界面</li>
+          <li>自动截图并更新网站</li>
+        </ul>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // 加载数据
+    async function loadData() {
+      try {
+        // 加载 Releases
+        const releasesResponse = await fetch('releases.json');
+        const releasesData = await releasesResponse.json();
+        
+        // 加载功能截图
+        let screenshotsData = { screenshots: [] };
+        try {
+          const screenshotsResponse = await fetch('feature-screenshots.json');
+          screenshotsData = await screenshotsResponse.json();
+        } catch (e) {
+          console.log('No feature screenshots yet');
+        }
+        
+        // 更新同步状态
+        document.getElementById('syncStatus').textContent = 
+          `最后同步: ${new Date(releasesData.last_updated).toLocaleString('zh-CN')}`;
+        
+        // 渲染功能截图
+        const featureGrid = document.getElementById('featureGrid');
+        if (screenshotsData.screenshots && screenshotsData.screenshots.length > 0) {
+          featureGrid.innerHTML = screenshotsData.screenshots.map(s => `
+            <div class="feature-card">
+              <img src="${s.path}" alt="${s.feature}" class="feature-image" loading="lazy">
+              <div class="feature-info">
+                <span class="feature-tag">${s.feature}</span>
+                <h3 class="feature-name">${s.feature}</h3>
+                <p class="feature-release">Release: ${s.release}</p>
+              </div>
+            </div>
+          `).join('');
+        } else {
+          // 显示默认截图
+          featureGrid.innerHTML = `
+            <div class="feature-card">
+              <img src="../../github-sync/screenshots/desktop_hero_2026-02-06.png" 
+                   alt="Kira AI Platform" class="feature-image">
+              <div class="feature-info">
+                <span class="feature-tag">AI 客服平台</span>
+                <h3 class="feature-name">统一收件箱</h3>
+                <p class="feature-release">来源: kira.keyreply.com</p>
+              </div>
+            </div>
+            <div class="feature-card">
+              <img src="../../github-sync/screenshots/mobile_hero_2026-02-06.png" 
+                   alt="Mobile View" class="feature-image">
+              <div class="feature-info">
+                <span class="feature-tag">移动端</span>
+                <h3 class="feature-name">响应式设计</h3>
+                <p class="feature-release">来源: kira.keyreply.com</p>
+              </div>
+            </div>
+          `;
+        }
+        
+        // 渲染 Releases
+        const releaseTimeline = document.getElementById('releaseTimeline');
+        releaseTimeline.innerHTML = releasesData.releases.map(r => `
+          <div class="release-card">
+            <div class="release-header">
+              <span class="version-badge">${r.version}</span>
+              <span class="release-date">${new Date(r.date).toLocaleDateString('zh-CN')}</span>
+            </div>
+            <h3 class="release-title">${r.title}</h3>
+            <div class="release-content">
+              ${formatMarkdown(r.content)}
+            </div>
+            <a href="${r.url}" target="_blank" style="color: #60a5fa; display: inline-block; margin-top: 15px;">
+              查看完整 Release →
+            </a>
+          </div>
+        `).join('');
+        
+      } catch (error) {
+        console.error('Error loading data:', error);
+        document.getElementById('releaseTimeline').innerHTML = `
+          <div class="release-card">
+            <p style="color: #ef4444;">加载失败: ${error.message}</p>
+          </div>
+        `;
+      }
+    }
+    
+    // 简单的 Markdown 格式化
+    function formatMarkdown(text) {
+      if (!text) return '';
+      return text
+        .replace(/###\s(.+)/g, '<h3>$1</h3>')
+        .replace(/##\s(.+)/g, '<h3>$1</h3>')
+        .replace(/#\s(.+)/g, '<h3>$1</h3>')
+        .replace(/\*\*\s?(.+?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\*\s(.+)/g, '<li>$1</li>')
+        .replace(/`(.+?)`/g, '<code>$1</code>')
+        .replace(/\n\n/g, '</p><p>')
+        .replace(/\n/g, '<br>');
+    }
+    
+    // 加载数据
+    loadData();
+  </script>
+</body>
 </html>

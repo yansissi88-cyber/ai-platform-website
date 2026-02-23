@@ -1,6 +1,13 @@
 {
-  "last_updated": "2026-02-23T04:12:10.915Z",
+  "last_updated": "2026-02-23T05:57:45.771Z",
   "releases": [
+    {
+      "version": "v0.10.0",
+      "title": "v0.10.0",
+      "date": "2026-02-23T05:35:11Z",
+      "content": "v0.10.0",
+      "url": "https://github.com/keyreply/kira-cloudflare/releases/tag/v0.10.0"
+    },
     {
       "version": "v0.9.0",
       "title": "v0.9.0 - Vertical Modules, SDOH Screening & Dynamic Voice Tools",

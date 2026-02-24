@@ -1,4 +1,65 @@
 {
-  "last_updated": "2026-02-24T08:32:17.849Z",
-  "screenshots": []
+  "last_updated": "2026-02-24T09:40:37.803Z",
+  "screenshots": [
+    {
+      "feature": "campaign",
+      "release": "v0.10.0",
+      "path": "/github-sync/screenshots/feature_campaign_v0.10.0_2026-02-24.png",
+      "filename": "feature_campaign_v0.10.0_2026-02-24.png"
+    },
+    {
+      "feature": "agent",
+      "release": "v0.10.0",
+      "path": "/github-sync/screenshots/feature_agent_v0.10.0_2026-02-24.png",
+      "filename": "feature_agent_v0.10.0_2026-02-24.png"
+    },
+    {
+      "feature": "contact",
+      "release": "v0.10.0",
+      "path": "/github-sync/screenshots/feature_contact_v0.10.0_2026-02-24.png",
+      "filename": "feature_contact_v0.10.0_2026-02-24.png"
+    },
+    {
+      "feature": "voice",
+      "release": "v0.10.0",
+      "path": "/github-sync/screenshots/feature_voice_v0.10.0_2026-02-24.png",
+      "filename": "feature_voice_v0.10.0_2026-02-24.png"
+    },
+    {
+      "feature": "template",
+      "release": "v0.10.0",
+      "path": "/github-sync/screenshots/feature_template_v0.10.0_2026-02-24.png",
+      "filename": "feature_template_v0.10.0_2026-02-24.png"
+    },
+    {
+      "feature": "workflow",
+      "release": "v0.10.0",
+      "path": "/github-sync/screenshots/feature_workflow_v0.10.0_2026-02-24.png",
+      "filename": "feature_workflow_v0.10.0_2026-02-24.png"
+    },
+    {
+      "feature": "inbox",
+      "release": "v0.10.0",
+      "path": "/github-sync/screenshots/feature_inbox_v0.10.0_2026-02-24.png",
+      "filename": "feature_inbox_v0.10.0_2026-02-24.png"
+    },
+    {
+      "feature": "knowledge",
+      "release": "v0.10.0",
+      "path": "/github-sync/screenshots/feature_knowledge_v0.10.0_2026-02-24.png",
+      "filename": "feature_knowledge_v0.10.0_2026-02-24.png"
+    },
+    {
+      "feature": "setting",
+      "release": "v0.10.0",
+      "path": "/github-sync/screenshots/feature_setting_v0.10.0_2026-02-24.png",
+      "filename": "feature_setting_v0.10.0_2026-02-24.png"
+    },
+    {
+      "feature": "dashboard",
+      "release": "v0.10.0",
+      "path": "/github-sync/screenshots/feature_dashboard_v0.10.0_2026-02-24.png",
+      "filename": "feature_dashboard_v0.10.0_2026-02-24.png"
+    }
+  ]
 }

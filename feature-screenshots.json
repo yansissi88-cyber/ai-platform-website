@@ -1,41 +1,41 @@
 {
-  "last_updated": "2026-02-28T23:11:55.190Z",
+  "last_updated": "2026-03-01T01:07:20.554Z",
   "screenshots": [
     {
       "feature": "campaign",
       "release": "v0.11.0",
-      "path": "/github-sync/screenshots/feature_campaign_v0.11.0_2026-02-28.png",
-      "filename": "feature_campaign_v0.11.0_2026-02-28.png"
+      "path": "/github-sync/screenshots/feature_campaign_v0.11.0_2026-03-01.png",
+      "filename": "feature_campaign_v0.11.0_2026-03-01.png"
     },
     {
       "feature": "agent",
       "release": "v0.11.0",
-      "path": "/github-sync/screenshots/feature_agent_v0.11.0_2026-02-28.png",
-      "filename": "feature_agent_v0.11.0_2026-02-28.png"
+      "path": "/github-sync/screenshots/feature_agent_v0.11.0_2026-03-01.png",
+      "filename": "feature_agent_v0.11.0_2026-03-01.png"
     },
     {
       "feature": "contact",
       "release": "v0.11.0",
-      "path": "/github-sync/screenshots/feature_contact_v0.11.0_2026-02-28.png",
-      "filename": "feature_contact_v0.11.0_2026-02-28.png"
+      "path": "/github-sync/screenshots/feature_contact_v0.11.0_2026-03-01.png",
+      "filename": "feature_contact_v0.11.0_2026-03-01.png"
     },
     {
       "feature": "voice",
       "release": "v0.11.0",
-      "path": "/github-sync/screenshots/feature_voice_v0.11.0_2026-02-28.png",
-      "filename": "feature_voice_v0.11.0_2026-02-28.png"
+      "path": "/github-sync/screenshots/feature_voice_v0.11.0_2026-03-01.png",
+      "filename": "feature_voice_v0.11.0_2026-03-01.png"
     },
     {
       "feature": "template",
       "release": "v0.11.0",
-      "path": "/github-sync/screenshots/feature_template_v0.11.0_2026-02-28.png",
-      "filename": "feature_template_v0.11.0_2026-02-28.png"
+      "path": "/github-sync/screenshots/feature_template_v0.11.0_2026-03-01.png",
+      "filename": "feature_template_v0.11.0_2026-03-01.png"
     },
     {
       "feature": "workflow",
       "release": "v0.11.0",
-      "path": "/github-sync/screenshots/feature_workflow_v0.11.0_2026-02-28.png",
-      "filename": "feature_workflow_v0.11.0_2026-02-28.png"
+      "path": "/github-sync/screenshots/feature_workflow_v0.11.0_2026-03-01.png",
+      "filename": "feature_workflow_v0.11.0_2026-03-01.png"
     }
   ]
 }

@@ -1,47 +1,47 @@
 {
-  "last_updated": "2026-03-07T23:12:27.654Z",
+  "last_updated": "2026-03-08T01:01:42.185Z",
   "screenshots": [
     {
       "feature": "campaign",
       "release": "v0.12.0",
-      "path": "/github-sync/screenshots/feature_campaign_v0.12.0_2026-03-07.png",
-      "filename": "feature_campaign_v0.12.0_2026-03-07.png"
+      "path": "/github-sync/screenshots/feature_campaign_v0.12.0_2026-03-08.png",
+      "filename": "feature_campaign_v0.12.0_2026-03-08.png"
     },
     {
       "feature": "agent",
       "release": "v0.12.0",
-      "path": "/github-sync/screenshots/feature_agent_v0.12.0_2026-03-07.png",
-      "filename": "feature_agent_v0.12.0_2026-03-07.png"
+      "path": "/github-sync/screenshots/feature_agent_v0.12.0_2026-03-08.png",
+      "filename": "feature_agent_v0.12.0_2026-03-08.png"
     },
     {
       "feature": "contact",
       "release": "v0.12.0",
-      "path": "/github-sync/screenshots/feature_contact_v0.12.0_2026-03-07.png",
-      "filename": "feature_contact_v0.12.0_2026-03-07.png"
+      "path": "/github-sync/screenshots/feature_contact_v0.12.0_2026-03-08.png",
+      "filename": "feature_contact_v0.12.0_2026-03-08.png"
     },
     {
       "feature": "mcp",
       "release": "v0.12.0",
-      "path": "/github-sync/screenshots/feature_mcp_v0.12.0_2026-03-07.png",
-      "filename": "feature_mcp_v0.12.0_2026-03-07.png"
+      "path": "/github-sync/screenshots/feature_mcp_v0.12.0_2026-03-08.png",
+      "filename": "feature_mcp_v0.12.0_2026-03-08.png"
     },
     {
       "feature": "voice",
       "release": "v0.12.0",
-      "path": "/github-sync/screenshots/feature_voice_v0.12.0_2026-03-07.png",
-      "filename": "feature_voice_v0.12.0_2026-03-07.png"
+      "path": "/github-sync/screenshots/feature_voice_v0.12.0_2026-03-08.png",
+      "filename": "feature_voice_v0.12.0_2026-03-08.png"
     },
     {
       "feature": "template",
       "release": "v0.12.0",
-      "path": "/github-sync/screenshots/feature_template_v0.12.0_2026-03-07.png",
-      "filename": "feature_template_v0.12.0_2026-03-07.png"
+      "path": "/github-sync/screenshots/feature_template_v0.12.0_2026-03-08.png",
+      "filename": "feature_template_v0.12.0_2026-03-08.png"
     },
     {
       "feature": "inbox",
       "release": "v0.12.0",
-      "path": "/github-sync/screenshots/feature_inbox_v0.12.0_2026-03-07.png",
-      "filename": "feature_inbox_v0.12.0_2026-03-07.png"
+      "path": "/github-sync/screenshots/feature_inbox_v0.12.0_2026-03-08.png",
+      "filename": "feature_inbox_v0.12.0_2026-03-08.png"
     }
   ]
 }

@@ -1,12 +1,6 @@
 {
-  "last_updated": "2026-03-09T15:45:37.455Z",
+  "last_updated": "2026-03-09T16:45:54.625Z",
   "screenshots": [
-    {
-      "feature": "campaign",
-      "release": "v0.12.0",
-      "path": "/github-sync/screenshots/feature_campaign_v0.12.0_2026-03-09.png",
-      "filename": "feature_campaign_v0.12.0_2026-03-09.png"
-    },
     {
       "feature": "agent",
       "release": "v0.12.0",

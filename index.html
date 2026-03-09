@@ -1432,8 +1432,9 @@
         <p class="video-desc-large">Experience how our AI-native platform transforms customer engagement with real-time voice AI, intelligent agents, and omnichannel messaging.</p>
       </div>
       
-      <div class="video-showcase-container">
-        <div class="video-frame">
+      <!-- Centered Large Video Player -->
+      <div class="video-player-container">
+        <div class="video-frame-large">
           <div class="video-glow"></div>
           <video 
             id="demoVideo"
@@ -1446,72 +1447,9 @@
             Your browser does not support the video tag.
           </video>
         </div>
-        
-        <!-- Live Metrics Dashboard -->
-        <div class="live-metrics-panel">
-          <div class="metrics-header">
-            <span class="live-dot"></span>
-            <span>Live Platform Metrics</span>
-          </div>
-          <div class="metrics-grid">
-            <div class="metric-box">
-              <div class="metric-value-large">2.4M</div>
-              <div class="metric-label">Conversations</div>
-              <div class="metric-trend up">+12% vs last week</div>
-            </div>
-            <div class="metric-box">
-              <div class="metric-value-large">94.8%</div>
-              <div class="metric-label">Success Rate</div>
-              <div class="metric-trend up">+3.2% vs last week</div>
-            </div>
-            <div class="metric-box">
-              <div class="metric-value-large">1:45</div>
-              <div class="metric-label">Avg Duration</div>
-              <div class="metric-trend down">-8s improvement</div>
-            </div>
-            <div class="metric-box">
-              <div class="metric-value-large">18.2K</div>
-              <div class="metric-label">Active Users</div>
-              <div class="metric-trend up">+48 new today</div>
-            </div>
-          </div>
-          
-          <!-- Mini Charts -->
-          <div class="mini-charts">
-            <div class="chart-box">
-              <div class="chart-title">Call Volume Trend</div>
-              <div class="chart-bars">
-                <div class="bar" style="height: 40%;"></div>
-                <div class="bar" style="height: 60%;"></div>
-                <div class="bar" style="height: 45%;"></div>
-                <div class="bar" style="height: 80%;"></div>
-                <div class="bar" style="height: 70%;"></div>
-                <div class="bar active" style="height: 95%;"></div>
-                <div class="bar" style="height: 85%;"></div>
-              </div>
-              <div class="chart-label">Mon - Sun</div>
-            </div>
-            <div class="chart-box">
-              <div class="chart-title">Scenario Success Rate</div>
-              <div class="scenario-list">
-                <div class="scenario-item">
-                  <span class="scenario-name">Sales Inquiry</span>
-                  <div class="scenario-bar-bg"><div class="scenario-bar" style="width: 96%;"></div></div>
-                  <span class="scenario-pct">96%</span>
-                </div>
-                <div class="scenario-item">
-                  <span class="scenario-name">Support Ticket</span>
-                  <div class="scenario-bar-bg"><div class="scenario-bar" style="width: 92%;"></div></div>
-                  <span class="scenario-pct">92%</span>
-                </div>
-                <div class="scenario-item">
-                  <span class="scenario-name">Appointment</span>
-                  <div class="scenario-bar-bg"><div class="scenario-bar" style="width: 89%;"></div></div>
-                  <span class="scenario-pct">89%</span>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="video-caption">
+          <span class="video-tag">Product Demo</span>
+          <span class="video-duration">0:34</span>
         </div>
       </div>
       
@@ -1626,199 +1564,77 @@
       line-height: 1.6;
     }
     
-    /* Video Showcase Container */
-    .video-showcase-container {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 30px;
-      max-width: 1200px;
+    /* Large Centered Video Player */
+    .video-player-container {
+      max-width: 1000px;
       margin: 0 auto 50px;
       position: relative;
       z-index: 1;
     }
     
-    .video-frame {
+    .video-frame-large {
       position: relative;
-      border-radius: 20px;
+      border-radius: 24px;
       overflow: hidden;
-      border: 2px solid rgba(59,130,246,0.3);
-      box-shadow: 0 0 60px rgba(59,130,246,0.2), 0 25px 80px rgba(0,0,0,0.5);
+      border: 3px solid rgba(59,130,246,0.4);
+      box-shadow: 
+        0 0 80px rgba(59,130,246,0.3),
+        0 0 120px rgba(59,130,246,0.1),
+        0 30px 100px rgba(0,0,0,0.6);
+      transform: scale(1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .video-frame-large:hover {
+      transform: scale(1.01);
+      box-shadow: 
+        0 0 100px rgba(59,130,246,0.4),
+        0 0 150px rgba(59,130,246,0.2),
+        0 40px 120px rgba(0,0,0,0.7);
     }
     
     .video-glow {
       position: absolute;
-      inset: -2px;
-      background: linear-gradient(135deg, rgba(59,130,246,0.5), rgba(139,92,246,0.5), rgba(6,182,212,0.5));
-      border-radius: 20px;
+      inset: -3px;
+      background: linear-gradient(135deg, rgba(59,130,246,0.6), rgba(139,92,246,0.6), rgba(6,182,212,0.6));
+      border-radius: 24px;
       z-index: -1;
-      filter: blur(20px);
-      opacity: 0.5;
+      filter: blur(30px);
+      opacity: 0.6;
+      animation: glow-pulse 3s ease-in-out infinite;
     }
     
-    /* Live Metrics Panel */
-    .live-metrics-panel {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 20px;
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
+    @keyframes glow-pulse {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 0.8; }
     }
     
-    .metrics-header {
+    .video-caption {
       display: flex;
+      justify-content: center;
       align-items: center;
-      gap: 8px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--text-secondary);
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    
-    .live-dot {
-      width: 8px;
-      height: 8px;
-      background: #10b981;
-      border-radius: 50%;
-      animation: blink 1.5s ease-in-out infinite;
-    }
-    
-    @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.3; }
-    }
-    
-    .metrics-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
       gap: 16px;
+      margin-top: 24px;
     }
     
-    .metric-box {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.05);
-      border-radius: 12px;
-      padding: 16px;
-      text-align: center;
-    }
-    
-    .metric-value-large {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--text-primary);
-      margin-bottom: 4px;
-    }
-    
-    .metric-label {
-      font-size: 0.8rem;
-      color: var(--text-secondary);
-      margin-bottom: 8px;
-    }
-    
-    .metric-trend {
-      font-size: 0.75rem;
-      font-weight: 500;
-      padding: 4px 8px;
+    .video-tag {
+      padding: 8px 20px;
+      background: rgba(59,130,246,0.15);
+      border: 1px solid rgba(59,130,246,0.3);
       border-radius: 100px;
-      display: inline-block;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--accent-blue);
     }
     
-    .metric-trend.up {
-      background: rgba(16,185,129,0.15);
-      color: #10b981;
-    }
-    
-    .metric-trend.down {
-      background: rgba(245,158,11,0.15);
-      color: #f59e0b;
-    }
-    
-    /* Mini Charts */
-    .mini-charts {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-    
-    .chart-box {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.05);
-      border-radius: 12px;
-      padding: 16px;
-    }
-    
-    .chart-title {
-      font-size: 0.85rem;
-      font-weight: 600;
-      margin-bottom: 12px;
-      color: var(--text-primary);
-    }
-    
-    .chart-bars {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      height: 60px;
-      gap: 6px;
-    }
-    
-    .bar {
-      flex: 1;
-      background: rgba(59,130,246,0.3);
-      border-radius: 4px 4px 0 0;
-      transition: all 0.3s;
-    }
-    
-    .bar.active {
-      background: linear-gradient(to top, #3b82f6, #60a5fa);
-    }
-    
-    .chart-label {
-      font-size: 0.7rem;
-      color: var(--text-muted);
-      text-align: center;
-      margin-top: 8px;
-    }
-    
-    .scenario-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    
-    .scenario-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 0.8rem;
-    }
-    
-    .scenario-name {
-      width: 100px;
+    .video-duration {
+      padding: 8px 20px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 100px;
+      font-size: 0.9rem;
+      font-weight: 500;
       color: var(--text-secondary);
-    }
-    
-    .scenario-bar-bg {
-      flex: 1;
-      height: 6px;
-      background: rgba(255,255,255,0.1);
-      border-radius: 3px;
-      overflow: hidden;
-    }
-    
-    .scenario-bar {
-      height: 100%;
-      background: linear-gradient(90deg, #3b82f6, #10b981);
-      border-radius: 3px;
-    }
-    
-    .scenario-pct {
-      width: 35px;
-      text-align: right;
-      font-weight: 600;
-      color: var(--accent-green);
     }
     
     /* Key Features Row */
@@ -1826,7 +1642,7 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 24px;
-      max-width: 1000px;
+      max-width: 900px;
       margin: 0 auto;
       position: relative;
       z-index: 1;
@@ -1878,10 +1694,6 @@
     }
     
     @media (max-width: 1024px) {
-      .video-showcase-container {
-        grid-template-columns: 1fr;
-      }
-      
       .video-title-large {
         font-size: 2rem;
       }
@@ -1896,8 +1708,8 @@
         grid-template-columns: 1fr;
       }
       
-      .metrics-grid {
-        grid-template-columns: 1fr;
+      .video-frame-large {
+        border-radius: 16px;
       }
     }
     

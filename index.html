@@ -1423,17 +1423,18 @@
     </div>
   </section>
 
-  <!-- Product Demo Video Section -->
+  <!-- Product Demo Video Section - Prominent Placement -->
   <section class="demo-video-section" id="demo">
     <div class="section-container">
-      <div class="section-header">
-        <div class="section-tag">Product Demo</div>
-        <h2 class="section-title">See Kira in Action</h2>
-        <p class="section-subtitle">Watch how KeyReply Kira transforms customer engagement with AI-native voice agents, omnichannel messaging, and intelligent automation.</p>
+      <div class="video-promo-header">
+        <div class="video-badge-large">🎬 Watch Demo</div>
+        <h2 class="video-title-large">See Kira in Action</h2>
+        <p class="video-desc-large">Experience how our AI-native platform transforms customer engagement with real-time voice AI, intelligent agents, and omnichannel messaging.</p>
       </div>
       
-      <div class="video-container">
-        <div class="video-player-wrapper">
+      <div class="video-showcase-container">
+        <div class="video-frame">
+          <div class="video-glow"></div>
           <video 
             id="demoVideo"
             src="kira-demo.mp4" 
@@ -1441,47 +1442,105 @@
             muted
             playsinline
             poster="./images/new_dashboard.png"
-            style="width: 100%; height: auto; max-height: 600px; border-radius: 16px; box-shadow: 0 25px 80px rgba(0,0,0,0.5);">
+            style="width: 100%; height: auto; display: block;">
             Your browser does not support the video tag.
           </video>
         </div>
         
-        <div class="video-info-bar">
-          <div class="video-info-left">
-            <h3>KeyReply Kira - Product Demo</h3>
-            <p>Showcasing: Voice AI • Agent Builder • Omnichannel • Edge Architecture</p>
+        <!-- Live Metrics Dashboard -->
+        <div class="live-metrics-panel">
+          <div class="metrics-header">
+            <span class="live-dot"></span>
+            <span>Live Platform Metrics</span>
           </div>
-          <div class="video-info-right">
-            <span class="video-duration">0:34</span>
+          <div class="metrics-grid">
+            <div class="metric-box">
+              <div class="metric-value-large">2.4M</div>
+              <div class="metric-label">Conversations</div>
+              <div class="metric-trend up">+12% vs last week</div>
+            </div>
+            <div class="metric-box">
+              <div class="metric-value-large">94.8%</div>
+              <div class="metric-label">Success Rate</div>
+              <div class="metric-trend up">+3.2% vs last week</div>
+            </div>
+            <div class="metric-box">
+              <div class="metric-value-large">1:45</div>
+              <div class="metric-label">Avg Duration</div>
+              <div class="metric-trend down">-8s improvement</div>
+            </div>
+            <div class="metric-box">
+              <div class="metric-value-large">18.2K</div>
+              <div class="metric-label">Active Users</div>
+              <div class="metric-trend up">+48 new today</div>
+            </div>
+          </div>
+          
+          <!-- Mini Charts -->
+          <div class="mini-charts">
+            <div class="chart-box">
+              <div class="chart-title">Call Volume Trend</div>
+              <div class="chart-bars">
+                <div class="bar" style="height: 40%;"></div>
+                <div class="bar" style="height: 60%;"></div>
+                <div class="bar" style="height: 45%;"></div>
+                <div class="bar" style="height: 80%;"></div>
+                <div class="bar" style="height: 70%;"></div>
+                <div class="bar active" style="height: 95%;"></div>
+                <div class="bar" style="height: 85%;"></div>
+              </div>
+              <div class="chart-label">Mon - Sun</div>
+            </div>
+            <div class="chart-box">
+              <div class="chart-title">Scenario Success Rate</div>
+              <div class="scenario-list">
+                <div class="scenario-item">
+                  <span class="scenario-name">Sales Inquiry</span>
+                  <div class="scenario-bar-bg"><div class="scenario-bar" style="width: 96%;"></div></div>
+                  <span class="scenario-pct">96%</span>
+                </div>
+                <div class="scenario-item">
+                  <span class="scenario-name">Support Ticket</span>
+                  <div class="scenario-bar-bg"><div class="scenario-bar" style="width: 92%;"></div></div>
+                  <span class="scenario-pct">92%</span>
+                </div>
+                <div class="scenario-item">
+                  <span class="scenario-name">Appointment</span>
+                  <div class="scenario-bar-bg"><div class="scenario-bar" style="width: 89%;"></div></div>
+                  <span class="scenario-pct">89%</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
       
-      <div class="demo-features">
-        <div class="demo-feature">
-          <div class="demo-feature-icon">⚡</div>
-          <div class="demo-feature-text">
+      <!-- Key Features Row -->
+      <div class="key-features-row">
+        <div class="key-feature-item">
+          <div class="key-feature-icon">⚡</div>
+          <div class="key-feature-content">
             <strong>300ms</strong>
             <span>Voice Response</span>
           </div>
         </div>
-        <div class="demo-feature">
-          <div class="demo-feature-icon">🎯</div>
-          <div class="demo-feature-text">
+        <div class="key-feature-item">
+          <div class="key-feature-icon">🎯</div>
+          <div class="key-feature-content">
             <strong>55+</strong>
             <span>AI Skills</span>
           </div>
         </div>
-        <div class="demo-feature">
-          <div class="demo-feature-icon">🌐</div>
-          <div class="demo-feature-text">
+        <div class="key-feature-item">
+          <div class="key-feature-icon">🌐</div>
+          <div class="key-feature-content">
             <strong>14</strong>
             <span>Channels</span>
           </div>
         </div>
-        <div class="demo-feature">
-          <div class="demo-feature-icon">🚀</div>
-          <div class="demo-feature-text">
+        <div class="key-feature-item">
+          <div class="key-feature-icon">🚀</div>
+          <div class="key-feature-content">
             <strong>275+</strong>
             <span>Edge Nodes</span>
           </div>
@@ -1492,9 +1551,10 @@
 
   <style>
     .demo-video-section {
-      padding: 120px 0;
-      background: linear-gradient(180deg, var(--bg-primary) 0%, rgba(17,24,39,0.5) 50%, var(--bg-primary) 100%);
+      padding: 100px 0 80px;
+      background: linear-gradient(180deg, var(--bg-primary) 0%, rgba(17,24,39,0.8) 30%, rgba(59,130,246,0.05) 50%, rgba(17,24,39,0.8) 70%, var(--bg-primary) 100%);
       position: relative;
+      overflow: hidden;
     }
     
     .demo-video-section::before {
@@ -1505,38 +1565,340 @@
       right: 0;
       height: 1px;
       background: linear-gradient(90deg, transparent, var(--accent-blue), transparent);
-      opacity: 0.3;
+      opacity: 0.5;
     }
     
-    .video-container {
-      max-width: 1000px;
+    .demo-video-section::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 800px;
+      height: 400px;
+      background: radial-gradient(ellipse, rgba(59,130,246,0.15) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    
+    /* Video Promo Header */
+    .video-promo-header {
+      text-align: center;
+      margin-bottom: 50px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .video-badge-large {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background: linear-gradient(135deg, rgba(59,130,246,0.2), rgba(139,92,246,0.2));
+      border: 1px solid rgba(59,130,246,0.4);
+      border-radius: 100px;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      animation: pulse-badge 2s ease-in-out infinite;
+    }
+    
+    @keyframes pulse-badge {
+      0%, 100% { box-shadow: 0 0 20px rgba(59,130,246,0.3); }
+      50% { box-shadow: 0 0 40px rgba(59,130,246,0.5); }
+    }
+    
+    .video-title-large {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #fff 0%, #60a5fa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .video-desc-large {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 600px;
       margin: 0 auto;
+      line-height: 1.6;
     }
     
-    .video-player-wrapper {
+    /* Video Showcase Container */
+    .video-showcase-container {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto 50px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .video-frame {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 2px solid rgba(59,130,246,0.3);
+      box-shadow: 0 0 60px rgba(59,130,246,0.2), 0 25px 80px rgba(0,0,0,0.5);
+    }
+    
+    .video-glow {
+      position: absolute;
+      inset: -2px;
+      background: linear-gradient(135deg, rgba(59,130,246,0.5), rgba(139,92,246,0.5), rgba(6,182,212,0.5));
+      border-radius: 20px;
+      z-index: -1;
+      filter: blur(20px);
+      opacity: 0.5;
+    }
+    
+    /* Live Metrics Panel */
+    .live-metrics-panel {
       background: var(--bg-card);
       border: 1px solid var(--border-color);
       border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 25px 80px rgba(0,0,0,0.5);
-      margin-bottom: 24px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
     }
     
-    .video-info-bar {
+    .metrics-header {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 20px 24px;
+      gap: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      background: #10b981;
+      border-radius: 50%;
+      animation: blink 1.5s ease-in-out infinite;
+    }
+    
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+    
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    
+    .metric-box {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+    }
+    
+    .metric-value-large {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+    
+    .metric-label {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+    }
+    
+    .metric-trend {
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 4px 8px;
+      border-radius: 100px;
+      display: inline-block;
+    }
+    
+    .metric-trend.up {
+      background: rgba(16,185,129,0.15);
+      color: #10b981;
+    }
+    
+    .metric-trend.down {
+      background: rgba(245,158,11,0.15);
+      color: #f59e0b;
+    }
+    
+    /* Mini Charts */
+    .mini-charts {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    
+    .chart-box {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 12px;
+      padding: 16px;
+    }
+    
+    .chart-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: var(--text-primary);
+    }
+    
+    .chart-bars {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      height: 60px;
+      gap: 6px;
+    }
+    
+    .bar {
+      flex: 1;
+      background: rgba(59,130,246,0.3);
+      border-radius: 4px 4px 0 0;
+      transition: all 0.3s;
+    }
+    
+    .bar.active {
+      background: linear-gradient(to top, #3b82f6, #60a5fa);
+    }
+    
+    .chart-label {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-align: center;
+      margin-top: 8px;
+    }
+    
+    .scenario-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .scenario-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.8rem;
+    }
+    
+    .scenario-name {
+      width: 100px;
+      color: var(--text-secondary);
+    }
+    
+    .scenario-bar-bg {
+      flex: 1;
+      height: 6px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    
+    .scenario-bar {
+      height: 100%;
+      background: linear-gradient(90deg, #3b82f6, #10b981);
+      border-radius: 3px;
+    }
+    
+    .scenario-pct {
+      width: 35px;
+      text-align: right;
+      font-weight: 600;
+      color: var(--accent-green);
+    }
+    
+    /* Key Features Row */
+    .key-features-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      max-width: 1000px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .key-feature-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 20px;
       background: var(--bg-card);
       border: 1px solid var(--border-color);
-      border-radius: 12px;
-      margin-bottom: 40px;
+      border-radius: 16px;
+      transition: all 0.3s ease;
     }
     
-    .video-info-left h3 {
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-bottom: 4px;
+    .key-feature-item:hover {
+      border-color: var(--accent-blue);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(59,130,246,0.1);
+    }
+    
+    .key-feature-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, rgba(59,130,246,0.2), rgba(139,92,246,0.2));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+    
+    .key-feature-content {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .key-feature-content strong {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    
+    .key-feature-content span {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+    
+    @media (max-width: 1024px) {
+      .video-showcase-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .video-title-large {
+        font-size: 2rem;
+      }
+      
+      .key-features-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .key-features-row {
+        grid-template-columns: 1fr;
+      }
+      
+      .metrics-grid {
+        grid-template-columns: 1fr;
+      }
     }
     
     .video-info-left p {

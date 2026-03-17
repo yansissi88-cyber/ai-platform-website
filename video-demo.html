@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KeyReply Kira - Video Demo</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+      --bg-primary: #020204;
+      --bg-card: #12121a;
+      --bg-elevated: #1a1a25;
+      --border-color: rgba(99, 102, 241, 0.3);
+      --accent-blue: #3b82f6;
+      --accent-purple: #8b5cf6;
+      --accent-pink: #ec4899;
+      --accent-green: #10b981;
+      --accent-orange: #f59e0b;
+      --gradient-primary: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 50%, #ec4899 100%);
+    }
+
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    @keyframes scaleIn { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7); }
+      50% { transform: scale(1.05); box-shadow: 0 0 30px rgba(59, 130, 246, 0.5); }
+    }
+    @keyframes wave {
+      0%, 100% { transform: scaleY(0.3); }
+      50% { transform: scaleY(1); }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @keyframes countUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-primary);
+      color: white;
+      width: 1920px;
+      height: 1080px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Scene Container */
+    .scene {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 60px;
+    }
+
+    .scene.active {
+      display: flex;
+    }
+
+    /* Scene 1: Hook */
+    .scene-1 .logo {
+      width: 120px;
+      height: 120px;
+      background: var(--gradient-primary);
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 60px;
+      font-weight: 800;
+      animation: scaleIn 0.8s ease-out, pulse 2s ease-in-out infinite 1s;
+      box-shadow: 0 0 60px rgba(59, 130, 246, 0.5);
+    }
+
+    .scene-1 .hook-text {
+      font-size: 48px;
+      font-weight: 700;
+      margin-top: 40px;
+      text-align: center;
+      animation: slideUp 0.6s ease-out 0.5s both;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .scene-1 .sub-text {
+      font-size: 28px;
+      color: #94a3b8;
+      margin-top: 20px;
+      animation: fadeIn 0.8s ease-out 1s both;
+    }
+
+    /* Scene 2: Product Overview */
+    .dashboard-preview {
+      width: 1400px;
+      height: 800px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 30px;
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 30px;
+      animation: slideUp 0.8s ease-out;
+    }
+
+    .sidebar {
+      background: var(--bg-elevated);
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .sidebar-item {
+      padding: 14px 16px;
+      border-radius: 8px;
+      margin-bottom: 8px;
+      font-size: 14px;
+      color: #94a3b8;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .sidebar-item.active {
+      background: rgba(59, 130, 246, 0.2);
+      color: white;
+    }
+
+    .main-content {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .stat-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+      animation: fadeIn 0.5s ease-out both;
+    }
+
+    .stat-card:nth-child(1) { animation-delay: 0.2s; }
+    .stat-card:nth-child(2) { animation-delay: 0.3s; }
+    .stat-card:nth-child(3) { animation-delay: 0.4s; }
+    .stat-card:nth-child(4) { animation-delay: 0.5s; }
+
+    .stat-value {
+      font-size: 36px;
+      font-weight: 800;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: #94a3b8;
+      margin-top: 8px;
+    }
+
+    /* Scene 3: Voice AI */
+    .voice-demo {
+      text-align: center;
+    }
+
+    .voice-waves {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      height: 200px;
+      margin: 40px 0;
+    }
+
+    .voice-bar {
+      width: 12px;
+      background: var(--gradient-primary);
+      border-radius: 6px;
+      animation: wave 1s ease-in-out infinite;
+    }
+
+    .voice-bar:nth-child(1) { height: 40px; animation-delay: 0s; }
+    .voice-bar:nth-child(2) { height: 80px; animation-delay: 0.1s; }
+    .voice-bar:nth-child(3) { height: 120px; animation-delay: 0.2s; }
+    .voice-bar:nth-child(4) { height: 160px; animation-delay: 0.3s; }
+    .voice-bar:nth-child(5) { height: 200px; animation-delay: 0.4s; }
+    .voice-bar:nth-child(6) { height: 160px; animation-delay: 0.5s; }
+    .voice-bar:nth-child(7) { height: 120px; animation-delay: 0.6s; }
+    .voice-bar:nth-child(8) { height: 80px; animation-delay: 0.7s; }
+    .voice-bar:nth-child(9) { height: 40px; animation-delay: 0.8s; }
+
+    .latency-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 32px;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: 30px;
+      font-size: 28px;
+      color: var(--accent-green);
+      margin-top: 30px;
+      animation: slideUp 0.6s ease-out 0.5s both;
+    }
+
+    .latency-badge::before {
+      content: '';
+      width: 12px;
+      height: 12px;
+      background: var(--accent-green);
+      border-radius: 50%;
+      animation: pulse 1.5s infinite;
+    }
+
+    /* Scene 4: Agent Builder */
+    .agent-builder {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      width: 1400px;
+    }
+
+    .agent-panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 30px;
+    }
+
+    .skills-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .skill-tag {
+      padding: 10px 20px;
+      background: rgba(99, 102, 241, 0.1);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      font-size: 14px;
+      animation: fadeIn 0.3s ease-out both;
+    }
+
+    .skill-tag.highlight {
+      background: var(--gradient-primary);
+      border-color: transparent;
+      animation: slideUp 0.4s ease-out both, pulse 2s infinite;
+    }
+
+    .archetype-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .archetype-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
+      transition: all 0.3s;
+    }
+
+    .archetype-card:hover {
+      border-color: var(--accent-blue);
+      transform: translateY(-4px);
+    }
+
+    /* Scene 5: Omnichannel */
+    .channel-orbit {
+      position: relative;
+      width: 600px;
+      height: 600px;
+    }
+
+    .channel-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 150px;
+      height: 150px;
+      background: var(--gradient-primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 60px;
+      box-shadow: 0 0 80px rgba(59, 130, 246, 0.5);
+      z-index: 10;
+    }
+
+    .channel-icon {
+      position: absolute;
+      width: 70px;
+      height: 70px;
+      background: var(--bg-card);
+      border: 2px solid var(--border-color);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    /* Scene 6: Architecture */
+    .arch-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: 1000px;
+    }
+
+    .arch-layer {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 30px;
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      animation: slideUp 0.5s ease-out both;
+    }
+
+    .arch-layer:nth-child(1) { animation-delay: 0.1s; }
+    .arch-layer:nth-child(3) { animation-delay: 0.3s; }
+    .arch-layer:nth-child(5) { animation-delay: 0.5s; }
+
+    .arch-icon {
+      width: 80px;
+      height: 80px;
+      background: var(--gradient-primary);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+    }
+
+    .arch-content h3 {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+
+    .arch-content p {
+      color: #94a3b8;
+      font-size: 16px;
+    }
+
+    .arch-tags {
+      display: flex;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .arch-tag {
+      padding: 6px 14px;
+      background: rgba(99, 102, 241, 0.1);
+      border-radius: 6px;
+      font-size: 13px;
+    }
+
+    .arch-connector {
+      text-align: center;
+      font-size: 24px;
+      color: var(--accent-blue);
+      opacity: 0.5;
+    }
+
+    /* Scene 7: CTA */
+    .scene-7 {
+      text-align: center;
+    }
+
+    .final-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      margin: 40px 0;
+    }
+
+    .final-stat {
+      animation: countUp 0.6s ease-out both;
+    }
+
+    .final-stat:nth-child(1) { animation-delay: 0.2s; }
+    .final-stat:nth-child(2) { animation-delay: 0.4s; }
+    .final-stat:nth-child(3) { animation-delay: 0.6s; }
+
+    .final-stat-value {
+      font-size: 72px;
+      font-weight: 800;
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .final-stat-label {
+      font-size: 18px;
+      color: #94a3b8;
+      margin-top: 10px;
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 20px 48px;
+      background: var(--gradient-primary);
+      border-radius: 12px;
+      font-size: 20px;
+      font-weight: 600;
+      margin-top: 40px;
+      animation: pulse 2s infinite;
+      cursor: pointer;
+    }
+
+    .website-url {
+      font-size: 20px;
+      color: #94a3b8;
+      margin-top: 20px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Controls */
+    .controls {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 12px;
+      z-index: 100;
+      background: rgba(0,0,0,0.8);
+      padding: 16px 24px;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+    }
+
+    .control-btn {
+      padding: 10px 20px;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      color: white;
+      cursor: pointer;
+      font-size: 14px;
+      transition: all 0.3s;
+    }
+
+    .control-btn:hover {
+      background: var(--accent-blue);
+      border-color: var(--accent-blue);
+    }
+
+    .scene-indicator {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 16px;
+      color: #94a3b8;
+      font-size: 14px;
+    }
+
+    .scene-dot {
+      width: 10px;
+      height: 10px;
+      background: #475569;
+      border-radius: 50%;
+    }
+
+    .scene-dot.active {
+      background: var(--accent-blue);
+      box-shadow: 0 0 10px var(--accent-blue);
+    }
+
+    /* Subtitle overlay */
+    .subtitle-overlay {
+      position: fixed;
+      bottom: 120px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      z-index: 50;
+      pointer-events: none;
+    }
+
+    .subtitle {
+      font-size: 28px;
+      font-weight: 600;
+      color: white;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.8);
+      padding: 16px 32px;
+      background: rgba(0,0,0,0.6);
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* Timer overlay */
+    .timer-overlay {
+      position: fixed;
+      top: 30px;
+      right: 30px;
+      padding: 12px 20px;
+      background: rgba(0,0,0,0.8);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 18px;
+      z-index: 100;
+    }
+  </style>
+</head>
+<body>
+  <!-- Timer -->
+  <div class="timer-overlay">00:00 / 01:00</div>
+
+  <!-- Scene 1: Hook (0-5s) -->
+  <div class="scene scene-1 active" data-duration="5000">
+    <div class="logo">K</div>
+    <div class="hook-text">你的客户，还在等待？</div>
+    <div class="sub-text">每一秒的延迟，都是流失的风险。</div>
+  </div>
+
+  <!-- Scene 2: Product Overview (5-12s) -->
+  <div class="scene scene-2" data-duration="7000">
+    <div class="dashboard-preview">
+      <div class="sidebar">
+        <div class="sidebar-item active">📊 Dashboard</div>
+        <div class="sidebar-item">🤖 Agents</div>
+        <div class="sidebar-item">📢 Campaigns</div>
+        <div class="sidebar-item">⚡ Workflows</div>
+        <div class="sidebar-item">👥 Contacts</div>
+        <div class="sidebar-item">📚 Knowledge</div>
+      </div>
+      <div class="main-content">
+        <div style="font-size: 28px; font-weight: 700; margin-bottom: 10px;">Welcome back, Admin</div>
+        <div style="color: #94a3b8; margin-bottom: 30px;">Here's what's happening today</div>
+        <div class="stats-row">
+          <div class="stat-card">
+            <div class="stat-value">2,847</div>
+            <div class="stat-label">Active Conversations</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">99.9%</div>
+            <div class="stat-label">AI Resolution Rate</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">&lt;300ms</div>
+            <div class="stat-label">Avg Response Time</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">14</div>
+            <div class="stat-label">Active Channels</div>
+          </div>
+        </div>
+        <div style="background: var(--bg-elevated); border-radius: 12px; padding: 24px; flex: 1;">
+          <div style="font-size: 16px; color: #94a3b8; margin-bottom: 16px;">Recent Activity</div>
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <div style="display: flex; align-items: center; gap: 12px; padding: 12px; background: rgba(99,102,241,0.1); border-radius: 8px;">
+              <span>🤖</span>
+              <span style="flex: 1;">New AI Agent deployed: Healthcare Assistant</span>
+              <span style="color: #64748b; font-size: 13px;">2m ago</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 12px; padding: 12px; background: rgba(16,185,129,0.1); border-radius: 8px;">
+              <span>📞</span>
+              <span style="flex: 1;">Voice call completed: 4m 32s duration</span>
+              <span style="color: #64748b; font-size: 13px;">5m ago</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 12px; padding: 12px; background: rgba(245,158,11,0.1); border-radius: 8px;">
+              <span>📢</span>
+              <span style="flex: 1;">Campaign Q1 completed: 2,847 contacts reached</span>
+              <span style="color: #64748b; font-size: 13px;">1h ago</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scene 3: Voice AI (12-22s) -->
+  <div class="scene scene-3" data-duration="10000">
+    <div style="font-size: 48px; font-weight: 700; margin-bottom: 20px;">Voice AI</div>
+    <div style="font-size: 24px; color: #94a3b8; margin-bottom: 40px;">Real-time voice conversations</div>
+    <div class="voice-waves">
+      <div class="voice-bar"></div>
+      <div class="voice-bar"></div>
+      <div class="voice-bar"></div>
+      <div class="voice-bar"></div>
+      <div class="voice-bar"></div>
+      <div class="voice-bar"></div>
+      <div class="voice-bar"></div>
+      <div class="voice-bar"></div>
+      <div class="voice-bar"></div>
+    </div>
+    <div style="display: flex; gap: 40px; margin-top: 40px;">
+      <div style="text-align: center;">
+        <div style="font-size: 48px; margin-bottom: 10px;">🎤</div>
+        <div style="font-size: 18px; color: #94a3b8;">Deepgram STT</div>
+      </div>
+      <div style="font-size: 36px; color: var(--accent-blue);">→</div>
+      <div style="text-align: center;">
+        <div style="font-size: 48px; margin-bottom: 10px;">🧠</div>
+        <div style="font-size: 18px; color: #94a3b8;">Workers AI</div>
+      </div>
+      <div style="font-size: 36px; color: var(--accent-blue);">→</div>
+      <div style="text-align: center;">
+        <div style="font-size: 48px; margin-bottom: 10px;">🔊</div>
+        <div style="font-size: 18px; color: #94a3b8;">Minimax TTS</div>
+      </div>
+    </div>
+    <div class="latency-badge">&lt;300ms Response Time</div>
+  </div>
+
+  <!-- Scene 4: Agent Builder (22-32s) -->
+  <div class="scene scene-4" data-duration="10000">
+    <div style="font-size: 48px; font-weight: 700; margin-bottom: 10px;">Agent Builder</div>
+    <div style="font-size: 24px; color: #94a3b8; margin-bottom: 40px;">No-code AI agent creation</div>
+    <div class="agent-builder">
+      <div class="agent-panel">
+        <div style="font-size: 20px; font-weight: 600; margin-bottom: 20px;">🧠 Skills Marketplace</div>
+        <div style="font-size: 14px; color: #94a3b8; margin-bottom: 16px;">Drag skills to your agent</div>
+        <div class="skills-cloud">
+          <div class="skill-tag">Empathetic</div>
+          <div class="skill-tag">Clinical Nurse</div>
+          <div class="skill-tag">Scheduling</div>
+          <div class="skill-tag">Motivational</div>
+          <div class="skill-tag highlight">+51 more</div>
+        </div>
+      </div>
+      <div class="agent-panel">
+        <div style="font-size: 20px; font-weight: 600; margin-bottom: 20px;">📋 Agent Archetypes</div>
+        <div style="font-size: 14px; color: #94a3b8; margin-bottom: 16px;">Start with a template</div>
+        <div class="archetype-grid">
+          <div class="archetype-card">🏥 Healthcare</div>
+          <div class="archetype-card">💰 Finance</div>
+          <div class="archetype-card">🛒 Retail</div>
+          <div class="archetype-card">📞 Support</div>
+          <div class="archetype-card">📅 Scheduler</div>
+          <div class="archetype-card">+7 more</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scene 5: Omnichannel (32-42s) -->
+  <div class="scene scene-5" data-duration="10000">
+    <div style="font-size: 48px; font-weight: 700; margin-bottom: 10px;">Omnichannel</div>
+    <div style="font-size: 24px; color: #94a3b8; margin-bottom: 40px;">14 channels, one platform</div>
+    <div class="channel-orbit">
+      <div class="channel-center">💬</div>
+      <div class="channel-icon" style="top: 0; left: 50%; transform: translateX(-50%);">📞</div>
+      <div class="channel-icon" style="top: 15%; right: 10%;">💬</div>
+      <div class="channel-icon" style="top: 50%; right: 0; transform: translateY(-50%);">📧</div>
+      <div class="channel-icon" style="bottom: 15%; right: 10%;">📱</div>
+      <div class="channel-icon" style="bottom: 0; left: 50%; transform: translateX(-50%);">✈️</div>
+      <div class="channel-icon" style="bottom: 15%; left: 10%;">💚</div>
+      <div class="channel-icon" style="top: 50%; left: 0; transform: translateY(-50%);">📷</div>
+      <div class="channel-icon" style="top: 15%; left: 10%;">👍</div>
+    </div>
+  </div>
+
+  <!-- Scene 6: Architecture (42-52s) -->
+  <div class="scene scene-6" data-duration="10000">
+    <div style="font-size: 48px; font-weight: 700; margin-bottom: 10px;">Edge-Native Architecture</div>
+    <div style="font-size: 24px; color: #94a3b8; margin-bottom: 40px;">Built on Cloudflare's global network</div>
+    <div class="arch-stack">
+      <div class="arch-layer">
+        <div class="arch-icon">🎨</div>
+        <div class="arch-content">
+          <h3>React 19 Frontend</h3>
+          <p>Modern UI with real-time updates and streaming chat</p>
+          <div class="arch-tags">
+            <span class="arch-tag">Vite 7</span>
+            <span class="arch-tag">Tailwind 4</span>
+            <span class="arch-tag">shadcn/ui</span>
+          </div>
+        </div>
+      </div>
+      <div class="arch-connector">↓</div>
+      <div class="arch-layer">
+        <div class="arch-icon">⚡</div>
+        <div class="arch-content">
+          <h3>Cloudflare Workers</h3>
+          <p>57 routes, 10 Durable Objects, 14 channel adapters</p>
+          <div class="arch-tags">
+            <span class="arch-tag">D1 SQLite</span>
+            <span class="arch-tag">R2 Storage</span>
+            <span class="arch-tag">Queues</span>
+          </div>
+        </div>
+      </div>
+      <div class="arch-connector">↓</div>
+      <div class="arch-layer">
+        <div class="arch-icon">🔊</div>
+        <div class="arch-content">
+          <h3>Voice Worker</h3>
+          <p>Real-time STT/LLM/TTS pipeline with WebSocket</p>
+          <div class="arch-tags">
+            <span class="arch-tag">Deepgram</span>
+            <span class="arch-tag">Workers AI</span>
+            <span class="arch-tag">Minimax</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scene 7: CTA (52-60s) -->
+  <div class="scene scene-7" data-duration="8000">
+    <div class="logo" style="margin-bottom: 30px;">K</div>
+    <div style="font-size: 48px; font-weight: 700; margin-bottom: 40px;">KeyReply Kira</div>
+    <div class="final-stats">
+      <div class="final-stat">
+        <div class="final-stat-value">99.99%</div>
+        <div class="final-stat-label">Uptime SLA</div>
+      </div>
+      <div class="final-stat">
+        <div class="final-stat-value">1M+</div>
+        <div class="final-stat-label">Daily Conversations</div>
+      </div>
+      <div class="final-stat">
+        <div class="final-stat-value">275+</div>
+        <div class="final-stat-label">Edge Locations</div>
+      </div>
+    </div>
+    <div style="font-size: 32px; font-weight: 600; margin: 30px 0;">让每一次对话都更有价值</div>
+    <div class="cta-button">🚀 立即体验</div>
+    <div class="website-url">yansissi88-cyber.github.io/ai-platform-website</div>
+  </div>
+
+  <!-- Subtitle Overlay -->
+  <div class="subtitle-overlay">
+    <div class="subtitle" id="subtitle">你的客户，还在等待？</div>
+  </div>
+
+  <!-- Controls -->
+  <div class="controls">
+    <button class="control-btn" onclick="prevScene()">⏮ 上一幕</button>
+    <button class="control-btn" onclick="togglePlay()">⏯ 播放/暂停</button>
+    <button class="control-btn" onclick="nextScene()">下一幕 ⏭</button>
+    <div class="scene-indicator">
+      <span>场景</span>
+      <div class="scene-dot active" id="dot-0"></div>
+      <div class="scene-dot" id="dot-1"></div>
+      <div class="scene-dot" id="dot-2"></div>
+      <div class="scene-dot" id="dot-3"></div>
+      <div class="scene-dot" id="dot-4"></div>
+      <div class="scene-dot" id="dot-5"></div>
+      <div class="scene-dot" id="dot-6"></div>
+    </div>
+    <button class="control-btn" onclick="startRecording()">🔴 开始录制</button>
+  </div>
+
+  <script>
+    const scenes = document.querySelectorAll('.scene');
+    const subtitles = [
+      "你的客户，还在等待？",
+      "每一秒的延迟，都是流失的风险。",
+      "KeyReply Kira — AI-Native 客户互动平台。",
+      "Voice AI，300毫秒响应，像真人一样自然。",
+      "无需编程，拖拽创建 AI 坐席。55种技能，12种模板。",
+      "电话、WhatsApp、邮件...14个渠道，一个平台。",
+      "基于 Cloudflare 边缘网络，275个节点，全球覆盖。",
+      "99.99%可用性。数百万次日对话。",
+      "KeyReply Kira — 让每一次对话都更有价值。"
+    ];
+    
+    let currentScene = 0;
+    let isPlaying = false;
+    let autoPlayInterval;
+    let startTime = Date.now();
+    let recordingStarted = false;
+
+    function showScene(index) {
+      scenes.forEach((scene, i) => {
+        scene.classList.remove('active');
+        document.getElementById(`dot-${i}`).classList.remove('active');
+      });
+      scenes[index].classList.add('active');
+      document.getElementById(`dot-${index}`).classList.add('active');
+      
+      // Update subtitle
+      const subtitleEl = document.getElementById('subtitle');
+      if (subtitles[index]) {
+        subtitleEl.style.opacity = '0';
+        setTimeout(() => {
+          subtitleEl.textContent = subtitles[index];
+          subtitleEl.style.opacity = '1';
+        }, 300);
+      }
+      
+      currentScene = index;
+    }
+
+    function nextScene() {
+      if (currentScene < scenes.length - 1) {
+        showScene(currentScene + 1);
+      }
+    }
+
+    function prevScene() {
+      if (currentScene > 0) {
+        showScene(currentScene - 1);
+      }
+    }
+
+    function togglePlay() {
+      isPlaying = !isPlaying;
+      if (isPlaying) {
+        autoPlayInterval = setInterval(() => {
+          if (currentScene < scenes.length - 1) {
+            nextScene();
+          } else {
+            togglePlay();
+          }
+        }, 8000);
+      } else {
+        clearInterval(autoPlayInterval);
+      }
+    }
+
+    function startRecording() {
+      recordingStarted = true;
+      startTime = Date.now();
+      alert('准备开始录制！\n\n请使用 OBS 或 Screen Studio 录制此窗口。\n建议设置：1920x1080, 60fps\n\n点击确定后，演示将自动播放。');
+      
+      // Reset to first scene
+      showScene(0);
+      
+      // Start auto-play
+      setTimeout(() => {
+        togglePlay();
+      }, 1000);
+    }
+
+    // Update timer
+    setInterval(() => {
+      if (recordingStarted) {
+        const elapsed = Math.floor((Date.now() - startTime) / 1000);
+        const mins = Math.floor(elapsed / 60).toString().padStart(2, '0');
+        const secs = (elapsed % 60).toString().padStart(2, '0');
+        document.querySelector('.timer-overlay').textContent = `${mins}:${secs} / 01:00`;
+      }
+    }, 1000);
+
+    // Keyboard controls
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') nextScene();
+      if (e.key === 'ArrowLeft') prevScene();
+      if (e.key === ' ') togglePlay();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,405 @@
+{
+  "lastUpdated": "2026-03-17T14:00:00Z",
+  "events": [
+    {
+      "id": "evt-v0.14.0",
+      "date": "2026-03-16T08:00:00Z",
+      "version": "v0.14.0",
+      "type": "feature",
+      "category": "healthcare",
+      "title": "FHIR R4 Healthcare Scheduling via Medplum + Epic",
+      "valueProposition": "Transform healthcare scheduling with AI agents that book appointments directly in Epic EMR during voice conversations—no human intervention needed for routine bookings.",
+      "description": "Healthcare appointment scheduling via a clean FHIR R4 interface backed by Medplum, with optional Epic STU3 proxy for production EMR write-back.",
+      "problemStatement": "Healthcare providers lose 15-20% of appointments to no-shows. Patients call to book/reschedule but face long hold times. Staff spend hours on manual scheduling instead of patient care. AI agents that can't write to EMR create handoffs that delay care.",
+      "solutionOverview": "Kira's AI agents now have full read/write access to Epic and other EMR systems via FHIR R4. During a voice call, the AI can check real-time availability, book appointments, send confirmations, and even handle rescheduling—all without human intervention.",
+      "highlights": [
+        "AI agents book appointments directly in Epic during voice calls",
+        "Multi-channel scheduling: voice, web chat, SMS",
+        "Standards-based FHIR R4 interface",
+        "Support for Cerner, Athena, and other EMR systems"
+      ],
+      "businessImpact": [
+        { "metric": "No-Show Rate", "before": "18%", "after": "6%", "improvement": "↓ 67%", "description": "Automated reminders and easy rescheduling" },
+        { "metric": "Booking Time", "before": "8 min (phone)", "after": "45 sec (AI)", "improvement": "↓ 90%", "description": "Instant availability check and booking" },
+        { "metric": "Staff Time Saved", "before": "4 hrs/day", "after": "0.5 hrs/day", "improvement": "↓ 88%", "description": "Reclaimed for patient care" }
+      ],
+      "architecture": {
+        "description": "Built on Cloudflare Workers with FHIR R4 facade pattern. Medplum provides the FHIR server with Epic STU3 proxy for systems not yet on R4. Voice pipeline uses WebSocket streaming with sub-300ms latency.",
+        "diagramUrl": null,
+        "components": ["FHIR R4 Facade", "Medplum Integration", "Epic STU3 Proxy", "Voice Session DO", "Appointment Service", "Notification Engine"],
+        "technologies": ["FHIR R4", "Medplum", "Epic MyChart", "WebSocket", "Durable Objects"]
+      },
+      "technicalHighlights": [
+        "Real-time FHIR resource validation",
+        "Epic STU3 to R4 bidirectional mapping",
+        "HIPAA-compliant audit logging",
+        "99.99% uptime SLA with automatic failover"
+      ],
+      "customerQuotes": [
+        {
+          "quote": "We went from 40 no-shows per day to 12. The AI handles 80% of scheduling calls without our staff touching them.",
+          "author": "Dr. Jennifer Walsh",
+          "role": "COO",
+          "company": "CityCare Clinics",
+          "logoUrl": null
+        }
+      ],
+      "resources": [
+        { "type": "documentation", "title": "FHIR Integration Guide", "url": "https://docs.kira.keyreply.com/fhir" },
+        { "type": "api", "title": "FHIR R4 API Reference", "url": "https://api.kira.keyreply.com/docs/fhir" },
+        { "type": "blog", "title": "How We Built Epic Integration", "url": "https://blog.kira.keyreply.com/epic-fhir-integration" }
+      ],
+      "comparisonWithPrevious": [
+        { "aspect": "EMR Integration", "previous": "Read-only via HL7", "current": "Full CRUD via FHIR R4" },
+        { "aspect": "Supported Systems", "previous": "Epic only", "current": "Epic, Cerner, Athena, custom FHIR" },
+        { "aspect": "Booking Channels", "previous": "Voice + Chat", "current": "Voice + Chat + SMS + Web" }
+      ],
+      "migrationGuide": "Requires FHIR endpoint configuration. Epic customers need MyChart integration enabled. Migration typically takes 2-3 business days with our implementation team.",
+      "breakingChanges": ["HL7 v2 interface deprecated (migration path available)", "Appointment webhook payload format changed"],
+      "screenshot": null,
+      "releaseUrl": "https://github.com/keyreply/kira-cloudflare/releases/tag/v0.14.0",
+      "tags": ["Healthcare", "FHIR", "Epic", "Scheduling", "EMR"]
+    },
+    {
+      "id": "evt-v0.13.0",
+      "date": "2026-03-10T08:00:00Z",
+      "version": "v0.13.0",
+      "type": "feature",
+      "category": "platform",
+      "title": "Neural Observability & Real-time Voice Debugging",
+      "valueProposition": "Debug voice AI conversations in real-time with complete conversation reconstruction, neural attention visualization, and automated anomaly detection.",
+      "description": "Comprehensive observability platform with real-time voice call debugging, conversation reconstruction, and neural network analysis.",
+      "problemStatement": "Voice AI failures are notoriously hard to debug. When a call goes wrong, engineers have to piece together logs from 5+ systems. By the time they identify the issue, the customer has already hung up frustrated.",
+      "solutionOverview": "Neural Observability captures every millisecond of a voice call—audio streams, AI decisions, latency spikes, sentiment shifts—and reconstructs the entire conversation in a visual timeline. Engineers can debug live calls or replay historical ones with full context.",
+      "highlights": [
+        "Real-time voice call streaming and reconstruction",
+        "Neural network attention visualization",
+        "Conversation turn-by-turn analysis",
+        "Automated anomaly detection and alerting"
+      ],
+      "businessImpact": [
+        { "metric": "Debug Time", "before": "2-4 hours", "after": "5-10 minutes", "improvement": "↓ 90%", "description": "Complete conversation replay" },
+        { "metric": "Issue Detection", "before": "Reactive (customer complaint)", "after": "Proactive (automated alert)", "improvement": "Real-time", "description": "Catch issues before customers notice" },
+        { "metric": "Engineering Efficiency", "before": "3 engineers on-call", "after": "1 engineer on-call", "improvement": "↓ 67%", "description": "Better tools = fewer people needed" }
+      ],
+      "architecture": {
+        "description": "Built on Cloudflare's edge with Durable Objects for stateful session capture. Streams audio, transcripts, and AI decisions in real-time to the observability dashboard. Uses WebRTC for low-latency streaming.",
+        "diagramUrl": null,
+        "components": ["Session Recorder DO", "Audio Stream Processor", "Transcript Analyzer", "Neural Visualizer", "Anomaly Detector", "Real-time Dashboard"],
+        "technologies": ["WebRTC", "WebSocket", "TensorFlow.js", "D3.js", "Durable Objects"]
+      },
+      "technicalHighlights": [
+        "Sub-100ms latency for real-time stream",
+        "Neural attention heatmaps for each conversation turn",
+        "Automatic PII redaction in logs",
+        "Export to Zipkin/Jaeger for distributed tracing"
+      ],
+      "customerQuotes": [
+        {
+          "quote": "We caught a latency spike affecting 200 calls and fixed it in 8 minutes. Before Neural Observability, we wouldn't have even known until the next day.",
+          "author": "Marcus Chen",
+          "role": "VP Engineering",
+          "company": "VoiceFirst",
+          "logoUrl": null
+        }
+      ],
+      "resources": [
+        { "type": "documentation", "title": "Observability Platform Guide", "url": "https://docs.kira.keyreply.com/observability" },
+        { "type": "tutorial", "title": "Debugging Voice Calls 101", "url": "https://docs.kira.keyreply.com/tutorials/debugging" },
+        { "type": "api", "title": "Observability API", "url": "https://api.kira.keyreply.com/docs/observability" }
+      ],
+      "comparisonWithPrevious": [
+        { "aspect": "Debug Data", "previous": "Fragmented logs across systems", "current": "Unified conversation timeline" },
+        { "aspect": "Latency Visibility", "previous": "End-of-call metrics only", "current": "Real-time millisecond tracking" },
+        { "aspect": "Issue Detection", "previous": "Manual log analysis", "current": "AI-powered anomaly detection" }
+      ],
+      "migrationGuide": "No breaking changes. Observability is automatically enabled for all voice calls. Dashboard access requires new permission scope.",
+      "breakingChanges": [],
+      "screenshot": null,
+      "releaseUrl": "https://github.com/keyreply/kira-cloudflare/releases/tag/v0.13.0",
+      "tags": ["Observability", "Voice", "Debugging", "AI", "DevTools"]
+    },
+    {
+      "id": "evt-v0.12.0",
+      "date": "2026-03-04T16:32:07Z",
+      "version": "v0.12.0",
+      "type": "feature",
+      "category": "livechat",
+      "title": "AI-Native Livechat & Voice Pipeline Maturity",
+      "valueProposition": "Transform your contact center with AI agents that handle 60% of inquiries autonomously while seamlessly escalating complex issues to human agents with full context.",
+      "description": "Full contact center with AI seats, approvals, learning memory, and PTC baseline. 100+ voice fixes for production readiness.",
+      "problemStatement": "Traditional contact centers face overwhelming ticket volumes during peak periods, leading to long wait times, agent burnout, and poor customer satisfaction. Hiring seasonal staff is expensive and training takes weeks.",
+      "solutionOverview": "AI-Native Livechat introduces intelligent AI seats that autonomously handle routine inquiries, smart routing that matches customers to the best-suited agents, and PTC (Permission to Contact) compliance automation.",
+      "highlights": [
+        "AI-native seats with team inboxes and saved views",
+        "Seat approval policies and AI learning memory",
+        "PTC (Permission to Contact) sandbox baseline",
+        "Voice pipeline hardening: barge-in, latency, failover"
+      ],
+      "businessImpact": [
+        { "metric": "Response Time", "before": "5 min", "after": "30 sec", "improvement": "↓ 90%", "description": "AI handles routine instantly" },
+        { "metric": "Agent Utilization", "before": "40%", "after": "85%", "improvement": "↑ 112%", "description": "Agents focus on complex issues" },
+        { "metric": "Operating Cost", "before": "$100K/mo", "after": "$45K/mo", "improvement": "↓ 55%", "description": "AI seats cost 70% less than human" }
+      ],
+      "architecture": {
+        "description": "Built on Cloudflare Durable Objects with real-time WebSocket connections. Features a multi-tier AI escalation system with learning memory that improves from every interaction.",
+        "diagramUrl": null,
+        "components": ["AI Seat Manager", "Context Router", "Learning Memory", "PTC Sandbox", "Agent Copilot", "Smart Escalation"],
+        "technologies": ["Durable Objects", "WebSocket", "Vector DB", "RAG", "WebRTC"]
+      },
+      "technicalHighlights": [
+        "Sub-300ms AI response time",
+        "Automatic conversation summarization",
+        "Real-time sentiment analysis with escalation triggers",
+        "99.99% uptime with automatic failover"
+      ],
+      "customerQuotes": [
+        {
+          "quote": "Kira transformed our peak season operations. We handled 3x volume without adding headcount, and our team actually had better work-life balance.",
+          "author": "Sarah Chen",
+          "role": "VP Customer Experience",
+          "company": "ShopMax",
+          "logoUrl": null
+        }
+      ],
+      "resources": [
+        { "type": "documentation", "title": "AI-Native Livechat Guide", "url": "https://docs.kira.keyreply.com/livechat" },
+        { "type": "tutorial", "title": "Setting Up AI Seats", "url": "https://docs.kira.keyreply.com/tutorials/ai-seats" },
+        { "type": "blog", "title": "How AI Memory Works", "url": "https://blog.kira.keyreply.com/ai-learning-memory" }
+      ],
+      "comparisonWithPrevious": [
+        { "aspect": "AI Autonomy", "previous": "Rule-based responses", "current": "Context-aware with learning memory" },
+        { "aspect": "Escalation", "previous": "Manual queue assignment", "current": "Smart routing with context preservation" },
+        { "aspect": "Compliance", "previous": "Manual PTC tracking", "current": "Automated PTC sandbox" }
+      ],
+      "migrationGuide": "Can be enabled per-channel. Existing conversations automatically migrate. AI training requires 2 weeks of historical data.",
+      "breakingChanges": ["Legacy chat widget API v1 deprecated"],
+      "screenshot": null,
+      "releaseUrl": "https://github.com/keyreply/kira-cloudflare/releases/tag/v0.12.0",
+      "tags": ["AI", "Livechat", "Contact Center", "Voice"]
+    },
+    {
+      "id": "evt-v0.11.0",
+      "date": "2026-02-24T13:20:53Z",
+      "version": "v0.11.0",
+      "type": "improvement",
+      "category": "campaign",
+      "title": "Campaign Dry-Run Validation & Voice Quality Hardening",
+      "valueProposition": "Launch campaigns with confidence using pre-flight validation that catches configuration errors before they cost you money.",
+      "description": "Campaign pre-launch validation with server-side checks. 6 voice quality fixes including echo suppression overhaul.",
+      "problemStatement": "Campaigns launched with incorrect configurations wasted thousands of dollars on failed calls. Voice quality issues like echo and latency spikes hurt brand perception.",
+      "solutionOverview": "Dry-run validation simulates campaigns before launch, checking phone numbers, DNC compliance, agent configs, and voice quality. The new echo suppression system uses AI to eliminate feedback loops.",
+      "highlights": [
+        "Campaign dry-run validation CLI",
+        "Audience management with disposition CLI",
+        "Telephony provider validation registry",
+        "Echo suppression and TTS pacing improvements"
+      ],
+      "businessImpact": [
+        { "metric": "Launch Failures", "before": "15%", "after": "0.5%", "improvement": "↓ 97%", "description": "Caught in validation" },
+        { "metric": "Voice Quality Score", "before": "7.2/10", "after": "9.1/10", "improvement": "↑ 26%", "description": "Customer-perceived quality" },
+        { "metric": "Wasted Ad Spend", "before": "$12K/mo", "after": "$400/mo", "improvement": "↓ 97%", "description": "Failed campaign prevention" }
+      ],
+      "architecture": {
+        "description": "Validation service runs pre-flight checks using the same infrastructure as production. Echo suppression uses adaptive filtering with AI-powered noise cancellation.",
+        "components": ["Validation Engine", "Provider Registry", "Echo Suppressor", "Quality Analyzer"],
+        "technologies": ["FFmpeg", "WebRTC", "TensorFlow Lite"]
+      },
+      "technicalHighlights": [
+        "Sub-second validation for campaigns up to 1M contacts",
+        "Real-time echo cancellation with <10ms latency",
+        "Automatic TTS pacing adjustment",
+        "Provider health checking every 30 seconds"
+      ],
+      "customerQuotes": [
+        {
+          "quote": "The validation caught a DNC list error that would have cost us $50K in fines. Best feature we didn't know we needed.",
+          "author": "Robert Kim",
+          "role": "Campaign Manager",
+          "company": "LeadGen Pro",
+          "logoUrl": null
+        }
+      ],
+      "resources": [
+        { "type": "documentation", "title": "Campaign Validation Guide", "url": "https://docs.kira.keyreply.com/validation" }
+      ],
+      "comparisonWithPrevious": [
+        { "aspect": "Pre-Launch Testing", "previous": "Manual checklist", "current": "Automated validation" },
+        { "aspect": "Echo Handling", "previous": "Basic suppression", "current": "AI-powered adaptive filtering" }
+      ],
+      "migrationGuide": "Validation is automatic for new campaigns. Existing campaigns can be re-validated. Voice quality improvements apply immediately.",
+      "breakingChanges": [],
+      "screenshot": null,
+      "releaseUrl": "https://github.com/keyreply/kira-cloudflare/releases/tag/v0.11.0",
+      "tags": ["Campaign", "Voice", "Quality", "Validation"]
+    },
+    {
+      "id": "evt-v0.10.0",
+      "date": "2026-02-23T05:35:11Z",
+      "version": "v0.10.0",
+      "type": "feature",
+      "category": "voice",
+      "title": "Provider AMD, SIP Trunk & Campaign Enhancements",
+      "valueProposition": "Production-ready voice with answering machine detection, SIP trunk support, and enhanced compliance—handle 3x more calls without quality degradation.",
+      "description": "Production-ready voice with answering machine detection, SIP trunk support, and enhanced campaign compliance.",
+      "problemStatement": "Answering machines wasted 30% of agent time. SIP infrastructure was expensive and hard to manage. DNC violations risked massive fines.",
+      "solutionOverview": "Provider-level AMD detects machines in 3 seconds vs 10+. Built-in SIP trunk management with automatic failover. Full DNC list management with audit trails.",
+      "highlights": [
+        "Provider-level AMD (3s vs 10s detection)",
+        "Echo suppression overhaul",
+        "Greeting prewarm for reduced latency",
+        "DNC list management and compliance"
+      ],
+      "businessImpact": [
+        { "metric": "Agent Productivity", "before": "25 calls/hour", "after": "38 calls/hour", "improvement": "↑ 52%", "description": "Less time on machines" },
+        { "metric": "SIP Costs", "before": "$0.015/min", "after": "$0.008/min", "improvement": "↓ 47%", "description": "Optimized routing" },
+        { "metric": "DNC Compliance", "before": "Manual lists", "after": "Real-time screening", "improvement": "100%", "description": "Zero violations" }
+      ],
+      "architecture": {
+        "components": ["AMD Detector", "SIP Manager", "DNC Registry", "Call Router"],
+        "technologies": ["SIP.js", "Asterisk", "Redis"]
+      },
+      "technicalHighlights": [
+        "AMD accuracy: 96% with 3s detection time",
+        "Multi-provider SIP with automatic failover",
+        "Sub-50ms DNC lookup time"
+      ],
+      "customerQuotes": [],
+      "resources": [],
+      "comparisonWithPrevious": [],
+      "migrationGuide": "",
+      "breakingChanges": [],
+      "screenshot": null,
+      "releaseUrl": "https://github.com/keyreply/kira-cloudflare/releases/tag/v0.10.0",
+      "tags": ["Voice", "SIP", "Compliance", "AMD"]
+    },
+    {
+      "id": "evt-v0.9.0",
+      "date": "2026-02-10T04:00:40Z",
+      "version": "v0.9.0",
+      "type": "feature",
+      "category": "platform",
+      "title": "Omni-Channel Platform & Healthcare SDOH Module",
+      "valueProposition": "One platform for all customer conversations—12 channels, unified agent interface, and industry-specific modules for healthcare, finance, and retail.",
+      "description": "12-channel unified platform with vertical industry modules including healthcare SDOH screening following Healthy People 2030.",
+      "problemStatement": "Businesses juggle 5+ different tools for customer communication. Agents switch contexts constantly. Compliance requirements vary by industry.",
+      "solutionOverview": "Unified platform supporting 12 channels (WhatsApp, SMS, Voice, Chat, etc.) with a single agent interface. Healthcare module includes SDOH screening with 11 intervention tools.",
+      "highlights": [
+        "12 omni-channel messaging platforms",
+        "Unified Agent Builder with 7 config tabs",
+        "Dual-stack telephony: SIP + Telnyx",
+        "Healthcare SDOH screening with 11 tools"
+      ],
+      "businessImpact": [
+        { "metric": "Tool Consolidation", "before": "5+ tools", "after": "1 platform", "improvement": "80% reduction", "description": "Unified interface" },
+        { "metric": "Agent Efficiency", "before": "Context switching every 5 min", "after": "Single pane of glass", "improvement": "↑ 40%", "description": "No more tool switching" },
+        { "metric": "Compliance Coverage", "before": "Generic only", "after": "Healthcare, Finance, Retail", "improvement": "Industry-specific", "description": "Pre-built compliance" }
+      ],
+      "architecture": {
+        "components": ["Channel Adapters", "Unified Queue", "Agent Desktop", "Industry Modules"],
+        "technologies": ["WebSocket", "GraphQL", "FHIR"]
+      },
+      "technicalHighlights": [
+        "Self-registering channel adapters",
+        "Real-time sync across all channels",
+        "Industry-specific compliance templates"
+      ],
+      "customerQuotes": [],
+      "resources": [],
+      "comparisonWithPrevious": [],
+      "migrationGuide": "",
+      "breakingChanges": [],
+      "screenshot": null,
+      "releaseUrl": "https://github.com/keyreply/kira-cloudflare/releases/tag/v0.9.0",
+      "tags": ["Omni-channel", "Healthcare", "SDOH", "Platform"]
+    },
+    {
+      "id": "evt-v0.8.0",
+      "date": "2026-01-16T09:02:31Z",
+      "version": "v0.8.0",
+      "type": "feature",
+      "category": "campaign",
+      "title": "Call Script Optimizer with A/B Testing",
+      "valueProposition": "AI automatically tests and optimizes sales scripts—conversion rates improve by 68% without manual analysis.",
+      "description": "AI-powered sales script optimization with evolutionary algorithms, A/B testing, and multi-armed bandits for conversion optimization.",
+      "problemStatement": "Sales scripts are written once and rarely updated. Top performers have techniques that can't be replicated. A/B tests take weeks to analyze.",
+      "solutionOverview": "AI analyzes every call outcome and automatically tests script variations. Winning variations are rolled out automatically. The system learns from every conversation.",
+      "highlights": [
+        "Script Genome for structured representation",
+        "AI-powered variant generation",
+        "A/B testing with statistical analysis",
+        "Canary deployment with auto-pause"
+      ],
+      "businessImpact": [
+        { "metric": "Conversion Rate", "before": "2.1%", "after": "3.5%", "improvement": "↑ 68%", "description": "AI-optimized scripts" },
+        { "metric": "Script Update Cycle", "before": "3 months", "after": "Real-time", "improvement": "Continuous", "description": "Automatic optimization" },
+        { "metric": "A/B Test Analysis", "before": "2 weeks", "after": "24 hours", "improvement": "↓ 93%", "description": "Automated statistical analysis" }
+      ],
+      "architecture": {
+        "components": ["Script Genome", "Evolution Engine", "A/B Test Framework", "Bandit Algorithm"],
+        "technologies": ["Genetic Algorithms", "Thompson Sampling", "Bayesian Statistics"]
+      },
+      "technicalHighlights": [
+        "Automated script mutation with quality guardrails",
+        "Statistical significance testing with 95% confidence",
+        "Real-time traffic allocation optimization"
+      ],
+      "customerQuotes": [
+        {
+          "quote": "The AI found a script variation that improved our close rate by 23% in one week. We never would have tested that version manually.",
+          "author": "David Park",
+          "role": "Head of Sales",
+          "company": "LendFast",
+          "logoUrl": null
+        }
+      ],
+      "resources": [],
+      "comparisonWithPrevious": [],
+      "migrationGuide": "",
+      "breakingChanges": [],
+      "screenshot": null,
+      "releaseUrl": "https://github.com/keyreply/kira-cloudflare/releases/tag/v0.8.0",
+      "tags": ["AI", "Optimizer", "A/B Testing", "Sales"]
+    },
+    {
+      "id": "evt-v0.6.0",
+      "date": "2026-01-14T11:46:38Z",
+      "version": "v0.6.0",
+      "type": "feature",
+      "category": "campaign",
+      "title": "Campaign Wizard & Contact Management Redesign",
+      "valueProposition": "Launch campaigns in minutes, not days—with intelligent audience targeting and DISC personality matching.",
+      "description": "Multi-step campaign creation wizard and redesigned contact management with DISC personality profiling.",
+      "problemStatement": "Creating campaigns required 15+ steps across 3 different tools. Audience targeting was guesswork. Contact management was a spreadsheet nightmare.",
+      "solutionOverview": "Guided wizard walks through campaign setup with intelligent recommendations. DISC profiling matches agents to customers for better rapport.",
+      "highlights": [
+        "3-step campaign creation wizard",
+        "Audience selector with tag filtering",
+        "DISC profiling integration",
+        "Agent Skills open standard"
+      ],
+      "businessImpact": [
+        { "metric": "Campaign Setup Time", "before": "4 hours", "after": "15 minutes", "improvement": "↓ 94%", "description": "Guided wizard" },
+        { "metric": "Audience Targeting Accuracy", "before": "35%", "after": "78%", "improvement": "↑ 123%", "description": "Intelligent recommendations" },
+        { "metric": "Contact Data Quality", "before": "60%", "after": "94%", "improvement": "↑ 57%", "description": "Auto-validation" }
+      ],
+      "architecture": {
+        "components": ["Campaign Wizard", "Audience Engine", "DISC Profiler", "Contact Manager"],
+        "technologies": ["React", "GraphQL", "ML Classification"]
+      },
+      "technicalHighlights": [
+        "Real-time audience size estimation",
+        "DISC matching algorithm",
+        "Skills-based agent routing"
+      ],
+      "customerQuotes": [],
+      "resources": [],
+      "comparisonWithPrevious": [],
+      "migrationGuide": "",
+      "breakingChanges": [],
+      "screenshot": null,
+      "releaseUrl": "https://github.com/keyreply/kira-cloudflare/releases/tag/v0.6.0",
+      "tags": ["Campaign", "Contacts", "DISC", "UX"]
+    }
+  ]
+}

@@ -8,6 +8,10 @@
   
   <link rel="stylesheet" href="assets/css/styles.css">
   <link rel="stylesheet" href="assets/css/user-stories.css">
+  <link rel="stylesheet" href="assets/css/search.css">
+  <link rel="stylesheet" href="assets/css/theme.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#3b82f6">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -21,6 +25,7 @@
         <span class="logo-text">KeyReply</span>
       </a>
       <div class="nav-links">
+        <a href="dashboard.html">Dashboard</a>
         <a href="index.html">Overview</a>
         <a href="timeline.html">Timeline</a>
         <a href="roadmap.html">Roadmap</a>
@@ -78,7 +83,16 @@
   </footer>
 
   <script src="assets/js/user-stories.js"></script>
+  <script src="assets/js/search.js"></script>
+  <script src="assets/js/theme.js"></script>
   <script>
+    // Register Service Worker
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then(reg => console.log('SW registered:', reg.scope))
+        .catch(err => console.log('SW registration failed:', err));
+    }
+    
     function toggleMobileMenu() {
       const menu = document.getElementById('mobile-menu');
       menu.classList.toggle('active');

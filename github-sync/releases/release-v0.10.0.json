@@ -1,0 +1,70 @@
+{
+  "id": 289265791,
+  "tag_name": "v0.10.0",
+  "name": "v0.10.0 - Provider AMD, Export Templates, SIP Trunk & Campaign Enhancements",
+  "body": "# Kira v0.10.0 Release Notes\n\n**314 commits since v0.9.0** — focused on production-readiness for voice calls, campaign compliance, and platform extensibility.\n\n---\n\n## 1. Voice Pipeline\n\n- **Provider-level AMD**: Answering machine detection at the telephony layer (~3s detection vs 5–10s transcript-based), with automatic voicemail disposition.\n- **Echo suppression overhaul**: Generation-counter gating, active-source tracking, and transcript echo filtering eliminate self-talk loops across all codec paths.\n- **Greeting prewarm**: Pre-generates the first LLM response during greeting playback, cutting perceived latency on call connect.\n- **Staged prompts & language packs**: Base directives, locale-specific keyword tables, and composition tags allow per-tenant prompt customisation without redeployment.\n- **Codec & quality**: L16 wideband support, AudioNormalizer middleware for consistent TTS pacing, anti-repetition penalties, and conversational entrainment (adaptive TTS modulation).\n- **Inbound call handling**: Full inbound Telnyx path with WebSocket media bridging, barge-in detection, and dead-air circuit breaker.\n\n## 2. Campaign & Workflow\n\n- **Phone number enforcement**: Campaigns now require an allocated phone number before launch; the wizard validates number availability per channel.\n- **Callback cadence & holiday blocking**: Durable timers (via Temporal) honour configurable retry windows and regional holiday calendars.\n- **Workflow triggers & disposition branching**: Seven canonical trigger types, campaign-to-workflow wiring, and post-call disposition branches with AI classification on call completion.\n- **Contact template variables**: Audience records are interpolated into prompts and greeting text at dial time.\n- **Campaign completion loop**: Webhook fires on audience exhaustion, enabling chained workflows.\n\n## 3. Compliance & Security\n\n- **DNC list management**: Full CRUD for Do-Not-Call lists with channel-filtered lookup, external registry stubs (PDPC), PII blind-index search, and real-time opt-out during calls.\n- **PDPA / LGPD / HIPAA**: Marketing consent checks in batch processing, AI disclosure injection in greetings, and configurable data-retention policies.\n- **SingPass verification**: CIBA and SMS-Link providers with DTMF NRIC collection during voice calls, MyInfo data fetch, and branded verification pages.\n- **Webhook signatures**: Ed25519 verification for Telnyx webhooks; HMAC auth on SIP event endpoints; server-generated session IDs.\n- **Safety pipeline**: Emergency detection, rejection counters, sales-specific safety rules, and session-level audit logging persisted to D1.\n\n## 4. Data Export & Import\n\n- **Export templates**: Pre-configured export shapes for call logs, campaign results, and contact lists via CLI and API.\n- **CLI bulk operations**: `kira documents upload`, `kira dnc import`, and audience CSV bridging for campaign seeding.\n\n## 5. Agent Framework\n\n- **Eval framework**: AI-judge evaluation with multi-provider support, persistence, dashboard UI, and auto-remediation loop.\n- **Staged prompts & A/B**: Prompt composition with tagged sections, enabling controlled rollout and per-agent overrides.\n- **Skills support**: Agent Skills open standard integrated into voice agents — enable, disable, and configure skills per agent.\n- **Dynamic tools**: `trigger_workflow`, `transfer_call`, and SingPass verification tools registered at runtime based on agent config.\n- **Accessibility presets**: Named accommodation profiles for voice interactions.\n\n## 6. CLI Enhancements\n\n- **`kira dnc`**: List, create, add, check, import, and search DNC entries across channels.\n- **`kira eval`**: Run agent evaluation suites with AI judges, caching, and progress reporting.\n- **`kira demo`**: Per-tenant demo provisioning, seed/reset, and multi-demo state management.\n- **`kira voice recordings`**: List, inspect, and download call recordings from R2.\n- **Campaign & workflow PATCH**: `kira campaigns update` and `kira workflows update` commands with dry-run validation.\n- **Phone numbers & voice credentials**: `kira phone-numbers` and `kira voice-credentials` command groups.\n\n## 7. Frontend\n\n- **Dark mode & UX polish**: Consistent dark theme, empty states, responsive tables, inline validation, and Sonner toast notifications replacing `alert()`.\n- **Internationalization (i18n)**: `gt-react` integration with tenant-level locale selection — Campaigns, Contacts, Knowledge, Analytics, and Settings wrapped for translation (pt-BR shipping first).\n- **TanStack Query migration**: Six pages migrated from manual fetch to TanStack Query hooks with proper loading and error states.\n- **Role-based landing**: Admins land on Dashboard; agents land on Inbox.\n- **DNC management UI**: Full list and entry management in Settings.\n\n## 8. Infrastructure\n\n- **Hyperdrive / PostgreSQL data plane**: Client data-plane abstraction with SQL translation layer, PG runner, and per-tenant routing hints.\n- **Staging environment**: Fully isolated `demo.keyreply.com` with its own D1 database, demo-gated routes, and token auth.\n- **Lazy-load routes**: 50+ API route modules loaded on demand, resolving Worker startup CPU-limit errors (10021).\n- **Temporal integration**: Durable call-lifecycle workflows, event dispatcher with subscription routing, and campaign callback on execution completion.\n\n## 9. Testing & Quality\n\n- **115 pre-existing test failures resolved** across 10 test files.\n- **New test coverage**: Temporal activities, callback cadence routes, campaign webhooks, greeting prewarm, phone-numbers CLI, WebSocket auth, backup worker, and workflow disposition branching.\n- **Security hardening**: Zod input validation on API routes, structured logging in Durable Objects, `as any` casts removed from DO constructors, and React ErrorBoundary components for major feature areas.\n\n---\n\n**Full changelog**: https://github.com/keyreply/kira-cloudflare/compare/v0.9.0...v0.10.0",
+  "published_at": "2026-02-23T05:35:11Z",
+  "html_url": "https://github.com/keyreply/kira-cloudflare/releases/tag/v0.10.0",
+  "features": [
+    {
+      "keyword": "campaign",
+      "path": "/campaigns",
+      "selector": "[data-testid=\"campaigns-page\"], .campaigns-container, main",
+      "release": "v0.10.0"
+    },
+    {
+      "keyword": "agent",
+      "path": "/agent-builder",
+      "selector": "[data-testid=\"agent-builder\"], .agent-builder, main",
+      "release": "v0.10.0"
+    },
+    {
+      "keyword": "contact",
+      "path": "/contacts",
+      "selector": "[data-testid=\"contacts\"], .contacts-page, main",
+      "release": "v0.10.0"
+    },
+    {
+      "keyword": "voice",
+      "path": "/testing",
+      "selector": "[data-testid=\"testing\"], .testing-page, main",
+      "release": "v0.10.0"
+    },
+    {
+      "keyword": "template",
+      "path": "/templates",
+      "selector": "[data-testid=\"templates\"], .templates-page",
+      "release": "v0.10.0"
+    },
+    {
+      "keyword": "workflow",
+      "path": "/workflows",
+      "selector": "[data-testid=\"workflows\"], .workflows-page, main",
+      "release": "v0.10.0"
+    },
+    {
+      "keyword": "inbox",
+      "path": "/inbox",
+      "selector": "[data-testid=\"inbox\"], .inbox-page, main",
+      "release": "v0.10.0"
+    },
+    {
+      "keyword": "knowledge",
+      "path": "/knowledge-base",
+      "selector": "[data-testid=\"knowledge\"], .knowledge-page, main",
+      "release": "v0.10.0"
+    },
+    {
+      "keyword": "setting",
+      "path": "/settings",
+      "selector": "[data-testid=\"settings\"], .settings-page, main",
+      "release": "v0.10.0"
+    },
+    {
+      "keyword": "dashboard",
+      "path": "/dashboard",
+      "selector": "[data-testid=\"dashboard\"], .dashboard-page, main",
+      "release": "v0.10.0"
+    }
+  ]
+}

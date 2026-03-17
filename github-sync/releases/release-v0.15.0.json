@@ -1,0 +1,28 @@
+{
+  "id": 297786095,
+  "tag_name": "v0.15.0",
+  "name": "v0.15.0 — Geneco PoC Livechat MCP + Platform Admin",
+  "body": "## What's New\n\n### Geneco Live Chat PoC\n- Widget default agent binding and signed widget context\n- MCP server integration for Geneco CRM (Dynamics 365)\n- Widget settings CLI for PoC tenant setup and MCP auth configuration\n\n### Platform Administration\n- Super-admin tenant management UI and API\n- Tenant provisioning, configuration, and lifecycle controls\n\n### Fixes\n- Widget settings CLI tenant path resolution\n- MCP auth token handling\n\n---\n**Full changelog:** [`v0.14.0...v0.15.0`](https://github.com/keyreply/kira-cloudflare/compare/v0.14.0...v0.15.0)",
+  "published_at": "2026-03-17T06:00:41Z",
+  "html_url": "https://github.com/keyreply/kira-cloudflare/releases/tag/v0.15.0",
+  "features": [
+    {
+      "keyword": "agent",
+      "path": "/agent-builder",
+      "selector": "[data-testid=\"agent-builder\"], .agent-builder, main",
+      "release": "v0.15.0"
+    },
+    {
+      "keyword": "mcp",
+      "path": "/mcp-store",
+      "selector": "[data-testid=\"mcp-store\"], .mcp-store, main",
+      "release": "v0.15.0"
+    },
+    {
+      "keyword": "setting",
+      "path": "/settings",
+      "selector": "[data-testid=\"settings\"], .settings-page, main",
+      "release": "v0.15.0"
+    }
+  ]
+}

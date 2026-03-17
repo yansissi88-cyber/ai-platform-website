@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="assets/css/dashboard.css">
   <link rel="stylesheet" href="assets/css/search.css">
   <link rel="stylesheet" href="assets/css/theme.css">
+  <link rel="stylesheet" href="assets/css/data-status.css">
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#3b82f6">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -62,6 +63,14 @@
         <p>Your central hub for product updates, roadmap tracking, and customer stories.</p>
       </div>
       <div class="welcome-time"></div>
+    </div>
+
+    <!-- Sync Info Card -->
+    <div class="sync-info-card" id="sync-info">
+      <h3>📊 Data Sync Status</h3>
+      <div class="version" id="sync-version">Loading...</div>
+      <div class="sync-time" id="sync-time">Checking data freshness...</div>
+      <div class="next-sync">⏰ Auto-sync: Every 30 minutes</div>
     </div>
 
     <!-- Stats Grid -->
@@ -139,6 +148,7 @@
   <script src="assets/js/dashboard.js"></script>
   <script src="assets/js/search.js"></script>
   <script src="assets/js/theme.js"></script>
+  <script src="assets/js/data-status.js"></script>
   <script>
     // Register Service Worker
     if ('serviceWorker' in navigator) {

@@ -269,6 +269,27 @@ function renderEventDetailContent(event) {
     
     ${event.resources && event.resources.length > 0 ? renderResources(event.resources) : ''}
     
+    <!-- Related Links Section -->
+    <div class="detail-section related-links">
+      <h3>🔗 Related</h3>
+      <div class="related-grid">
+        <a href="roadmap.html" class="related-card">
+          <span class="related-icon">🗺️</span>
+          <div class="related-info">
+            <span class="related-title">View Roadmap</span>
+            <span class="related-desc">See upcoming features</span>
+          </div>
+        </a>
+        <a href="user-stories.html" class="related-card">
+          <span class="related-icon">⭐</span>
+          <div class="related-info">
+            <span class="related-title">Customer Stories</span>
+            <span class="related-desc">Read success stories</span>
+          </div>
+        </a>
+      </div>
+    </div>
+    
     <div class="detail-footer">
       ${event.releaseUrl ? `
         <a href="${event.releaseUrl}" target="_blank" class="btn-primary">

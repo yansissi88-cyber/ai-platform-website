@@ -7,6 +7,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/search.css">
+  <link rel="stylesheet" href="assets/css/theme.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#3b82f6">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     
@@ -1356,6 +1360,7 @@
         <div class="logo-text">KeyReply <span>Kira</span></div>
       </div>
       <ul class="nav-links">
+        <li><a href="dashboard.html">Dashboard</a></li>
         <li><a href="#features">Features</a></li>
         <li><a href="timeline.html">Timeline</a></li>
         <li><a href="roadmap.html">Roadmap</a></li>
@@ -2061,6 +2066,16 @@
       }
     }
     fetchLatestRelease();
+  </script>
+  <script src="assets/js/search.js"></script>
+  <script src="assets/js/theme.js"></script>
+  <script>
+    // Register Service Worker
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js')
+        .then(reg => console.log('SW registered:', reg.scope))
+        .catch(err => console.log('SW registration failed:', err));
+    }
   </script>
 </body>
 </html>

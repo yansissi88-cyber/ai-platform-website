@@ -1,9 +1,9 @@
 name: 🔄 Update Website Data & Deploy
 
 on:
-  # 每小时检查一次
+  # 每30分钟检查一次（更频繁的更新）
   schedule:
-    - cron: '0 * * * *'
+    - cron: '*/30 * * * *'
   
   # Release 发布时触发
   repository_dispatch:
@@ -37,42 +37,40 @@ jobs:
       with:
         node-version: '20'
     
-    - name: Install dependencies
-      run: |
-        npm install -g playwright
-        npx playwright install chromium
-    
     # ========== 同步 GitHub 数据 ==========
     - name: Sync GitHub Data
       env:
-        GITHUB_OWNER: ${{ github.repository_owner }}
+        GITHUB_OWNER: keyreply
         GITHUB_REPO: kira-cloudflare
-        GITHUB_TOKEN: ${{ secrets.KIRA_CLOUDFLARE_TOKEN || secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.KIRA_CLOUDFLARE_TOKEN }}
       run: |
-        echo "📊 开始同步 GitHub 数据..."
+        echo "📊 Starting GitHub data sync..."
         node scripts/sync-all-data.js
-        echo "✅ 数据同步完成"
+        echo "✅ Data sync complete"
     
-    # ========== 捕获新功能截图 ==========
-    - name: Capture Feature Screenshots
-      env:
-        TARGET_URL: https://kira.keyreply.com
+    # ========== 验证数据更新 ==========
+    - name: Verify Data Update
       run: |
-        echo "📸 检查是否需要捕获新截图..."
-        # 这里可以添加截图逻辑，如果需要的话
-        # node scripts/capture-screenshots.js
-        echo "✅ 截图检查完成"
+        echo "📋 Verifying data files..."
+        ls -lh data/
+        echo ""
+        echo "📊 Timeline events count:"
+        cat data/timeline-data.json | grep -c '"version"' || echo "0"
+        echo ""
+        echo "🗺️ Roadmap items count:"
+        cat data/roadmap-data.json | grep -c '"id"' || echo "0"
     
     # ========== 检查变更 ==========
     - name: Check for changes
       id: check_changes
       run: |
-        if [ -n "$(git status --porcelain data/ github-sync/)" ]; then
+        if [ -n "$(git status --porcelain data/)" ]; then
           echo "has_changes=true" >> $GITHUB_OUTPUT
-          echo "📝 检测到数据变更"
+          echo "📝 Data changes detected"
+          git diff --stat data/
         else
           echo "has_changes=false" >> $GITHUB_OUTPUT
-          echo "✓ 数据已是最新"
+          echo "✓ Data is up to date"
         fi
     
     # ========== 提交变更 ==========
@@ -85,13 +83,14 @@ jobs:
         git config --local user.name "GitHub Action"
         
         git add data/
-        git add github-sync/
         
-        git commit -m "🔄 Auto update: Sync website data
+        # 获取最新版本号用于提交信息
+        LATEST_VERSION=$(cat data/timeline-data.json | grep '"version"' | head -1 | sed 's/.*"version": "\([^"]*\)".*/\1/')
+        
+        git commit -m "🔄 Auto update: Sync data to ${LATEST_VERSION}
 
-        - Update timeline from GitHub Releases
+        - Sync timeline from GitHub Releases
         - Update roadmap from GitHub Issues/Milestones  
-        - Sync user stories
         - $(date -u '+%Y-%m-%d %H:%M UTC')" || echo "No changes to commit"
         
         git push || echo "Nothing to push"
@@ -108,5 +107,5 @@ jobs:
     - name: Deployment complete
       if: steps.check_changes.outputs.has_changes == 'true'
       run: |
-        echo "🚀 网站已成功部署！"
-        echo "🔗 访问地址: https://yansissi88-cyber.github.io/ai-platform-website/"
+        echo "🚀 Website deployed successfully!"
+        echo "🔗 https://yansissi88-cyber.github.io/ai-platform-website/"

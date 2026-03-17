@@ -1,0 +1,1395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KeyReply Kira - AI-Powered Customer Engagement Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --kr-dark-900: #0a0e17;
+            --kr-dark-800: #111827;
+            --kr-dark-700: #1f2937;
+            --kr-blue-500: #3b82f6;
+            --kr-blue-400: #60a5fa;
+            --kr-cyan-400: #22d3ee;
+            --kr-cyan-500: #06b6d4;
+            --kr-purple-500: #8b5cf6;
+            --kr-gray-400: #9ca3af;
+            --kr-gray-500: #6b7280;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--kr-dark-900);
+            color: white;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            transition: all 0.5s;
+            background: transparent;
+        }
+        
+        header.scrolled {
+            background: rgba(10, 14, 23, 0.95);
+            backdrop-filter: blur(20px);
+        }
+        
+        nav {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+        
+        @media (min-width: 1024px) {
+            nav {
+                height: 80px;
+            }
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--kr-blue-500), var(--kr-cyan-400));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        @media (min-width: 1024px) {
+            .logo-icon {
+                width: 40px;
+                height: 40px;
+            }
+        }
+        
+        .logo-icon svg {
+            width: 20px;
+            height: 20px;
+            color: white;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-text span:first-child {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: white;
+            line-height: 1.2;
+        }
+        
+        @media (min-width: 1024px) {
+            .logo-text span:first-child {
+                font-size: 1.25rem;
+            }
+        }
+        
+        .logo-text span:last-child {
+            font-size: 0.75rem;
+            color: var(--kr-cyan-400);
+            line-height: 1.2;
+        }
+        
+        .nav-links {
+            display: none;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        @media (min-width: 1024px) {
+            .nav-links {
+                display: flex;
+            }
+        }
+        
+        .nav-links a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            padding: 0.5rem 0.75rem;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+        
+        .nav-links a:hover {
+            color: white;
+            background: rgba(255,255,255,0.05);
+        }
+        
+        .nav-cta {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--kr-blue-500), var(--kr-cyan-500));
+            color: white;
+            border: none;
+            padding: 0.625rem 1.25rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 0.625rem 1.25rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.3);
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding-top: 80px;
+            background: radial-gradient(ellipse at 50% 0%, rgba(59, 130, 246, 0.15) 0%, transparent 50%);
+        }
+        
+        .hero-bg-grid {
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+        }
+        
+        .hero-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .hero-content {
+            text-align: center;
+        }
+        
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            color: var(--kr-blue-400);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero h1 .gradient-text {
+            background: linear-gradient(135deg, var(--kr-blue-400), var(--kr-cyan-400));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--kr-gray-400);
+            max-width: 640px;
+            margin: 0 auto 2rem;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 3rem;
+        }
+        
+        .hero-image {
+            position: relative;
+            margin: 0 auto;
+            max-width: 1100px;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 16px;
+            box-shadow: 0 25px 80px rgba(0,0,0,0.5), 0 0 60px rgba(59, 130, 246, 0.2);
+        }
+        
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-item .number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--kr-blue-400), var(--kr-cyan-400));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .stat-item .label {
+            font-size: 0.875rem;
+            color: var(--kr-gray-500);
+        }
+        
+        /* Section Styles */
+        section {
+            position: relative;
+            padding: 5rem 1rem;
+        }
+        
+        @media (min-width: 1024px) {
+            section {
+                padding: 8rem 1rem;
+            }
+        }
+        
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+        
+        .section-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            color: var(--kr-blue-400);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+        
+        .section-header {
+            text-align: center;
+            max-width: 768px;
+            margin: 0 auto 4rem;
+        }
+        
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .section-header p {
+            color: var(--kr-gray-400);
+            font-size: 1.125rem;
+        }
+        
+        /* Features Section */
+        .features-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 3rem;
+        }
+        
+        @media (max-width: 1024px) {
+            .features-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .features-sidebar {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+        
+        @media (max-width: 1024px) {
+            .features-sidebar {
+                display: none;
+            }
+        }
+        
+        .feature-nav-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            color: var(--kr-gray-400);
+            cursor: pointer;
+            transition: all 0.2s;
+            margin-bottom: 0.25rem;
+        }
+        
+        .feature-nav-item:hover,
+        .feature-nav-item.active {
+            background: rgba(59, 130, 246, 0.1);
+            color: white;
+        }
+        
+        .feature-nav-item svg {
+            width: 20px;
+            height: 20px;
+        }
+        
+        .feature-showcase {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(139, 92, 246, 0.05));
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            border-radius: 24px;
+            padding: 2rem;
+        }
+        
+        .feature-showcase img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .feature-info {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .feature-info-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--kr-blue-500), var(--kr-cyan-500));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .feature-info h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .feature-info p {
+            color: var(--kr-gray-400);
+            font-size: 0.875rem;
+        }
+        
+        /* AI Intelligence Section */
+        .ai-section {
+            background: radial-gradient(ellipse at 100% 0%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+        }
+        
+        .ai-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+        }
+        
+        .ai-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        @media (max-width: 968px) {
+            .ai-item {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+        
+        .ai-item.reverse {
+            direction: rtl;
+        }
+        
+        .ai-item.reverse > * {
+            direction: ltr;
+        }
+        
+        .ai-item-content .tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--kr-cyan-400);
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .ai-item-content h3 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .ai-item-content > p {
+            color: var(--kr-gray-400);
+            margin-bottom: 1.5rem;
+        }
+        
+        .ai-item-image img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+        
+        .feature-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            color: var(--kr-gray-400);
+            font-size: 0.875rem;
+        }
+        
+        .feature-list li::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--kr-cyan-400);
+            border-radius: 50%;
+        }
+        
+        /* Automation Section */
+        .automation-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        
+        @media (max-width: 968px) {
+            .automation-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .automation-card {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(139, 92, 246, 0.05));
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            border-radius: 24px;
+            padding: 2rem;
+        }
+        
+        .automation-card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .automation-card-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--kr-blue-500), var(--kr-purple-500));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .automation-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        
+        .automation-card > p {
+            color: var(--kr-gray-400);
+            margin-bottom: 1.5rem;
+        }
+        
+        .automation-card img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+        
+        .key-capabilities {
+            margin-top: 1.5rem;
+        }
+        
+        .key-capabilities h4 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--kr-gray-500);
+            margin-bottom: 0.75rem;
+        }
+        
+        .automation-cta {
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        /* Communication Section */
+        .comm-section {
+            background: radial-gradient(ellipse at 0% 100%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+        }
+        
+        .inbox-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 3rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+        
+        @media (max-width: 968px) {
+            .inbox-showcase {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .inbox-features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .inbox-feature-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 1rem;
+        }
+        
+        .inbox-feature-card h4 {
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        
+        .inbox-feature-card p {
+            font-size: 0.75rem;
+            color: var(--kr-gray-500);
+        }
+        
+        .contacts-showcase {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), rgba(139, 92, 246, 0.05));
+            border: 1px solid rgba(59, 130, 246, 0.1);
+            border-radius: 24px;
+            padding: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .contacts-showcase img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+        
+        /* Knowledge Section */
+        .knowledge-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        @media (max-width: 968px) {
+            .knowledge-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .knowledge-content h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 1rem 0;
+        }
+        
+        .knowledge-content > p {
+            color: var(--kr-gray-400);
+            margin-bottom: 2rem;
+        }
+        
+        .knowledge-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .knowledge-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 1rem;
+        }
+        
+        .knowledge-card h4 {
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .knowledge-card p {
+            font-size: 0.75rem;
+            color: var(--kr-gray-500);
+        }
+        
+        .knowledge-image img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+        }
+        
+        .storage-bar {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 1rem;
+        }
+        
+        .storage-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+        
+        .storage-header span {
+            font-size: 0.875rem;
+            color: var(--kr-gray-400);
+        }
+        
+        .storage-header strong {
+            color: white;
+        }
+        
+        .progress-bg {
+            height: 8px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            width: 45%;
+            background: linear-gradient(90deg, var(--kr-blue-500), var(--kr-cyan-400));
+            border-radius: 4px;
+        }
+        
+        .storage-info {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.5rem;
+            font-size: 0.75rem;
+            color: var(--kr-gray-500);
+        }
+        
+        /* Roadmap Section */
+        .roadmap-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+        
+        @media (max-width: 1024px) {
+            .roadmap-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .roadmap-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .roadmap-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        
+        .roadmap-card:hover {
+            border-color: rgba(59, 130, 246, 0.3);
+            transform: translateY(-4px);
+        }
+        
+        .roadmap-card .quarter {
+            display: inline-block;
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--kr-blue-400);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .roadmap-card h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .roadmap-card p {
+            font-size: 0.875rem;
+            color: var(--kr-gray-500);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background: radial-gradient(ellipse at 50% 50%, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
+        }
+        
+        .cta-box {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: 32px;
+            padding: 4rem 2rem;
+        }
+        
+        .cta-box h2 {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-box > p {
+            color: var(--kr-gray-400);
+            margin-bottom: 2rem;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        /* Footer */
+        footer {
+            border-top: 1px solid rgba(255,255,255,0.05);
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+        
+        footer p {
+            color: var(--kr-gray-500);
+            font-size: 0.875rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header id="navbar">
+        <nav>
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/>
+                        <path d="M20 2v4"/>
+                        <path d="M22 4h-4"/>
+                        <circle cx="4" cy="20" r="2"/>
+                    </svg>
+                </div>
+                <div class="logo-text">
+                    <span>KeyReply</span>
+                    <span>Kira</span>
+                </div>
+            </a>
+            
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#ai-intelligence">AI Intelligence</a>
+                <a href="#automation">Automation</a>
+                <a href="#communication">Communication</a>
+                <a href="#knowledge">Knowledge</a>
+            </div>
+            
+            <div class="nav-cta">
+                <a href="#" class="btn-secondary">Demo</a>
+                <a href="#" class="btn-primary">Get Started</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg-grid"></div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                    </svg>
+                    AI-Powered Engagement Platform
+                </div>
+                <h1>
+                    <span class="gradient-text">KeyReply Kira</span><br>
+                    Next-Generation Customer Engagement
+                </h1>
+                <p>Build smarter and more efficient customer communication systems with AI intelligent agents, automated workflows, and unified communication centers.</p>
+                
+                <div class="hero-buttons">
+                    <a href="#features" class="btn-primary">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polygon points="10 8 16 12 10 16 10 8"></polygon>
+                        </svg>
+                        Watch Demo
+                    </a>
+                    <a href="#" class="btn-secondary">Experience Live: +1 510 HEY KIRA</a>
+                </div>
+                
+                <div class="hero-image">
+                    <img src="images/new_dashboard.png" alt="Analytics Dashboard">
+                </div>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="number">8.5M+</div>
+                        <div class="label">Conversations Handled</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="number">94%</div>
+                        <div class="label">Customer Satisfaction</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="number">80%</div>
+                        <div class="label">Response Time Reduced</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Platform Features</span>
+                <h2>Complete Feature Ecosystem</h2>
+                <p>Explore the comprehensive suite of tools designed to transform your customer engagement strategy</p>
+            </div>
+            
+            <div class="features-layout">
+                <div class="features-sidebar">
+                    <div class="feature-nav-item active">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+                        Dashboard
+                    </div>
+                    <div class="feature-nav-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+                        Agent Builder
+                    </div>
+                    <div class="feature-nav-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                        Campaigns
+                    </div>
+                    <div class="feature-nav-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/></svg>
+                        Workflows
+                    </div>
+                    <div class="feature-nav-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        Inbox
+                    </div>
+                    <div class="feature-nav-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        Contacts
+                    </div>
+                    <div class="feature-nav-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                        Knowledge Base
+                    </div>
+                </div>
+                
+                <div class="feature-showcase">
+                    <img src="images/new_dashboard.png" alt="Analytics Dashboard">
+                    <div class="feature-info">
+                        <div class="feature-info-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: white;">
+                                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                                <line x1="3" y1="9" x2="21" y2="9"/>
+                                <line x1="9" y1="21" x2="9" y2="9"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3>Analytics Dashboard</h3>
+                            <p>Real-time monitoring of key business metrics and historical trend analysis. Features intuitive visual design with key metric cards, time range switching, and trend charts.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Intelligence Section - Agent Builder -->
+    <section id="ai-intelligence" class="ai-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">AI Intelligence Module</span>
+                <h2>Powered by Advanced AI</h2>
+                <p>Leverage cutting-edge artificial intelligence to understand, engage, and serve your customers better</p>
+            </div>
+            
+            <div class="ai-grid">
+                <!-- Agent Builder -->
+                <div class="ai-item">
+                    <div class="ai-item-content">
+                        <div class="tag">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                            Create Intelligent AI Agents
+                        </div>
+                        <h3>Agent Builder</h3>
+                        <p>Build custom AI agents with unique personalities, skills, and behavior patterns. Create specialized agents for customer support, sales, healthcare, and more.</p>
+                        <ul class="feature-list">
+                            <li>Custom personality configuration</li>
+                            <li>Multiple base model support</li>
+                            <li>Skill and tool integration</li>
+                            <li>Real-time agent testing</li>
+                        </ul>
+                    </div>
+                    <div class="ai-item-image">
+                        <img src="images/new_agent_editor.png" alt="Agent Builder">
+                    </div>
+                </div>
+                
+                <!-- Neural Observatory -->
+                <div class="ai-item reverse" style="margin-top: 4rem;">
+                    <div class="ai-item-content">
+                        <div class="tag">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+                            Neural Systems
+                        </div>
+                        <h3>Advanced AI Visualization</h3>
+                        <p>Experience real-time AI state monitoring with the Neural Observatory. Visualize agent thinking patterns, processing states, and decision flows in an immersive interface.</p>
+                        <ul class="feature-list">
+                            <li>Real-time state monitoring (Standby, Processing, Transmit)</li>
+                            <li>Dynamic particle visualization</li>
+                            <li>Interactive 3D perspective</li>
+                            <li>Murmuration pattern analysis</li>
+                        </ul>
+                    </div>
+                    <div class="ai-item-image">
+                        <img src="images/neural_observatory.png" alt="Neural Observatory">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Automation Section -->
+    <section id="automation">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Automation & Marketing</span>
+                <h2>Automate & Scale</h2>
+                <p>Streamline your marketing and business processes with intelligent automation tools</p>
+            </div>
+            
+            <div class="automation-grid">
+                <!-- Campaigns -->
+                <div class="automation-card">
+                    <div class="automation-card-header">
+                        <div class="automation-card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: white;"><path d="M11 5.882V19.24a1.76 1.76 0 0 1-3.417.592l-2.147-6.15M18 13a3 3 0 1 0-5.7-1.5L11 5.882"/></svg>
+                        </div>
+                        <h3>Campaign Management</h3>
+                    </div>
+                    <p>Central hub for outbound marketing campaigns with integrated script optimization. Design multi-channel campaigns, generate AI script variants, launch A/B tests, and manage voice call templates.</p>
+                    <img src="images/new_campaigns.png" alt="Campaign Management">
+                    <div class="key-capabilities">
+                        <h4>Key Capabilities</h4>
+                        <ul class="feature-list">
+                            <li>Multi-channel campaigns (Voice, Email, WhatsApp)</li>
+                            <li>Integrated script optimization with AI variants</li>
+                            <li>A/B testing and experiment setup</li>
+                            <li>Voice call template management</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Workflows -->
+                <div class="automation-card">
+                    <div class="automation-card-header">
+                        <div class="automation-card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: white;"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/></svg>
+                        </div>
+                        <h3>Workflow Automation</h3>
+                    </div>
+                    <p>Visually build automated business processes with complex combinations of triggers, conditions, and actions. Automate your business logic with visual workflows.</p>
+                    <img src="images/workflow_builder.png" alt="Workflow Builder">
+                    <div class="key-capabilities">
+                        <h4>Key Capabilities</h4>
+                        <ul class="feature-list">
+                            <li>Visual workflow builder</li>
+                            <li>Multiple trigger types (Webhook, Timer, Event)</li>
+                            <li>Conditional logic and branching</li>
+                            <li>Action nodes (message, API, data update)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="automation-cta">
+                <a href="#" class="btn-primary">Start Building Workflows Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Communication Section -->
+    <section id="communication" class="comm-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Communication Hub</span>
+                <h2>Unified Communication</h2>
+                <p>Manage all customer conversations across every channel from one powerful platform</p>
+            </div>
+            
+            <!-- Unified Inbox -->
+            <div class="inbox-showcase">
+                <div class="ai-item-content">
+                    <div class="tag">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        Core Workspace
+                    </div>
+                    <h3>Unified Inbox</h3>
+                    <p>The heart of the Kira platform featuring a three-column layout design that integrates conversation list, real-time conversation thread, and customer details into a single view, significantly improving customer service efficiency.</p>
+                    <div class="inbox-features-grid">
+                        <div class="inbox-feature-card">
+                            <h4>Three-Column Layout</h4>
+                            <p>Conversation list, real-time thread, and customer details</p>
+                        </div>
+                        <div class="inbox-feature-card">
+                            <h4>AI-Assisted Replies</h4>
+                            <p>Smart reply suggestions based on conversation context</p>
+                        </div>
+                        <div class="inbox-feature-card">
+                            <h4>Conversation Summary</h4>
+                            <p>Automatically generated key points summary</p>
+                        </div>
+                        <div class="inbox-feature-card">
+                            <h4>Customer Tags</h4>
+                            <p>AI automatically identifies and tags customer characteristics</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="ai-item-image">
+                    <img src="images/new_inbox.png" alt="Unified Inbox">
+                </div>
+            </div>
+            
+            <!-- Contacts with DISC -->
+            <div class="contacts-showcase">
+                <div class="ai-item-content" style="margin-bottom: 1.5rem;">
+                    <div class="tag">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        AI-Native Hub
+                    </div>
+                    <h3>Contact Management with DISC Analysis</h3>
+                    <p>The AI-native contact intelligence hub that helps you know your customer before you call. Features DISC personality profiling and behavioral insights to guide agent tone for maximum conversion.</p>
+                </div>
+                <img src="images/new_contacts.png" alt="Contact Management with DISC Profiles">
+            </div>
+            
+            <!-- Contact Detail with DISC -->
+            <div class="contacts-showcase" style="margin-top: 2rem;">
+                <div class="ai-item-content" style="margin-bottom: 1.5rem;">
+                    <div class="tag">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+                        DISC Personality Profiling
+                    </div>
+                    <h3>Deep Customer Insights</h3>
+                    <p>Know your customer before you call. The contact detail view provides comprehensive DISC personality analysis with behavioral tags like "High Dominance", "Quick Decision Maker", and "Result-oriented" to guide agent tone for maximum conversion.</p>
+                </div>
+                <img src="images/contacts_detail_new.png" alt="Contact Detail with DISC Analysis">
+            </div>
+        </div>
+    </section>
+
+    <!-- Knowledge Section -->
+    <section id="knowledge">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Knowledge Management</span>
+                <h2>Centralized Knowledge Base</h2>
+                <p>Power your AI agents with comprehensive knowledge management and RAG capabilities</p>
+            </div>
+            
+            <div class="knowledge-layout">
+                <div class="knowledge-content">
+                    <div class="tag" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--kr-cyan-400); font-size: 0.875rem; font-weight: 600; margin-bottom: 0.5rem;">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/></svg>
+                        Tenant-Aware Center
+                    </div>
+                    <h3>Knowledge Base</h3>
+                    <p>The tenant-aware knowledge center of the Kira platform, used for centralized management of all documents supporting AI Retrieval-Augmented Generation (RAG). The system automatically indexes uploaded documents, making them retrievable and referenceable by AI agents.</p>
+                    
+                    <div class="knowledge-grid">
+                        <div class="knowledge-card">
+                            <h4>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--kr-cyan-400);"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                                Document Upload
+                            </h4>
+                            <p>Upload PDF, Word, Markdown files for AI training</p>
+                        </div>
+                        <div class="knowledge-card">
+                            <h4>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--kr-cyan-400);"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                                External Integrations
+                            </h4>
+                            <p>Connect Zendesk, Notion, Confluence</p>
+                        </div>
+                        <div class="knowledge-card">
+                            <h4>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--kr-cyan-400);"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+                                AI RAG Support
+                            </h4>
+                            <p>Automatic indexing and retrieval</p>
+                        </div>
+                        <div class="knowledge-card">
+                            <h4>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--kr-cyan-400);"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                                Internal Articles
+                            </h4>
+                            <p>Create self-service knowledge documents</p>
+                        </div>
+                    </div>
+                    
+                    <div class="storage-bar">
+                        <div class="storage-header">
+                            <span>Storage Usage</span>
+                            <strong>45% used</strong>
+                        </div>
+                        <div class="progress-bg">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <div class="storage-info">
+                            <span>12 Documents</span>
+                            <span>8 Articles</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="knowledge-image">
+                    <img src="images/new_knowledge.png" alt="Knowledge Base">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section id="roadmap">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Future Roadmap</span>
+                <h2>What's Coming Next</h2>
+                <p>We are committed to providing customers with the most advanced AI customer engagement solutions through continuous innovation</p>
+            </div>
+            
+            <div class="roadmap-grid">
+                <div class="roadmap-card">
+                    <span class="quarter">Q2 2026</span>
+                    <h4>Voice Integration</h4>
+                    <p>Support for voice calls and IVR functionality</p>
+                </div>
+                <div class="roadmap-card">
+                    <span class="quarter">Q3 2026</span>
+                    <h4>Advanced Analytics</h4>
+                    <p>Predictive analytics and custom report builder</p>
+                </div>
+                <div class="roadmap-card">
+                    <span class="quarter">Q4 2026</span>
+                    <h4>API Gateway</h4>
+                    <p>Public API for third-party integrations</p>
+                </div>
+                <div class="roadmap-card">
+                    <span class="quarter">Q1 2027</span>
+                    <h4>Mobile App</h4>
+                    <p>Native iOS and Android applications</p>
+                </div>
+                <div class="roadmap-card">
+                    <span class="quarter">Q2 2027</span>
+                    <h4>CRM Integration</h4>
+                    <p>Native integrations with Salesforce, HubSpot</p>
+                </div>
+                <div class="roadmap-card">
+                    <span class="quarter">Q3 2027</span>
+                    <h4>Multi-language AI</h4>
+                    <p>Support for 50+ languages in AI responses</p>
+                </div>
+                <div class="roadmap-card">
+                    <span class="quarter">Q4 2027</span>
+                    <h4>Video Chat</h4>
+                    <p>In-app video calling capabilities</p>
+                </div>
+                <div class="roadmap-card">
+                    <span class="quarter">2028</span>
+                    <h4>Advanced Workflow</h4>
+                    <p>Conditional logic and custom triggers</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: rgba(255,255,255,0.03); border-radius: 16px;">
+                <p style="color: var(--kr-gray-400); margin-bottom: 1rem;">Have feature suggestions or feedback?</p>
+                <a href="#" class="btn-primary">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-box">
+                <span class="section-tag" style="margin-bottom: 1.5rem;">Start Your AI Journey Today</span>
+                <h2>Ready to Transform Your Customer Engagement?</h2>
+                <p>Join leading organizations worldwide using KeyReply Kira to deliver exceptional customer experiences with AI-powered engagement.</p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn-primary">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+                        Get Started
+                    </a>
+                    <a href="#" class="btn-secondary">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+                        Try Demo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Trusted by organizations worldwide</p>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Feature sidebar navigation
+        const featureNavItems = document.querySelectorAll('.feature-nav-item');
+        featureNavItems.forEach(item => {
+            item.addEventListener('click', () => {
+                featureNavItems.forEach(i => i.classList.remove('active'));
+                item.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

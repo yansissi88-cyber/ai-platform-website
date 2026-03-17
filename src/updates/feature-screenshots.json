@@ -1,23 +1,41 @@
 {
-  "last_updated": "2026-03-17T08:37:46.001Z",
+  "last_updated": "2026-03-17T09:43:22.632Z",
   "screenshots": [
     {
       "feature": "agent",
-      "release": "v0.15.0",
-      "path": "/github-sync/screenshots/feature_agent_v0.15.0_2026-03-17.png",
-      "filename": "feature_agent_v0.15.0_2026-03-17.png"
+      "release": "v0.16.0",
+      "path": "/github-sync/screenshots/feature_agent_v0.16.0_2026-03-17.png",
+      "filename": "feature_agent_v0.16.0_2026-03-17.png"
     },
     {
       "feature": "mcp",
-      "release": "v0.15.0",
-      "path": "/github-sync/screenshots/feature_mcp_v0.15.0_2026-03-17.png",
-      "filename": "feature_mcp_v0.15.0_2026-03-17.png"
+      "release": "v0.16.0",
+      "path": "/github-sync/screenshots/feature_mcp_v0.16.0_2026-03-17.png",
+      "filename": "feature_mcp_v0.16.0_2026-03-17.png"
+    },
+    {
+      "feature": "voice",
+      "release": "v0.16.0",
+      "path": "/github-sync/screenshots/feature_voice_v0.16.0_2026-03-17.png",
+      "filename": "feature_voice_v0.16.0_2026-03-17.png"
+    },
+    {
+      "feature": "workflow",
+      "release": "v0.16.0",
+      "path": "/github-sync/screenshots/feature_workflow_v0.16.0_2026-03-17.png",
+      "filename": "feature_workflow_v0.16.0_2026-03-17.png"
+    },
+    {
+      "feature": "inbox",
+      "release": "v0.16.0",
+      "path": "/github-sync/screenshots/feature_inbox_v0.16.0_2026-03-17.png",
+      "filename": "feature_inbox_v0.16.0_2026-03-17.png"
     },
     {
       "feature": "setting",
-      "release": "v0.15.0",
-      "path": "/github-sync/screenshots/feature_setting_v0.15.0_2026-03-17.png",
-      "filename": "feature_setting_v0.15.0_2026-03-17.png"
+      "release": "v0.16.0",
+      "path": "/github-sync/screenshots/feature_setting_v0.16.0_2026-03-17.png",
+      "filename": "feature_setting_v0.16.0_2026-03-17.png"
     }
   ]
 }

@@ -1,0 +1,46 @@
+{
+  "id": 297828023,
+  "tag_name": "v0.16.0",
+  "name": "v0.16.0",
+  "body": "## What's New\n\n### Geneco PoC — Live Customer Support Integration\n- **CRM-connected chat widget**: The Geneco customer-facing widget can now look up account balances and raise support cases directly in Dynamics CRM, with no agent involvement required for routine inquiries\n- **Two-agent setup**: A public-facing support agent (chat) and an internal agent (voice) share the same CRM connection but with separate permission scopes — internal agents have full case visibility including listing and retrieving case details\n- **Inbox routing UI**: Supervisors can now configure how incoming conversations are routed to queues and agents through a dedicated settings screen\n- **Agent status picker**: Agents can set their availability status (Online, Busy, Away, Offline) directly from the sidebar\n\n### Kira Assistant — Smarter Placement\n- The floating Kira AI assistant now slides off the right edge of the screen (showing just the logo tab) when the Conversations inbox is open, keeping the compose bar fully accessible\n- The widget is now **draggable** — teams can reposition it anywhere on screen to suit their workflow\n- Once moved manually, the auto-slide behaviour disables so the widget stays where it was placed\n\n### Navigation & Deep Linking\n- All pages in the app now have bookmarkable URLs (e.g. `/settings/inbox-routing`, `/brands/new`, `/brands/:id`)\n- Settings sections update the browser URL as you navigate, so refreshing the page returns you to the same section\n- Every page and settings section is now searchable in the **Command Palette** (⌘K)\n\n### Healthcare / EHR Integration\n- New FHIR R4 facade built on Medplum, with an Epic STU3 compatibility proxy\n- AI agents can now query and act on clinical data via MCP tools\n- CLI commands for managing EHR connections added to the `kira` CLI\n\n### Infrastructure & Performance\n- **Vite 8 + Rolldown**: Build toolchain migrated to Rolldown (Rust-based bundler), replacing the previous esbuild + Rollup dual-pipeline. Build times reduced by ~17%; dev server startup is significantly faster\n- **Oxc compiler**: JavaScript transformation and minification now use Oxc, dropping Babel as a dependency\n- **Lightning CSS**: CSS minification now uses Lightning CSS by default for more consistent output\n- Mobile layout fix: sidebar no longer renders incorrectly as a left column on small screens\n\n## Deployment\n- Cloudflare Pages: https://kira.keyreply.com\n- Preview: https://4a6450e2.keyreply-kira.pages.dev",
+  "published_at": "2026-03-17T08:37:56Z",
+  "html_url": "https://github.com/keyreply/kira-cloudflare/releases/tag/v0.16.0",
+  "features": [
+    {
+      "keyword": "agent",
+      "path": "/agent-builder",
+      "selector": "[data-testid=\"agent-builder\"], .agent-builder, main",
+      "release": "v0.16.0"
+    },
+    {
+      "keyword": "mcp",
+      "path": "/mcp-store",
+      "selector": "[data-testid=\"mcp-store\"], .mcp-store, main",
+      "release": "v0.16.0"
+    },
+    {
+      "keyword": "voice",
+      "path": "/testing",
+      "selector": "[data-testid=\"testing\"], .testing-page, main",
+      "release": "v0.16.0"
+    },
+    {
+      "keyword": "workflow",
+      "path": "/workflows",
+      "selector": "[data-testid=\"workflows\"], .workflows-page, main",
+      "release": "v0.16.0"
+    },
+    {
+      "keyword": "inbox",
+      "path": "/inbox",
+      "selector": "[data-testid=\"inbox\"], .inbox-page, main",
+      "release": "v0.16.0"
+    },
+    {
+      "keyword": "setting",
+      "path": "/settings",
+      "selector": "[data-testid=\"settings\"], .settings-page, main",
+      "release": "v0.16.0"
+    }
+  ]
+}

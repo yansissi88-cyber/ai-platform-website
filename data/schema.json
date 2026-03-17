@@ -1,0 +1,125 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Kira Website Data Schema",
+  "description": "Data schema for Timeline, Roadmap, and User Stories",
+  "definitions": {
+    "TimelineEvent": {
+      "type": "object",
+      "required": ["id", "date", "version", "type", "title"],
+      "properties": {
+        "id": { "type": "string" },
+        "date": { "type": "string", "format": "date-time" },
+        "version": { "type": "string", "pattern": "^v\\d+\\.\\d+\\.\\d+" },
+        "type": { "enum": ["feature", "fix", "improvement", "announcement"] },
+        "category": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "highlights": { 
+          "type": "array", 
+          "items": { "type": "string" } 
+        },
+        "screenshot": { "type": "string" },
+        "releaseUrl": { "type": "string", "format": "uri" },
+        "tags": { 
+          "type": "array", 
+          "items": { "type": "string" } 
+        }
+      }
+    },
+    "RoadmapItem": {
+      "type": "object",
+      "required": ["id", "title", "status", "category"],
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "category": { "type": "string" },
+        "status": { "enum": ["planning", "in_progress", "testing", "ready"] },
+        "priority": { "enum": ["high", "medium", "low"] },
+        "quarter": { "type": "string", "pattern": "^Q[1-4] \\d{4}$" },
+        "progress": { "type": "number", "minimum": 0, "maximum": 100 },
+        "source": {
+          "type": "object",
+          "properties": {
+            "type": { "enum": ["issue", "milestone", "project", "note"] },
+            "url": { "type": "string", "format": "uri" },
+            "number": { "type": "number" }
+          }
+        },
+        "assignees": { 
+          "type": "array", 
+          "items": { "type": "string" } 
+        },
+        "labels": { 
+          "type": "array", 
+          "items": { "type": "string" } 
+        },
+        "dependencies": { 
+          "type": "array", 
+          "items": { "type": "string" } 
+        },
+        "targetDate": { "type": "string", "format": "date" },
+        "userStory": { "type": "string" }
+      }
+    },
+    "UserStory": {
+      "type": "object",
+      "required": ["id", "title", "persona", "scenario"],
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "feature": { "type": "string" },
+        "persona": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "company": { "type": "string" },
+            "painPoints": { 
+              "type": "array", 
+              "items": { "type": "string" } 
+            }
+          }
+        },
+        "scenario": {
+          "type": "object",
+          "properties": {
+            "background": { "type": "string" },
+            "goal": { "type": "string" },
+            "action": { "type": "string" },
+            "result": { "type": "string" }
+          }
+        },
+        "quote": {
+          "type": "object",
+          "properties": {
+            "content": { "type": "string" },
+            "author": { "type": "string" },
+            "role": { "type": "string" }
+          }
+        },
+        "metrics": {
+          "type": "object",
+          "properties": {
+            "before": { "type": "string" },
+            "after": { "type": "string" },
+            "improvement": { "type": "string" }
+          }
+        },
+        "relatedFeatures": { 
+          "type": "array", 
+          "items": { "type": "string" } 
+        },
+        "relatedReleases": { 
+          "type": "array", 
+          "items": { "type": "string" } 
+        },
+        "tags": { 
+          "type": "array", 
+          "items": { "type": "string" } 
+        },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      }
+    }
+  }
+}

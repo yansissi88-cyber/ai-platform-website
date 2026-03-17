@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>产品更新 - KeyReply Kira</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: #f8fafc;
+      color: #1e293b;
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    
+    header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    header p {
+      color: #64748b;
+      font-size: 1.1rem;
+    }
+    
+    .last-updated {
+      display: inline-block;
+      background: #e0f2fe;
+      color: #0369a1;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.875rem;
+      margin-top: 16px;
+    }
+    
+    .section {
+      background: white;
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 32px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    
+    .section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 24px;
+      color: #0f172a;
+    }
+    
+    /* GitHub Releases Section */
+    .releases-list {
+      display: grid;
+      gap: 20px;
+    }
+    
+    .release-card {
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 24px;
+      transition: all 0.2s;
+    }
+    
+    .release-card:hover {
+      border-color: #3b82f6;
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
+    }
+    
+    .release-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    
+    .release-tag {
+      background: #3b82f6;
+      color: white;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.875rem;
+      font-weight: 600;
+    }
+    
+    .release-date {
+      color: #64748b;
+      font-size: 0.875rem;
+    }
+    
+    .release-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    
+    .release-body {
+      color: #475569;
+      line-height: 1.6;
+    }
+    
+    /* Features Grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    
+    .feature-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 24px;
+      transition: all 0.2s;
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    
+    .feature-card.highlight {
+      border-color: #3b82f6;
+      background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%);
+    }
+    
+    .feature-category {
+      display: inline-block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #64748b;
+      margin-bottom: 8px;
+    }
+    
+    .feature-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      color: #0f172a;
+    }
+    
+    .feature-card p {
+      font-size: 0.95rem;
+      color: #64748b;
+    }
+    
+    /* Screenshots Gallery */
+    .screenshots-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    
+    .screenshot-item {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+    
+    .screenshot-item:hover {
+      transform: scale(1.02);
+    }
+    
+    .screenshot-item img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    
+    .screenshot-label {
+      background: #0f172a;
+      color: white;
+      padding: 12px;
+      font-size: 0.875rem;
+      text-align: center;
+    }
+    
+    /* Empty State */
+    .empty-state {
+      text-align: center;
+      padding: 60px 20px;
+      color: #64748b;
+    }
+    
+    .empty-state svg {
+      width: 64px;
+      height: 64px;
+      margin-bottom: 16px;
+      opacity: 0.5;
+    }
+    
+    /* Sync Button */
+    .sync-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+    
+    .btn-primary {
+      background: #3b82f6;
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background: #2563eb;
+    }
+    
+    .btn-secondary {
+      background: white;
+      color: #3b82f6;
+      border: 1px solid #3b82f6;
+    }
+    
+    .btn-secondary:hover {
+      background: #eff6ff;
+    }
+    
+    footer {
+      text-align: center;
+      padding: 40px;
+      color: #64748b;
+      font-size: 0.875rem;
+    }
+    
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .screenshots-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🚀 产品更新中心</h1>
+      <p>跟踪 GitHub Releases 和参考网站最新功能</p>
+      <div class="last-updated" id="lastUpdated">最后更新: 加载中...</div>
+      
+      <div class="sync-actions">
+        <a href="../../github-sync/README.md" class="btn btn-secondary">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+          同步脚本
+        </a>
+      </div>
+    </header>
+
+    <!-- GitHub Releases Section -->
+    <section class="section">
+      <h2>📦 GitHub Releases</h2>
+      <div class="releases-list" id="releasesList">
+        <div class="empty-state">
+          <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+          <p>暂无 Releases 数据</p>
+          <p style="font-size: 0.875rem; margin-top: 8px;">运行 <code>node github-sync/scripts/sync-releases.js</code> 同步</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section">
+      <h2>✨ 参考功能分析 (kira.keyreply.com)</h2>
+      <div class="features-grid" id="featuresGrid">
+        <div class="empty-state">
+          <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
+          <p>加载中...</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screenshots Section -->
+    <section class="section">
+      <h2>📸 界面截图</h2>
+      <div class="screenshots-grid" id="screenshotsGrid">
+        <div class="empty-state">
+          <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"/></svg>
+          <p>加载中...</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer>
+    <p>数据来源: GitHub Releases & <a href="https://kira.keyreply.com/" target="_blank" style="color: #3b82f6;">kira.keyreply.com</a></p>
+    <p style="margin-top: 8px;">自动同步工具位于 <code>github-sync/</code> 目录</p>
+  </footer>
+
+  <script>
+    // 加载功能数据
+    async function loadFeatures() {
+      try {
+        const response = await fetch('kira-features.json');
+        const data = await response.json();
+        
+        // 更新最后更新时间
+        document.getElementById('lastUpdated').textContent = 
+          `最后更新: ${new Date(data.last_updated).toLocaleString('zh-CN')}`;
+        
+        // 渲染功能列表
+        const featuresGrid = document.getElementById('featuresGrid');
+        featuresGrid.innerHTML = data.features.map(feature => `
+          <div class="feature-card ${feature.highlight ? 'highlight' : ''}">
+            <span class="feature-category">${getCategoryName(feature.category, data.categories)}</span>
+            <h3>${feature.name}</h3>
+            <p>${feature.description}</p>
+          </div>
+        `).join('');
+        
+        // 渲染截图
+        const screenshotsGrid = document.getElementById('screenshotsGrid');
+        const screenshotItems = [
+          { key: 'desktop_hero', label: '🖥️ 桌面端首页' },
+          { key: 'mobile_hero', label: '📱 移动端首页' },
+          { key: 'tablet_hero', label: '💻 平板端首页' },
+        ];
+        
+        screenshotsGrid.innerHTML = screenshotItems.map(item => {
+          const path = data.screenshots[item.key];
+          return path ? `
+            <div class="screenshot-item">
+              <img src="../../${path}" alt="${item.label}" loading="lazy">
+              <div class="screenshot-label">${item.label}</div>
+            </div>
+          ` : '';
+        }).join('');
+        
+      } catch (error) {
+        console.error('Error loading features:', error);
+        document.getElementById('featuresGrid').innerHTML = `
+          <div class="empty-state">
+            <p>无法加载功能数据</p>
+            <p style="font-size: 0.875rem;">${error.message}</p>
+          </div>
+        `;
+      }
+    }
+    
+    // 加载 Releases 数据
+    async function loadReleases() {
+      try {
+        const response = await fetch('releases.json');
+        const data = await response.json();
+        
+        if (data.releases && data.releases.length > 0) {
+          const releasesList = document.getElementById('releasesList');
+          releasesList.innerHTML = data.releases.map(release => `
+            <div class="release-card">
+              <div class="release-header">
+                <span class="release-tag">${release.version}</span>
+                <span class="release-date">${new Date(release.date).toLocaleDateString('zh-CN')}</span>
+              </div>
+              <h3 class="release-title">${release.title}</h3>
+              <div class="release-body">${formatMarkdown(release.content)}</div>
+              <a href="${release.url}" target="_blank" style="color: #3b82f6; font-size: 0.875rem;">查看详情 →</a>
+            </div>
+          `).join('');
+        }
+      } catch (error) {
+        console.log('No releases data yet');
+      }
+    }
+    
+    // 辅助函数
+    function getCategoryName(categoryId, categories) {
+      const cat = categories.find(c => c.id === categoryId);
+      return cat ? cat.name : categoryId;
+    }
+    
+    function formatMarkdown(text) {
+      if (!text) return '';
+      return text
+        .replace(/\n/g, '<br>')
+        .replace(/#{1,6}\s?(.+)/g, '<strong>$1</strong>')
+        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\*(.+?)\*/g, '<em>$1</em>')
+        .replace(/- \[x\] /g, '☑️ ')
+        .replace(/- \[ \] /g, '⬜ ')
+        .substring(0, 300) + (text.length > 300 ? '...' : '');
+    }
+    
+    // 初始化
+    loadFeatures();
+    loadReleases();
+  </script>
+</body>
+</html>

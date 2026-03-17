@@ -17,6 +17,7 @@ class Dashboard {
     console.log('🚀 Initializing Dashboard...');
     await this.loadData();
     this.renderStats();
+    this.renderSyncInfo();
     this.renderRecentUpdates();
     this.renderUpcomingFeatures();
     this.updateWelcomeMessage();
@@ -196,6 +197,24 @@ class Dashboard {
       story: '⭐'
     };
     return icons[type] || '📄';
+  }
+
+  renderSyncInfo() {
+    // 获取最新版本信息
+    const latestRelease = this.data.timeline?.events?.[0];
+    const lastUpdated = this.data.timeline?.lastUpdated;
+    
+    const versionEl = document.getElementById('sync-version');
+    const timeEl = document.getElementById('sync-time');
+    
+    if (versionEl && latestRelease) {
+      versionEl.textContent = latestRelease.version;
+    }
+    
+    if (timeEl && lastUpdated) {
+      const syncDate = new Date(lastUpdated);
+      timeEl.textContent = `Last synced: ${this.formatTimeAgo(syncDate)} (${syncDate.toLocaleString()})`;
+    }
   }
 }
 

@@ -455,6 +455,27 @@ function renderItemDetailContent(item) {
     ${renderAssignees(item.assignees)}
     ${renderMilestonesDetailed(item.milestones)}
     
+    <!-- Related Links Section -->
+    <div class="detail-section related-links">
+      <h3>🔗 Related</h3>
+      <div class="related-grid">
+        <a href="timeline.html" class="related-card">
+          <span class="related-icon">📅</span>
+          <div class="related-info">
+            <span class="related-title">Release Timeline</span>
+            <span class="related-desc">View shipped features</span>
+          </div>
+        </a>
+        <a href="user-stories.html" class="related-card">
+          <span class="related-icon">⭐</span>
+          <div class="related-info">
+            <span class="related-title">Customer Stories</span>
+            <span class="related-desc">See customer impact</span>
+          </div>
+        </a>
+      </div>
+    </div>
+    
     <div class="detail-footer">
       ${item.source?.url ? `
         <a href="${item.source.url}" target="_blank" class="btn-primary">

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>用户故事 - KeyReply Kira</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/user-stories.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">◆</div>
+        <div class="logo-text">KeyReply <span>Kira</span></div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#features">功能特性</a></li>
+        <li><a href="timeline.html">产品时间轴</a></li>
+        <li><a href="roadmap.html">路线图</a></li>
+        <li><a href="user-stories.html" class="active">用户故事</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="https://kira.keyreply.com">登录</a>
+        <a href="#contact" class="btn btn-primary">开始使用</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="stories-page">
+    <div class="container">
+      <!-- Header -->
+      <header class="page-header">
+        <div class="header-content">
+          <h1>用户故事</h1>
+          <p class="subtitle">从客户视角看 Kira 如何创造业务价值，解决真实世界的挑战</p>
+          <div class="last-updated" id="lastUpdated">更新于: 加载中...</div>
+        </div>
+      </header>
+
+      <!-- Stats -->
+      <div class="stats-row">
+        <div class="stat-card">
+          <div class="stat-number" id="totalStories">0</div>
+          <div class="stat-label">用户故事</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" id="totalIndustries">0</div>
+          <div class="stat-label">覆盖行业</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" id="avgImprovement">0%</div>
+          <div class="stat-label">平均效率提升</div>
+        </div>
+      </div>
+
+      <!-- Filters -->
+      <div class="filters">
+        <div class="filter-group">
+          <label>角色</label>
+          <select id="personaFilter">
+            <option value="all">全部角色</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>行业</label>
+          <select id="industryFilter">
+            <option value="all">全部行业</option>
+          </select>
+        </div>
+        <div class="filter-group">
+          <label>功能</label>
+          <select id="featureFilter">
+            <option value="all">全部功能</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Stories Grid -->
+      <div class="stories-grid" id="storiesGrid">
+        <div class="loading">加载中...</div>
+      </div>
+
+      <!-- Empty State -->
+      <div class="empty-state" id="emptyState" style="display: none;">
+        <div class="empty-icon">🔍</div>
+        <h3>没有找到匹配的故事</h3>
+        <p>请尝试调整筛选条件</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Story Detail Modal -->
+  <div class="modal" id="storyModal">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+      <button class="modal-close">&times;</button>
+      <div class="modal-body" id="modalBody">
+        <!-- Modal content will be rendered here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="logo">
+            <div class="logo-icon">◆</div>
+            <div class="logo-text">KeyReply <span>Kira</span></div>
+          </div>
+          <p>AI-Powered Customer Engagement Platform</p>
+        </div>
+        <div class="footer-links">
+          <a href="index.html">首页</a>
+          <a href="timeline.html">产品时间轴</a>
+          <a href="roadmap.html">路线图</a>
+          <a href="user-stories.html">用户故事</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 KeyReply. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/user-stories.js"></script>
+</body>
+</html>

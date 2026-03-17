@@ -1,0 +1,206 @@
+{
+  "lastUpdated": "2026-03-16T22:00:00Z",
+  "currentQuarter": "Q1 2026",
+  "categories": ["Voice", "Campaign", "Agent", "Livechat", "Platform", "Analytics"],
+  "items": [
+    {
+      "id": "roadmap-001",
+      "title": "AI-Native Livechat v2 - 知识库集成",
+      "description": "将知识库与 Livechat 深度集成，支持 RAG 检索和智能推荐",
+      "category": "Livechat",
+      "status": "in_progress",
+      "priority": "high",
+      "quarter": "Q2 2026",
+      "progress": 75,
+      "source": {
+        "type": "issue",
+        "url": "https://github.com/keyreply/kira-cloudflare/issues/2341",
+        "number": 2341
+      },
+      "assignees": ["team-livechat"],
+      "labels": ["roadmap", "feature-request", "priority/high", "quarter/Q2-2026"],
+      "dependencies": ["roadmap-003"],
+      "targetDate": "2026-04-15",
+      "userStory": "story-001"
+    },
+    {
+      "id": "roadmap-002",
+      "title": "Multi-language TTS 支持",
+      "description": "支持中文、日语、西班牙语等 12 种语言的语音合成",
+      "category": "Voice",
+      "status": "in_progress",
+      "priority": "high",
+      "quarter": "Q2 2026",
+      "progress": 45,
+      "source": {
+        "type": "issue",
+        "url": "https://github.com/keyreply/kira-cloudflare/issues/2156",
+        "number": 2156
+      },
+      "assignees": ["team-voice"],
+      "labels": ["roadmap", "feature-request", "priority/high", "quarter/Q2-2026"],
+      "dependencies": [],
+      "targetDate": "2026-05-30",
+      "userStory": "story-002"
+    },
+    {
+      "id": "roadmap-003",
+      "title": "知识库向量搜索优化",
+      "description": "提升向量搜索准确率和速度，支持混合搜索策略",
+      "category": "Platform",
+      "status": "testing",
+      "priority": "high",
+      "quarter": "Q1 2026",
+      "progress": 90,
+      "source": {
+        "type": "milestone",
+        "url": "https://github.com/keyreply/kira-cloudflare/milestone/15",
+        "number": 15
+      },
+      "assignees": ["team-platform"],
+      "labels": ["roadmap", "improvement", "priority/high", "quarter/Q1-2026"],
+      "dependencies": [],
+      "targetDate": "2026-03-30",
+      "userStory": null
+    },
+    {
+      "id": "roadmap-004",
+      "title": "Advanced Analytics Dashboard",
+      "description": "实时通话分析、转化率追踪、ROI 计算面板",
+      "category": "Analytics",
+      "status": "planning",
+      "priority": "high",
+      "quarter": "Q2 2026",
+      "progress": 15,
+      "source": {
+        "type": "issue",
+        "url": "https://github.com/keyreply/kira-cloudflare/issues/2301",
+        "number": 2301
+      },
+      "assignees": ["team-analytics"],
+      "labels": ["roadmap", "feature-request", "priority/high", "quarter/Q2-2026"],
+      "dependencies": ["roadmap-007"],
+      "targetDate": "2026-06-15",
+      "userStory": "story-003"
+    },
+    {
+      "id": "roadmap-005",
+      "title": "Voice Call Recording GA",
+      "description": "通话录音存储、转录、合规存档功能正式发布",
+      "category": "Voice",
+      "status": "ready",
+      "priority": "high",
+      "quarter": "Q1 2026",
+      "progress": 95,
+      "source": {
+        "type": "issue",
+        "url": "https://github.com/keyreply/kira-cloudflare/issues/1987",
+        "number": 1987
+      },
+      "assignees": ["team-voice"],
+      "labels": ["roadmap", "feature-request", "priority/high", "quarter/Q1-2026"],
+      "dependencies": [],
+      "targetDate": "2026-03-20",
+      "userStory": null
+    },
+    {
+      "id": "roadmap-006",
+      "title": "Campaign A/B 测试增强",
+      "description": "更完善的 Campaign A/B 测试，支持多变量测试和统计显著性分析",
+      "category": "Campaign",
+      "status": "in_progress",
+      "priority": "medium",
+      "quarter": "Q2 2026",
+      "progress": 40,
+      "source": {
+        "type": "issue",
+        "url": "https://github.com/keyreply/kira-cloudflare/issues/2203",
+        "number": 2203
+      },
+      "assignees": ["team-campaign"],
+      "labels": ["roadmap", "enhancement", "priority/medium", "quarter/Q2-2026"],
+      "dependencies": [],
+      "targetDate": "2026-05-15",
+      "userStory": "story-004"
+    },
+    {
+      "id": "roadmap-007",
+      "title": "数据仓库集成",
+      "description": "支持将 Kira 数据同步到外部数据仓库 (Snowflake, BigQuery)",
+      "category": "Platform",
+      "status": "in_progress",
+      "priority": "medium",
+      "quarter": "Q2 2026",
+      "progress": 35,
+      "source": {
+        "type": "issue",
+        "url": "https://github.com/keyreply/kira-cloudflare/issues/2189",
+        "number": 2189
+      },
+      "assignees": ["team-platform"],
+      "labels": ["roadmap", "integration", "priority/medium", "quarter/Q2-2026"],
+      "dependencies": [],
+      "targetDate": "2026-04-30",
+      "userStory": null
+    },
+    {
+      "id": "roadmap-008",
+      "title": "Agent Marketplace",
+      "description": "预构建 Agent 模板市场，用户可以一键部署行业特定 Agent",
+      "category": "Agent",
+      "status": "planning",
+      "priority": "medium",
+      "quarter": "Q3 2026",
+      "progress": 5,
+      "source": {
+        "type": "project",
+        "url": "https://github.com/keyreply/kira-cloudflare/projects/8"
+      },
+      "assignees": ["team-agent"],
+      "labels": ["roadmap", "feature-request", "priority/medium", "quarter/Q3-2026"],
+      "dependencies": [],
+      "targetDate": "2026-08-15",
+      "userStory": "story-005"
+    },
+    {
+      "id": "roadmap-009",
+      "title": "SSO / SAML 支持",
+      "description": "企业级单点登录支持，兼容主流 IdP (Okta, Azure AD, WorkOS)",
+      "category": "Platform",
+      "status": "testing",
+      "priority": "high",
+      "quarter": "Q1 2026",
+      "progress": 85,
+      "source": {
+        "type": "issue",
+        "url": "https://github.com/keyreply/kira-cloudflare/issues/1890",
+        "number": 1890
+      },
+      "assignees": ["team-security"],
+      "labels": ["roadmap", "enterprise", "priority/high", "quarter/Q1-2026"],
+      "dependencies": [],
+      "targetDate": "2026-03-25",
+      "userStory": null
+    },
+    {
+      "id": "roadmap-010",
+      "title": "WhatsApp Business API 集成",
+      "description": "原生 WhatsApp Business API 集成，支持模板消息和交互式消息",
+      "category": "Platform",
+      "status": "in_progress",
+      "priority": "medium",
+      "quarter": "Q1 2026",
+      "progress": 60,
+      "source": {
+        "type": "issue",
+        "url": "https://github.com/keyreply/kira-cloudflare/issues/2056",
+        "number": 2056
+      },
+      "assignees": ["team-channels"],
+      "labels": ["roadmap", "channel", "priority/medium", "quarter/Q1-2026"],
+      "dependencies": [],
+      "targetDate": "2026-03-31",
+      "userStory": "story-006"
+    }
+  ]
+}

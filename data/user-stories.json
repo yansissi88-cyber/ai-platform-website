@@ -1,221 +1,221 @@
 {
-  "lastUpdated": "2026-03-16T22:00:00Z",
-  "personas": ["客服经理", "销售总监", "运营主管", "IT管理员", "产品经理"],
-  "industries": ["电商", "金融", "医疗", "教育", "SaaS", "零售"],
+  "lastUpdated": "2026-03-17T10:00:00Z",
+  "personas": ["Support Manager", "Sales Director", "Operations Lead", "IT Administrator", "Product Manager"],
+  "industries": ["E-commerce", "Finance", "Healthcare", "Education", "SaaS", "Retail"],
   "stories": [
     {
       "id": "story-001",
-      "title": "电商大促期间的客服压力释放",
+      "title": "Scaling Customer Support During Peak Sales",
       "feature": "AI-Native Livechat",
       "persona": {
-        "name": "客服经理",
-        "company": "电商平台",
+        "name": "Support Manager",
+        "company": "E-commerce Platform",
         "painPoints": [
-          "大促期间咨询量激增 300%",
-          "人工客服应接不暇",
-          "客户满意度下降至 75%",
-          "客服团队加班严重，离职率高"
+          "Support volume spiked 300% during sales events",
+          "Agent overtime costs were unsustainable",
+          "Customer satisfaction dropped to 75%",
+          "High agent turnover due to stress"
         ]
       },
       "scenario": {
-        "background": "张经理负责某月活 500 万的电商平台客服团队。双 11 期间，咨询量从日均 2000 激增至 8000+。",
-        "goal": "在不增加人手的情况下，保持客户满意度，减少客服团队压力",
-        "action": "部署 Kira AI-Native Livechat，配置 AI seats 处理常见问题，复杂问题智能转人工",
-        "result": "AI 自动处理 60% 常见问题，复杂问题附带完整上下文转接，响应时间从 5 分钟缩短至 30 秒"
+        "background": "Sarah manages support for a platform with 5M monthly active users. During Black Friday, ticket volume surged from 2,000 to 8,000+ daily.",
+        "goal": "Maintain response times and CSAT without hiring 50 temporary agents",
+        "action": "Deployed Kira AI-Native Livechat with AI seats handling common inquiries, smart routing for complex issues",
+        "result": "AI resolved 60% of inquiries automatically. Complex tickets included full context for agents. Response time improved from 5 min to 30 seconds."
       },
       "quote": {
-        "content": "Kira 让我们的客服团队效率翻倍，大促期间客户满意度反而回升到 92%，团队压力小了很多",
-        "author": "张经理",
-        "role": "某知名电商平台客服负责人"
+        "content": "Kira transformed our peak season operations. We handled 3x volume without adding headcount, and our team actually had better work-life balance.",
+        "author": "Sarah Chen",
+        "role": "VP Customer Experience, ShopMax"
       },
       "metrics": {
-        "before": "响应时间 5 分钟，满意度 75%",
-        "after": "响应时间 30 秒，满意度 92%",
-        "improvement": "响应时间 ↓90%，满意度 ↑17%"
+        "before": "5min response, 75% CSAT, $80k overtime",
+        "after": "30sec response, 92% CSAT, $0 overtime",
+        "improvement": "Response time ↓90%, CSAT ↑17%, Cost savings $80k/month"
       },
       "relatedFeatures": ["AI-Native Livechat", "Smart Routing", "Knowledge Base"],
       "relatedReleases": ["v0.12.0"],
-      "tags": ["电商", "客服", "AI", "效率"],
+      "tags": ["E-commerce", "Support", "AI", "Efficiency"],
       "createdAt": "2026-03-10T10:00:00Z",
       "updatedAt": "2026-03-10T10:00:00Z"
     },
     {
       "id": "story-002",
-      "title": "跨国企业的多语言客服统一",
-      "feature": "Multi-language TTS",
+      "title": "Global Sales with Local Language Support",
+      "feature": "Multi-language Voice AI",
       "persona": {
-        "name": "运营主管",
-        "company": "跨国 SaaS 企业",
+        "name": "Sales Director",
+        "company": "Global SaaS Company",
         "painPoints": [
-          "客户分布在 8 个国家，语言不通",
-          "需要维护 5 个独立的客服团队",
-          "成本高昂，协调困难",
-          "无法提供 24/7 服务"
+          "Customers in 8 countries, language barriers",
+          "Maintaining 5 regional sales teams was expensive",
+          "Could not provide 24/7 coverage globally",
+          "Inconsistent messaging across regions"
         ]
       },
       "scenario": {
-        "background": "李主管所在 SaaS 公司服务全球客户，客服团队分散在不同国家，协调成本高。",
-        "goal": "建立一个统一的客服中心，支持多语言，提供全天候服务",
-        "action": "使用 Kira Voice Agent + Multi-language TTS，一个团队管理全球客户",
-        "result": "用一个团队替代了 5 个地区团队，支持 12 种语言，实现真正的 24/7 服务"
+        "background": "Michael's SaaS company serves enterprise clients across APAC, Europe, and Americas. Each region needed native language support for sales calls.",
+        "goal": "Centralize sales operations while maintaining local language capabilities",
+        "action": "Deployed Kira Voice AI with multi-language TTS and native-speaking agent personas",
+        "result": "One team now handles global sales in 12 languages. Japanese clients specifically praised the natural-sounding voice quality."
       },
       "quote": {
-        "content": "现在我们的日本客户听到流利的日语服务时都很惊讶，以为我们有本地团队。实际上全靠 Kira 的多语言能力。",
-        "author": "李主管",
-        "role": "某 SaaS 企业客户运营负责人"
+        "content": "Our Japanese enterprise clients were amazed—they thought we had a dedicated Tokyo sales team. The voice quality is indistinguishable from native speakers.",
+        "author": "Michael Roberts",
+        "role": "VP Sales, CloudFlow Inc"
       },
       "metrics": {
-        "before": "5 个地区团队，覆盖 8 小时",
-        "after": "1 个中央团队，24/7 覆盖",
-        "improvement": "人力成本 ↓60%，覆盖时间 ↑200%"
+        "before": "5 regional teams, 8-hour coverage",
+        "after": "1 centralized team, 24/7 coverage",
+        "improvement": "Headcount cost ↓60%, Coverage ↑200%"
       },
-      "relatedFeatures": ["Voice Agent", "Multi-language TTS", "Campaign"],
+      "relatedFeatures": ["Voice AI", "Multi-language TTS", "Campaign Management"],
       "relatedReleases": ["v0.9.0"],
-      "tags": ["SaaS", "多语言", "Voice", "全球化"],
+      "tags": ["SaaS", "Global", "Voice", "Sales"],
       "createdAt": "2026-02-15T10:00:00Z",
       "updatedAt": "2026-02-15T10:00:00Z"
     },
     {
       "id": "story-003",
-      "title": "金融外呼转化率翻倍",
+      "title": "Doubling Loan Conversion with AI Optimization",
       "feature": "Call Script Optimizer",
       "persona": {
-        "name": "销售总监",
-        "company": "金融科技公司",
+        "name": "Sales Director",
+        "company": "Fintech Lender",
         "painPoints": [
-          "外呼转化率仅 2%，远低于行业平均",
-          "不知道话术问题出在哪",
-          "优秀销售的话术难以复制",
-          "A/B 测试结果需要等几周才能看到"
+          "Outbound conversion rate only 2%, below industry average",
+          "No visibility into which scripts worked best",
+          "Top performers' techniques couldn't be replicated",
+          "A/B test results took weeks to analyze"
         ]
       },
       "scenario": {
-        "background": "王总监负责贷款产品的电话销售团队，200 人团队日均外呼 10000 通，但转化率不理想。",
-        "goal": "提升外呼转化率，找出最优话术，快速复制成功经验",
-        "action": "部署 Kira Call Script Optimizer，使用 Script Genome 和 A/B 测试持续优化话术",
-        "result": "3 个月内转化率从 2% 提升至 4.5%，自动发现 12 个话术改进点"
+        "background": "David's 200-person sales team made 10,000 daily outbound calls for personal loans. Despite high volume, conversion rates lagged competitors.",
+        "goal": "Increase conversion rates and systematize winning scripts",
+        "action": "Implemented Kira Call Script Optimizer with A/B testing and multi-armed bandits for automatic optimization",
+        "result": "Conversion improved from 2% to 4.5% in 90 days. AI identified 12 script improvements automatically."
       },
       "quote": {
-        "content": "Script Optimizer 就像一个永不疲倦的销售教练，每天都在帮我们优化话术。现在新人培训周期从 2 周缩短到 3 天。",
-        "author": "王总监",
-        "role": "某金融科技公司销售总监"
+        "content": "The Script Optimizer is like having a sales coach that never sleeps. New hire onboarding time dropped from 2 weeks to 3 days because the system guides them.",
+        "author": "David Park",
+        "role": "Head of Direct Sales, LendFast"
       },
       "metrics": {
-        "before": "转化率 2%，培训周期 2 周",
-        "after": "转化率 4.5%，培训周期 3 天",
-        "improvement": "转化率 ↑125%，培训时间 ↓85%"
+        "before": "2% conversion, 2 weeks onboarding",
+        "after": "4.5% conversion, 3 days onboarding",
+        "improvement": "Conversion ↑125%, Onboarding ↓85%"
       },
-      "relatedFeatures": ["Call Script Optimizer", "Campaign", "Analytics"],
+      "relatedFeatures": ["Call Script Optimizer", "Campaign Management", "Analytics"],
       "relatedReleases": ["v0.8.0"],
-      "tags": ["金融", "销售", "AI", "转化率"],
+      "tags": ["Finance", "Sales", "AI", "Optimization"],
       "createdAt": "2026-01-20T10:00:00Z",
       "updatedAt": "2026-01-20T10:00:00Z"
     },
     {
       "id": "story-004",
-      "title": "医疗预约提醒自动化",
-      "feature": "Voice Campaign",
+      "title": "Automated Appointment Reminders Reduce No-Shows",
+      "feature": "Voice Campaigns",
       "persona": {
-        "name": "运营主管",
-        "company": "连锁体检中心",
+        "name": "Operations Lead",
+        "company": "Healthcare Clinic Chain",
         "painPoints": [
-          "每天 500+ 预约需要电话提醒",
-          "人工拨打效率低，容易遗漏",
-          "客户取消预约无法及时知晓",
-          "护士工作时间被大量电话占据"
+          "500+ daily appointments needed confirmation calls",
+          "Manual calling consumed 3 hours of nurse time daily",
+          "15% no-show rate costing revenue",
+          "Patients often forgot appointments without reminders"
         ]
       },
       "scenario": {
-        "background": "某连锁体检中心每天有大量预约，人工电话提醒占用护士大量时间，且经常有客户忘记预约。",
-        "goal": "自动化预约提醒流程，减少人工干预，降低爽约率",
-        "action": "使用 Kira Voice Campaign 设置自动预约提醒，支持改期、取消等语音交互",
-        "result": "预约提醒完全自动化，爽约率从 15% 降至 5%，护士可以专注于专业服务"
+        "background": "A chain of 12 clinics struggled with appointment no-shows. Nurses spent valuable time on reminder calls instead of patient care.",
+        "goal": "Automate appointment reminders while maintaining personal touch",
+        "action": "Deployed Kira Voice Campaigns with conversational AI for appointment confirmations, rescheduling, and waitlist filling",
+        "result": "No-shows dropped from 15% to 5%. Nurses reclaimed 3 hours daily for patient care."
       },
       "quote": {
-        "content": "以前护士每天要花 3 小时打电话，现在 Kira 帮我们全自动处理。客户反馈语音提醒很亲切，改期也很方便。",
-        "author": "刘主管",
-        "role": "某体检中心运营主管"
+        "content": "Patients actually prefer the AI reminders—they can reschedule immediately without being put on hold. Our nursing staff can focus on what they do best.",
+        "author": "Jennifer Walsh",
+        "role": "COO, CityCare Clinics"
       },
       "metrics": {
-        "before": "爽约率 15%，护士 3 小时/天",
-        "after": "爽约率 5%，护士 0 小时",
-        "improvement": "爽约率 ↓67%，人力成本 ↓100%"
+        "before": "15% no-show rate, 3 hours nurse time",
+        "after": "5% no-show rate, 0 hours nurse time",
+        "improvement": "No-shows ↓67%, Staff efficiency ↑100%"
       },
-      "relatedFeatures": ["Voice Campaign", "Workflow", "Calendar Integration"],
+      "relatedFeatures": ["Voice Campaigns", "Workflow Automation", "Calendar Integration"],
       "relatedReleases": ["v0.10.0", "v0.6.0"],
-      "tags": ["医疗", "预约", "Voice", "自动化"],
+      "tags": ["Healthcare", "Appointments", "Voice", "Automation"],
       "createdAt": "2026-02-05T10:00:00Z",
       "updatedAt": "2026-02-05T10:00:00Z"
     },
     {
       "id": "story-005",
-      "title": "快速部署行业专属 AI Agent",
+      "title": "Zero-Code AI Agent Deployment for Retail",
       "feature": "Agent Marketplace",
       "persona": {
-        "name": "IT管理员",
-        "company": "零售企业",
+        "name": "IT Administrator",
+        "company": "Retail Chain",
         "painPoints": [
-          "想使用 AI 客服但不知道如何配置",
-          "缺乏行业专业知识",
-          "从头构建 Agent 耗时数周",
-          "担心配置错误影响客户体验"
+          "Wanted AI customer service but lacked ML expertise",
+          "Previous AI projects took 6+ months to deploy",
+          "Concerned about hallucination and brand safety",
+          "Limited budget for custom development"
         ]
       },
       "scenario": {
-        "background": "某零售企业想快速上线 AI 客服，但内部缺乏 AI 和产品配置经验。",
-        "goal": "在 1 周内上线专业的零售行业 AI 客服",
-        "action": "从 Kira Agent Marketplace 选择零售行业模板，一键部署并根据品牌微调",
-        "result": "3 天完成上线，包含退货、查询、推荐等 20+ 个场景，准确率达到 92%"
+        "background": "A mid-size retail chain needed to scale customer support for 50+ stores but had no AI engineering team.",
+        "goal": "Deploy professional AI agents without hiring ML engineers",
+        "action": "Used Kira Agent Marketplace retail template with returns, tracking, and product recommendation skills",
+        "result": "Deployed in 3 days with 20+ pre-built skills. 92% accuracy on first contact."
       },
       "quote": {
-        "content": "Agent Marketplace 让我们这种没有 AI 团队的公司也能快速用上专业的 AI 客服。零售模板开箱即用，稍微改改就能上线。",
-        "author": "陈工",
-        "role": "某零售企业 IT 负责人"
+        "content": "We went from zero to production AI agents in 72 hours. The retail template understood our use cases out of the box—just needed our brand voice added.",
+        "author": "Carlos Mendez",
+        "role": "IT Director, FashionForward Retail"
       },
       "metrics": {
-        "before": "预计开发周期 4-6 周",
-        "after": "实际部署 3 天",
-        "improvement": "上线时间 ↓90%"
+        "before": "Expected 4-6 month development",
+        "after": "Live in 3 days",
+        "improvement": "Time to deploy ↓90%"
       },
       "relatedFeatures": ["Agent Marketplace", "Agent Builder", "Knowledge Base"],
       "relatedReleases": ["v0.9.0"],
-      "tags": ["零售", "Agent", "快速部署", "低代码"],
+      "tags": ["Retail", "Agent", "Fast Deploy", "No-code"],
       "createdAt": "2026-03-01T10:00:00Z",
       "updatedAt": "2026-03-01T10:00:00Z"
     },
     {
       "id": "story-006",
-      "title": "WhatsApp 客户服务统一入口",
+      "title": "Unified WhatsApp Support for Global Customers",
       "feature": "WhatsApp Business API",
       "persona": {
-        "name": "客服经理",
-        "company": "跨境电商",
+        "name": "Support Manager",
+        "company": "Cross-border E-commerce",
         "painPoints": [
-          "客户分散在邮件、电话、WhatsApp 多个渠道",
-          "WhatsApp 消息无法集中管理",
-          "无法发送订单状态等模板消息",
-          "客户历史记录碎片化"
+          "80% of customers preferred WhatsApp",
+          "Support team switching between 4 different tools",
+          "Customer history fragmented across channels",
+          "Could not send order updates via WhatsApp"
         ]
       },
       "scenario": {
-        "background": "某跨境电商 80% 客户来自 WhatsApp，但客服团队需要在多个工具间切换。",
-        "goal": "将 WhatsApp 接入统一客服平台，实现全渠道客户视图",
-        "action": "通过 Kira WhatsApp Business API 集成，统一收件箱管理所有渠道",
-        "result": "客服效率提升 50%，客户满意度提升 20%，首次响应时间缩短 70%"
+        "background": "An e-commerce company selling to Latin America and Southeast Asia found most customers preferred WhatsApp over email.",
+        "goal": "Centralize WhatsApp support with full customer context",
+        "action": "Integrated Kira WhatsApp Business API with unified inbox and order status templates",
+        "result": "Support efficiency improved 50%. Customer satisfaction increased 20%. First response time dropped 70%."
       },
       "quote": {
-        "content": "我们的客户都在 WhatsApp 上，现在终于可以在 Kira 里统一回复了。模板消息功能特别实用，订单状态一键发送。",
-        "author": "赵经理",
-        "role": "某跨境电商客服经理"
+        "content": "Our customers are on WhatsApp all day. Now we meet them where they are. The template messages for order updates are a game-changer.",
+        "author": "Ana Rodriguez",
+        "role": "Head of Customer Care, GlobalShop"
       },
       "metrics": {
-        "before": "多渠道切换，响应时间 10 分钟",
-        "after": "统一收件箱，响应时间 3 分钟",
-        "improvement": "效率 ↑50%，响应时间 ↓70%"
+        "before": "4 tools, 10min response, fragmented history",
+        "after": "1 inbox, 3min response, unified history",
+        "improvement": "Efficiency ↑50%, Response time ↓70%"
       },
       "relatedFeatures": ["WhatsApp Integration", "Unified Inbox", "Omni-channel"],
       "relatedReleases": ["v0.9.0"],
-      "tags": ["跨境电商", "WhatsApp", "全渠道", "效率"],
+      "tags": ["E-commerce", "WhatsApp", "Global", "Efficiency"],
       "createdAt": "2026-02-20T10:00:00Z",
       "updatedAt": "2026-02-20T10:00:00Z"
     }

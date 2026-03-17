@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>产品时间轴 - KeyReply Kira</title>
+  <title>Product Timeline - KeyReply Kira</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -14,18 +14,18 @@
   <nav>
     <div class="nav-container">
       <a href="index.html" class="logo">
-        <div class="logo-icon">◆</div>
+        <div class="logo-icon">🚀</div>
         <div class="logo-text">KeyReply <span>Kira</span></div>
       </a>
       <ul class="nav-links">
-        <li><a href="index.html#features">功能特性</a></li>
-        <li><a href="timeline.html" class="active">产品时间轴</a></li>
-        <li><a href="roadmap.html">路线图</a></li>
-        <li><a href="user-stories.html">用户故事</a></li>
+        <li><a href="index.html#features">Features</a></li>
+        <li><a href="timeline.html" class="active">Timeline</a></li>
+        <li><a href="roadmap.html">Roadmap</a></li>
+        <li><a href="user-stories.html">Stories</a></li>
       </ul>
       <div class="nav-actions">
-        <a href="https://kira.keyreply.com">登录</a>
-        <a href="#contact" class="btn btn-primary">开始使用</a>
+        <a href="https://kira.keyreply.com">Login</a>
+        <a href="index.html#contact" class="btn btn-primary">Talk to Expert</a>
       </div>
     </div>
   </nav>
@@ -36,22 +36,22 @@
       <!-- Header -->
       <header class="page-header">
         <div class="header-content">
-          <h1>产品时间轴</h1>
-          <p class="subtitle">追踪 Kira 的每一个重要里程碑，见证 AI 客服平台的持续进化</p>
-          <div class="last-updated" id="lastUpdated">更新于: 加载中...</div>
+          <h1>Product Timeline</h1>
+          <p class="subtitle">Track Kira's evolution from prototype to production-ready AI platform</p>
+          <div class="last-updated" id="lastUpdated">Loading...</div>
         </div>
         <div class="header-stats">
           <div class="stat-card">
             <div class="stat-number" id="totalReleases">0</div>
-            <div class="stat-label">版本发布</div>
+            <div class="stat-label">Releases</div>
           </div>
           <div class="stat-card">
             <div class="stat-number" id="totalFeatures">0</div>
-            <div class="stat-label">功能更新</div>
+            <div class="stat-label">Features</div>
           </div>
           <div class="stat-card">
             <div class="stat-number" id="thisYear">0</div>
-            <div class="stat-label">今年更新</div>
+            <div class="stat-label">This Year</div>
           </div>
         </div>
       </header>
@@ -59,15 +59,15 @@
       <!-- Filters -->
       <div class="filters">
         <div class="filter-group">
-          <label>年份</label>
+          <label>Year</label>
           <select id="yearFilter">
-            <option value="all">全部年份</option>
+            <option value="all">All Years</option>
           </select>
         </div>
         <div class="filter-group">
-          <label>分类</label>
+          <label>Category</label>
           <select id="categoryFilter">
-            <option value="all">全部分类</option>
+            <option value="all">All Categories</option>
             <option value="voice">Voice</option>
             <option value="campaign">Campaign</option>
             <option value="agent">Agent</option>
@@ -76,13 +76,13 @@
           </select>
         </div>
         <div class="filter-group">
-          <label>类型</label>
+          <label>Type</label>
           <select id="typeFilter">
-            <option value="all">全部类型</option>
-            <option value="feature">✨ 新功能</option>
-            <option value="improvement">🔧 优化改进</option>
-            <option value="fix">🐛 修复</option>
-            <option value="announcement">📢 公告</option>
+            <option value="all">All Types</option>
+            <option value="feature">✨ Feature</option>
+            <option value="improvement">🔧 Improvement</option>
+            <option value="fix">🐛 Fix</option>
+            <option value="announcement">📢 Announcement</option>
           </select>
         </div>
       </div>
@@ -91,16 +91,15 @@
       <div class="timeline-container">
         <div class="timeline-line"></div>
         <div class="timeline-content" id="timelineContent">
-          <!-- Events will be rendered here -->
-          <div class="loading">加载中...</div>
+          <div class="loading">Loading timeline...</div>
         </div>
       </div>
 
       <!-- Empty State -->
       <div class="empty-state" id="emptyState" style="display: none;">
         <div class="empty-icon">🔍</div>
-        <h3>没有找到匹配的事件</h3>
-        <p>请尝试调整筛选条件</p>
+        <h3>No events found</h3>
+        <p>Try adjusting your filters</p>
       </div>
     </div>
   </main>
@@ -110,9 +109,7 @@
     <div class="modal-overlay"></div>
     <div class="modal-content">
       <button class="modal-close">&times;</button>
-      <div class="modal-body" id="modalBody">
-        <!-- Modal content will be rendered here -->
-      </div>
+      <div class="modal-body" id="modalBody"></div>
     </div>
   </div>
 
@@ -122,16 +119,16 @@
       <div class="footer-content">
         <div class="footer-brand">
           <div class="logo">
-            <div class="logo-icon">◆</div>
+            <div class="logo-icon">🚀</div>
             <div class="logo-text">KeyReply <span>Kira</span></div>
           </div>
           <p>AI-Powered Customer Engagement Platform</p>
         </div>
         <div class="footer-links">
-          <a href="index.html">首页</a>
-          <a href="timeline.html">产品时间轴</a>
-          <a href="roadmap.html">路线图</a>
-          <a href="user-stories.html">用户故事</a>
+          <a href="index.html">Home</a>
+          <a href="timeline.html">Timeline</a>
+          <a href="roadmap.html">Roadmap</a>
+          <a href="user-stories.html">Stories</a>
         </div>
       </div>
       <div class="footer-bottom">

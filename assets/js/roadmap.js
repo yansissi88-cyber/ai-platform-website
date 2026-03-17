@@ -15,10 +15,10 @@ let filters = {
 
 // Status labels
 const STATUS_LABELS = {
-  planning: '📋 规划中',
-  in_progress: '🚀 开发中',
-  testing: '🧪 测试中',
-  ready: '✅ 待发布'
+  planning: '📋 Planning',
+  in_progress: '🚀 In Progress',
+  testing: '🧪 Testing',
+  ready: '✅ Ready'
 };
 
 const STATUS_ORDER = ['ready', 'testing', 'in_progress', 'planning'];
@@ -55,7 +55,7 @@ async function loadData() {
     
     // Update last updated text
     const date = new Date(roadmapData.lastUpdated);
-    elements.lastUpdated.textContent = `更新于: ${date.toLocaleDateString('zh-CN')} ${date.toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' })}`;
+    elements.lastUpdated.textContent = `Updated: ${date.toLocaleDateString('en-US')} ${date.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}`;
     
     // Populate category filter
     populateCategoryFilter();
@@ -67,8 +67,8 @@ async function loadData() {
     elements.roadmapContent.innerHTML = `
       <div class="empty-state">
         <div class="empty-icon">⚠️</div>
-        <h3>数据加载失败</h3>
-        <p>请刷新页面重试</p>
+        <h3>Failed to load data</h3>
+        <p>Please refresh the page to try again</p>
       </div>
     `;
   }
@@ -176,7 +176,7 @@ function renderListView() {
           <div class="status-section">
             <div class="status-header">
               <h3>${STATUS_LABELS[status]}</h3>
-              <span class="status-count">${items.length} 个项目</span>
+              <span class="status-count">${items.length} items</span>
             </div>
             ${items.map(item => renderRoadmapCard(item)).join('')}
           </div>
@@ -229,7 +229,7 @@ function renderQuarterView() {
           <div class="quarter-section">
             <div class="quarter-header">
               <h3>${quarter}</h3>
-              <span class="quarter-status">${completed}/${total} 完成</span>
+              <span class="quarter-status">${completed}/${total} completed</span>
             </div>
             <div class="quarter-items">
               ${items.map(item => renderQuarterCard(item)).join('')}
@@ -246,9 +246,9 @@ function renderQuarterView() {
 // Render roadmap card (list view)
 function renderRoadmapCard(item) {
   const priorityLabels = {
-    high: '🔴 高',
-    medium: '🟡 中',
-    low: '🟢 低'
+    high: '🔴 High',
+    medium: '🟡 Medium',
+    low: '🟢 Low'
   };
   
   return `
@@ -266,7 +266,7 @@ function renderRoadmapCard(item) {
           <div class="progress-bar">
             <div class="progress-fill" data-status="${item.status}" style="width: ${item.progress}%"></div>
           </div>
-          <span class="progress-text">${item.progress}% 完成</span>
+          <span class="progress-text">${item.progress}% complete</span>
         </div>
         <div class="card-date">
           📅 ${item.targetDate || item.quarter}
@@ -333,9 +333,9 @@ function addCardClickHandlers() {
 // Open modal with item details
 function openModal(item) {
   const priorityLabels = {
-    high: '🔴 高优先级',
-    medium: '🟡 中优先级',
-    low: '🟢 低优先级'
+    high: '🔴 High Priority',
+    medium: '🟡 Medium Priority',
+    low: '🟢 Low Priority'
   };
   
   elements.modalBody.innerHTML = `
@@ -358,7 +358,7 @@ function openModal(item) {
     
     <div class="modal-progress">
       <div class="modal-progress-header">
-        <span>完成进度</span>
+        <span>Progress</span>
         <span>${item.progress}%</span>
       </div>
       <div class="modal-progress-bar">
@@ -368,10 +368,10 @@ function openModal(item) {
     
     <div class="modal-links">
       <a href="${item.source.url}" target="_blank" class="btn btn-primary">
-        查看 GitHub ${item.source.type === 'issue' ? 'Issue' : item.source.type === 'milestone' ? 'Milestone' : 'Project'}
+        View on GitHub
       </a>
-      ${item.userStory ? `<a href="user-stories.html#${item.userStory}" class="btn btn-secondary">查看用户故事</a>` : ''}
-      <button class="btn btn-secondary" onclick="closeModal()">关闭</button>
+      ${item.userStory ? `<a href="user-stories.html#${item.userStory}" class="btn btn-secondary">View Story</a>` : ''}
+      <button class="btn btn-secondary" onclick="closeModal()">Close</button>
     </div>
   `;
   
@@ -385,5 +385,4 @@ function closeModal() {
   document.body.style.overflow = '';
 }
 
-// Expose closeModal globally
 window.closeModal = closeModal;

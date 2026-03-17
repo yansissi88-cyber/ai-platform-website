@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>产品路线图 - KeyReply Kira</title>
+  <title>Product Roadmap - KeyReply Kira</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -14,18 +14,18 @@
   <nav>
     <div class="nav-container">
       <a href="index.html" class="logo">
-        <div class="logo-icon">◆</div>
+        <div class="logo-icon">🚀</div>
         <div class="logo-text">KeyReply <span>Kira</span></div>
       </a>
       <ul class="nav-links">
-        <li><a href="index.html#features">功能特性</a></li>
-        <li><a href="timeline.html">产品时间轴</a></li>
-        <li><a href="roadmap.html" class="active">路线图</a></li>
-        <li><a href="user-stories.html">用户故事</a></li>
+        <li><a href="index.html#features">Features</a></li>
+        <li><a href="timeline.html">Timeline</a></li>
+        <li><a href="roadmap.html" class="active">Roadmap</a></li>
+        <li><a href="user-stories.html">Stories</a></li>
       </ul>
       <div class="nav-actions">
-        <a href="https://kira.keyreply.com">登录</a>
-        <a href="#contact" class="btn btn-primary">开始使用</a>
+        <a href="https://kira.keyreply.com">Login</a>
+        <a href="index.html#contact" class="btn btn-primary">Talk to Expert</a>
       </div>
     </div>
   </nav>
@@ -36,22 +36,22 @@
       <!-- Header -->
       <header class="page-header">
         <div class="header-content">
-          <h1>产品路线图</h1>
-          <p class="subtitle">了解 Kira 即将推出的新功能，与我们共同塑造 AI 客服的未来</p>
-          <div class="last-updated" id="lastUpdated">更新于: 加载中...</div>
+          <h1>Product Roadmap</h1>
+          <p class="subtitle">See what's coming next and help shape the future of AI customer engagement</p>
+          <div class="last-updated" id="lastUpdated">Loading...</div>
         </div>
       </header>
 
       <!-- View Toggle -->
       <div class="view-toggle">
         <button class="view-btn active" data-view="list">
-          <span>📋</span> 列表视图
+          <span>📋</span> List
         </button>
         <button class="view-btn" data-view="kanban">
-          <span>🎯</span> 看板视图
+          <span>🎯</span> Board
         </button>
         <button class="view-btn" data-view="quarter">
-          <span>📅</span> 季度视图
+          <span>📅</span> Quarter
         </button>
       </div>
 
@@ -59,60 +59,60 @@
       <div class="status-legend">
         <div class="legend-item">
           <span class="legend-dot status-planning"></span>
-          <span>规划中</span>
+          <span>Planning</span>
         </div>
         <div class="legend-item">
           <span class="legend-dot status-progress"></span>
-          <span>开发中</span>
+          <span>In Progress</span>
         </div>
         <div class="legend-item">
           <span class="legend-dot status-testing"></span>
-          <span>测试中</span>
+          <span>Testing</span>
         </div>
         <div class="legend-item">
           <span class="legend-dot status-ready"></span>
-          <span>待发布</span>
+          <span>Ready</span>
         </div>
       </div>
 
       <!-- Filters -->
       <div class="filters">
         <div class="filter-group">
-          <label>季度</label>
+          <label>Quarter</label>
           <select id="quarterFilter">
-            <option value="all">全部季度</option>
+            <option value="all">All Quarters</option>
             <option value="Q1 2026">Q1 2026</option>
             <option value="Q2 2026">Q2 2026</option>
             <option value="Q3 2026">Q3 2026</option>
           </select>
         </div>
         <div class="filter-group">
-          <label>分类</label>
+          <label>Category</label>
           <select id="categoryFilter">
-            <option value="all">全部分类</option>
+            <option value="all">All Categories</option>
           </select>
         </div>
         <div class="filter-group">
-          <label>优先级</label>
+          <label>Priority</label>
           <select id="priorityFilter">
-            <option value="all">全部优先级</option>
-            <option value="high">🔴 高优先级</option>
-            <option value="medium">🟡 中优先级</option>
-            <option value="low">🟢 低优先级</option>
+            <option value="all">All Priorities</option>
+            <option value="high">🔴 High</option>
+            <option value="medium">🟡 Medium</option>
+            <option value="low">🟢 Low</option>
           </select>
         </div>
       </div>
 
       <!-- Content Views -->
       <div class="roadmap-content" id="roadmapContent">
-        <div class="loading">加载中...</div>
+        <div class="loading">Loading roadmap...</div>
       </div>
 
       <!-- Empty State -->
       <div class="empty-state" id="emptyState" style="display: none;">
         <div class="empty-icon">🔍</div>
-        <h3>没有找到匹配的项目</h3>
-        <p>请尝试调整筛选条件</p>
+        <h3>No items found</h3>
+        <p>Try adjusting your filters</p>
       </div>
     </div>
   </main>
@@ -122,9 +122,7 @@
     <div class="modal-overlay"></div>
     <div class="modal-content">
       <button class="modal-close">&times;</button>
-      <div class="modal-body" id="modalBody">
-        <!-- Modal content will be rendered here -->
-      </div>
+      <div class="modal-body" id="modalBody"></div>
     </div>
   </div>
 
@@ -134,16 +132,16 @@
       <div class="footer-content">
         <div class="footer-brand">
           <div class="logo">
-            <div class="logo-icon">◆</div>
+            <div class="logo-icon">🚀</div>
             <div class="logo-text">KeyReply <span>Kira</span></div>
           </div>
           <p>AI-Powered Customer Engagement Platform</p>
         </div>
         <div class="footer-links">
-          <a href="index.html">首页</a>
-          <a href="timeline.html">产品时间轴</a>
-          <a href="roadmap.html">路线图</a>
-          <a href="user-stories.html">用户故事</a>
+          <a href="index.html">Home</a>
+          <a href="timeline.html">Timeline</a>
+          <a href="roadmap.html">Roadmap</a>
+          <a href="user-stories.html">Stories</a>
         </div>
       </div>
       <div class="footer-bottom">

@@ -14,11 +14,12 @@ let filters = {
 
 // Persona emoji mapping
 const PERSONA_EMOJIS = {
-  '客服经理': '👨‍💼',
-  '销售总监': '💼',
-  '运营主管': '📊',
-  'IT管理员': '⚙️',
-  '产品经理': '📱'
+  'Support Manager': '👨‍💼',
+  'Sales Director': '💼',
+  'Operations Lead': '📊',
+  'IT Administrator': '⚙️',
+  'Product Manager': '📱',
+  'Customer Success': '🤝'
 };
 
 // DOM Elements
@@ -56,7 +57,7 @@ async function loadData() {
     
     // Update last updated text
     const date = new Date(storiesData.lastUpdated);
-    elements.lastUpdated.textContent = `更新于: ${date.toLocaleDateString('zh-CN')} ${date.toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' })}`;
+    elements.lastUpdated.textContent = `Updated: ${date.toLocaleDateString('en-US')} ${date.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}`;
     
     // Populate filters
     populateFilters();
@@ -68,8 +69,8 @@ async function loadData() {
     elements.storiesGrid.innerHTML = `
       <div class="empty-state">
         <div class="empty-icon">⚠️</div>
-        <h3>数据加载失败</h3>
-        <p>请刷新页面重试</p>
+        <h3>Failed to load data</h3>
+        <p>Please refresh the page to try again</p>
       </div>
     `;
   }
@@ -185,7 +186,7 @@ function renderStoryCard(story) {
         <h3 class="story-title">${story.title}</h3>
         
         <div class="story-pain-points">
-          <div class="pain-point-title">主要痛点</div>
+          <div class="pain-point-title">Key Challenges</div>
           <ul class="pain-point-list">
             ${story.persona.painPoints.slice(0, 2).map(p => `<li>${p}</li>`).join('')}
           </ul>
@@ -201,15 +202,15 @@ function renderStoryCard(story) {
         
         <div class="story-metrics">
           <div class="metric-box">
-            <div class="metric-label">改进前</div>
-            <div class="metric-value">${story.metrics.before.split('，')[0].split(' ')[0]}</div>
+            <div class="metric-label">Before</div>
+            <div class="metric-value">${story.metrics.before.split(',')[0].split(' ')[0]}</div>
           </div>
           <div class="metric-box">
-            <div class="metric-label">改进后</div>
-            <div class="metric-value">${story.metrics.after.split('，')[0].split(' ')[0]}</div>
+            <div class="metric-label">After</div>
+            <div class="metric-value">${story.metrics.after.split(',')[0].split(' ')[0]}</div>
           </div>
           <div class="metric-box">
-            <div class="metric-label">提升</div>
+            <div class="metric-label">Improvement</div>
             <div class="metric-value improvement">${story.metrics.improvement.split(' ')[1] || '↑'}</div>
           </div>
         </div>
@@ -218,7 +219,7 @@ function renderStoryCard(story) {
           <div class="story-tags">
             ${story.tags.slice(0, 2).map(tag => `<span class="story-tag">${tag}</span>`).join('')}
           </div>
-          <span class="story-link">查看详情 →</span>
+          <span class="story-link">Read More →</span>
         </div>
       </div>
     </div>
@@ -243,37 +244,37 @@ function openModal(story) {
     
     <div class="modal-content-inner">
       <div class="scenario-section">
-        <h3>📖 场景故事</h3>
+        <h3>📖 The Story</h3>
         <div class="scenario-grid">
           <div class="scenario-box full-width">
-            <h4>背景</h4>
+            <h4>Background</h4>
             <p>${story.scenario.background}</p>
           </div>
           <div class="scenario-box">
-            <h4>目标</h4>
+            <h4>Goal</h4>
             <p>${story.scenario.goal}</p>
           </div>
           <div class="scenario-box">
-            <h4>行动</h4>
+            <h4>Solution</h4>
             <p>${story.scenario.action}</p>
           </div>
           <div class="scenario-box full-width">
-            <h4>结果</h4>
+            <h4>Results</h4>
             <p>${story.scenario.result}</p>
           </div>
         </div>
       </div>
       
       <div class="metrics-detail">
-        <h3>📊 效果对比</h3>
+        <h3>📊 Impact</h3>
         <div class="metrics-comparison">
           <div class="metric-before">
-            <h4>改进前</h4>
+            <h4>Before</h4>
             <p>${story.metrics.before}</p>
           </div>
           <div class="metric-arrow">→</div>
           <div class="metric-after">
-            <h4>改进后</h4>
+            <h4>After</h4>
             <p>${story.metrics.after}</p>
           </div>
         </div>
@@ -291,21 +292,21 @@ function openModal(story) {
       </div>
       
       <div class="scenario-section">
-        <h3>🔗 相关信息</h3>
+        <h3>🔗 Related</h3>
         <div class="scenario-box full-width">
-          <h4>关联功能</h4>
+          <h4>Features Used</h4>
           <p>${story.relatedFeatures.join(' · ')}</p>
         </div>
         <div class="scenario-box full-width">
-          <h4>关联版本</h4>
+          <h4>Releases</h4>
           <p>${story.relatedReleases.join(' · ')}</p>
         </div>
       </div>
       
       <div class="modal-actions">
-        <a href="timeline.html" class="btn btn-primary">查看产品时间轴</a>
-        <a href="roadmap.html" class="btn btn-secondary">查看路线图</a>
-        <button class="btn btn-secondary" onclick="closeModal()">关闭</button>
+        <a href="timeline.html" class="btn btn-primary">View Timeline</a>
+        <a href="roadmap.html" class="btn btn-secondary">View Roadmap</a>
+        <button class="btn btn-secondary" onclick="closeModal()">Close</button>
       </div>
     </div>
   `;
@@ -334,5 +335,4 @@ function updateStats() {
   elements.avgImprovement.textContent = `+${Math.round(avg)}%`;
 }
 
-// Expose closeModal globally
 window.closeModal = closeModal;

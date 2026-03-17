@@ -1,22 +1,57 @@
 {
-  "lastUpdated": "2026-03-16T22:00:00Z",
+  "lastUpdated": "2026-03-17T10:00:00Z",
   "events": [
+    {
+      "id": "evt-v0.14.0",
+      "date": "2026-03-16T08:00:00Z",
+      "version": "v0.14.0",
+      "type": "feature",
+      "category": "healthcare",
+      "title": "FHIR R4 Healthcare Scheduling via Medplum + Epic",
+      "description": "Healthcare appointment scheduling via a clean FHIR R4 interface backed by Medplum, with optional Epic STU3 proxy for production EMR write-back.",
+      "highlights": [
+        "AI agents book appointments directly in Epic during voice calls",
+        "Multi-channel scheduling: voice, web chat, SMS",
+        "Standards-based FHIR R4 interface",
+        "Support for Cerner, Athena, and other EMR systems"
+      ],
+      "screenshot": null,
+      "releaseUrl": "https://github.com/keyreply/kira-cloudflare/releases/tag/v0.14.0",
+      "tags": ["Healthcare", "FHIR", "Epic", "Scheduling"]
+    },
+    {
+      "id": "evt-v0.13.0",
+      "date": "2026-03-10T08:00:00Z",
+      "version": "v0.13.0",
+      "type": "feature",
+      "category": "platform",
+      "title": "Neural Observability & Real-time Voice Debugging",
+      "description": "Comprehensive observability platform with real-time voice call debugging, conversation reconstruction, and neural network analysis.",
+      "highlights": [
+        "Real-time voice call streaming and reconstruction",
+        "Neural network attention visualization",
+        "Conversation turn-by-turn analysis",
+        "Automated anomaly detection and alerting"
+      ],
+      "screenshot": null,
+      "releaseUrl": "https://github.com/keyreply/kira-cloudflare/releases/tag/v0.13.0",
+      "tags": ["Observability", "Voice", "Debugging", "AI"]
+    },
     {
       "id": "evt-v0.12.0",
       "date": "2026-03-04T16:32:07Z",
       "version": "v0.12.0",
       "type": "feature",
       "category": "livechat",
-      "title": "AI-Native Livechat 发布",
-      "description": "全新的 AI 客服工作台，支持 AI seats、团队收件箱、已保存视图、提及和垃圾邮件过滤",
+      "title": "AI-Native Livechat & Voice Pipeline Maturity",
+      "description": "Full contact center with AI seats, approvals, learning memory, and PTC baseline. 100+ voice fixes for production readiness.",
       "highlights": [
-        "AI-native seats 与审批策略",
-        "AI 学习记忆功能",
-        "PTC (Permission to Contact) 沙箱基线",
-        "4 个新 D1 迁移 + PostgreSQL 数据平面",
-        "完整的 CLI 命令: kira livechat"
+        "AI-native seats with team inboxes and saved views",
+        "Seat approval policies and AI learning memory",
+        "PTC (Permission to Contact) sandbox baseline",
+        "Voice pipeline hardening: barge-in, latency, failover"
       ],
-      "screenshot": "images/new_inbox.png",
+      "screenshot": null,
       "releaseUrl": "https://github.com/keyreply/kira-cloudflare/releases/tag/v0.12.0",
       "tags": ["AI", "Livechat", "Contact Center", "Voice"]
     },
@@ -26,16 +61,15 @@
       "version": "v0.11.0",
       "type": "feature",
       "category": "campaign",
-      "title": "Campaign 预发布验证与语音质量优化",
-      "description": "Campaign 发布前的全面验证，以及 6 项语音质量修复",
+      "title": "Campaign Dry-Run Validation & Voice Quality Hardening",
+      "description": "Campaign pre-launch validation with server-side checks. 6 voice quality fixes including echo suppression overhaul.",
       "highlights": [
-        "Campaign dry-run 验证",
-        "受众管理与处置 CLI",
-        "电信提供商验证注册表",
-        "Echo 抑制全面改进",
-        "TTS  pacing 优化"
+        "Campaign dry-run validation CLI",
+        "Audience management with disposition CLI",
+        "Telephony provider validation registry",
+        "Echo suppression and TTS pacing improvements"
       ],
-      "screenshot": "images/new_campaigns.png",
+      "screenshot": null,
       "releaseUrl": "https://github.com/keyreply/kira-cloudflare/releases/tag/v0.11.0",
       "tags": ["Campaign", "Voice", "Quality"]
     },
@@ -45,16 +79,15 @@
       "version": "v0.10.0",
       "type": "feature",
       "category": "voice",
-      "title": "Provider AMD 与 SIP Trunk 支持",
-      "description": "语音通话的生产就绪功能，包括答录机检测、SIP Trunk 和合规性增强",
+      "title": "Provider AMD, SIP Trunk & Campaign Enhancements",
+      "description": "Production-ready voice with answering machine detection, SIP trunk support, and enhanced campaign compliance.",
       "highlights": [
-        "提供商级 AMD (答录机检测)",
-        "Echo 抑制全面改进",
-        "问候语预热",
-        "阶段性提示和语言包",
-        "DNC 列表管理"
+        "Provider-level AMD (3s vs 10s detection)",
+        "Echo suppression overhaul",
+        "Greeting prewarm for reduced latency",
+        "DNC list management and compliance"
       ],
-      "screenshot": "images/voice_testing.png",
+      "screenshot": null,
       "releaseUrl": "https://github.com/keyreply/kira-cloudflare/releases/tag/v0.10.0",
       "tags": ["Voice", "SIP", "Compliance", "AMD"]
     },
@@ -64,16 +97,15 @@
       "version": "v0.9.0",
       "type": "feature",
       "category": "platform",
-      "title": "全渠道平台与垂直行业模块",
-      "description": "12 个消息渠道统一适配器，以及垂直行业特定模块框架",
+      "title": "Omni-Channel Platform & Healthcare SDOH Module",
+      "description": "12-channel unified platform with vertical industry modules including healthcare SDOH screening following Healthy People 2030.",
       "highlights": [
-        "12 个全渠道消息平台",
-        "统一 Agent Builder (7 个配置标签)",
-        "双栈电话 (SIP + Telnyx)",
-        "医疗 SDOH 筛查模块",
-        "CLI 控制平面 (276 个子命令)"
+        "12 omni-channel messaging platforms",
+        "Unified Agent Builder with 7 config tabs",
+        "Dual-stack telephony: SIP + Telnyx",
+        "Healthcare SDOH screening with 11 tools"
       ],
-      "screenshot": "images/channels.png",
+      "screenshot": null,
       "releaseUrl": "https://github.com/keyreply/kira-cloudflare/releases/tag/v0.9.0",
       "tags": ["Omni-channel", "Healthcare", "CLI", "Voice"]
     },
@@ -83,16 +115,15 @@
       "version": "v0.8.0",
       "type": "feature",
       "category": "campaign",
-      "title": "Call Script Optimizer 发布",
-      "description": "AI 驱动的销售通话脚本持续优化系统，通过进化算法和 A/B 测试",
+      "title": "Call Script Optimizer with A/B Testing",
+      "description": "AI-powered sales script optimization with evolutionary algorithms, A/B testing, and multi-armed bandits for conversion optimization.",
       "highlights": [
-        "Script Genome - 结构化脚本表示",
-        "变体生成 - AI 驱动的微突变",
-        "A/B 测试与多臂老虎机",
-        "金丝雀部署",
-        "事件归因追踪"
+        "Script Genome for structured representation",
+        "AI-powered variant generation",
+        "A/B testing with statistical analysis",
+        "Canary deployment with auto-pause"
       ],
-      "screenshot": "images/campaigns.png",
+      "screenshot": null,
       "releaseUrl": "https://github.com/keyreply/kira-cloudflare/releases/tag/v0.8.0",
       "tags": ["AI", "Optimizer", "A/B Testing", "Campaign"]
     },
@@ -102,56 +133,17 @@
       "version": "v0.6.0",
       "type": "feature",
       "category": "campaign",
-      "title": "Campaign Wizard 与联系人管理重设计",
-      "description": "全新的 Campaign 创建向导和联系人管理体验，支持 DISC 画像",
+      "title": "Campaign Wizard & Contact Management Redesign",
+      "description": "Multi-step campaign creation wizard and redesigned contact management with DISC personality profiling.",
       "highlights": [
-        "多步 Campaign 创建向导",
-        "受众选择器与标签过滤",
-        "DISC 画像集成",
-        "网格视图联系人卡片",
-        "Agent Skills 开放标准"
-      ],
-      "screenshot": "images/contacts.png",
-      "releaseUrl": "https://github.com/keyreply/kira-cloudflare/releases/tag/v0.6.0",
-      "tags": ["Campaign", "Contacts", "DISC", "Skills"]
-    },
-    {
-      "id": "evt-v0.5.0",
-      "date": "2026-01-06T08:28:03Z",
-      "version": "v0.5.0",
-      "type": "feature",
-      "category": "platform",
-      "title": "MCP Server Store 与 Agent 集成",
-      "description": "Model Context Protocol 支持，让 Agent 能够连接外部服务",
-      "highlights": [
-        "MCP Server 市场",
-        "一键安装与凭证配置",
-        "Salesforce、Slack、GitHub 等预置服务器",
-        "Agent MCP 集成",
-        "工具白名单/黑名单"
-      ],
-      "screenshot": "images/mcp_store.png",
-      "releaseUrl": "https://github.com/keyreply/kira-cloudflare/releases/tag/v0.5.0",
-      "tags": ["MCP", "Integration", "Salesforce", "Agent"]
-    },
-    {
-      "id": "evt-v0.4.0",
-      "date": "2025-12-24T16:45:00Z",
-      "version": "v0.4.0",
-      "type": "improvement",
-      "category": "platform",
-      "title": "测试基础设施与 OpenAPI 规范",
-      "description": "全面的测试覆盖、API 模式验证和关键安全修复",
-      "highlights": [
-        "Vitest + React Testing Library",
-        "56 个新测试文件",
-        "OpenAPI/Zod 模式验证",
-        "工作流端点授权绕过修复",
-        "CIDR IP 白名单绕过修复"
+        "3-step campaign creation wizard",
+        "Audience selector with tag filtering",
+        "DISC profiling integration",
+        "Agent Skills open standard"
       ],
       "screenshot": null,
-      "releaseUrl": "https://github.com/keyreply/kira-cloudflare/releases/tag/v0.4.0",
-      "tags": ["Testing", "Security", "OpenAPI"]
+      "releaseUrl": "https://github.com/keyreply/kira-cloudflare/releases/tag/v0.6.0",
+      "tags": ["Campaign", "Contacts", "DISC", "Skills"]
     }
   ]
 }

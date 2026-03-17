@@ -33,7 +33,6 @@ const elements = {
 document.addEventListener('DOMContentLoaded', async () => {
   await loadData();
   setupEventListeners();
-  updateStats();
 });
 
 // Load timeline data
@@ -47,20 +46,21 @@ async function loadData() {
     
     // Update last updated text
     const date = new Date(timelineData.lastUpdated);
-    elements.lastUpdated.textContent = `更新于: ${date.toLocaleDateString('zh-CN')} ${date.toLocaleTimeString('zh-CN', { hour: '2-digit', minute: '2-digit' })}`;
+    elements.lastUpdated.textContent = `Updated: ${date.toLocaleDateString('en-US')} ${date.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}`;
     
     // Populate year filter
     populateYearFilter();
     
     // Render timeline
     renderTimeline();
+    updateStats();
   } catch (error) {
     console.error('Error loading timeline data:', error);
     elements.timelineContent.innerHTML = `
       <div class="empty-state">
         <div class="empty-icon">⚠️</div>
-        <h3>数据加载失败</h3>
-        <p>请刷新页面重试</p>
+        <h3>Failed to load data</h3>
+        <p>Please refresh the page to try again</p>
       </div>
     `;
   }
@@ -73,7 +73,7 @@ function populateYearFilter() {
   years.forEach(year => {
     const option = document.createElement('option');
     option.value = year;
-    option.textContent = `${year}年`;
+    option.textContent = year;
     elements.yearFilter.appendChild(option);
   });
 }
@@ -156,7 +156,7 @@ function renderTimeline() {
   
   elements.timelineContent.innerHTML = grouped.map(({ year, events }) => `
     <div class="timeline-year">
-      <h3 class="year-label">${year}年</h3>
+      <h3 class="year-label">${year}</h3>
       <div class="timeline-events">
         ${events.map(event => renderEventCard(event)).join('')}
       </div>
@@ -176,17 +176,17 @@ function renderTimeline() {
 // Render single event card
 function renderEventCard(event) {
   const date = new Date(event.date);
-  const dateStr = date.toLocaleDateString('zh-CN', { 
+  const dateStr = date.toLocaleDateString('en-US', { 
     year: 'numeric', 
     month: 'long', 
     day: 'numeric' 
   });
   
   const typeLabels = {
-    feature: '✨ 新功能',
-    improvement: '🔧 优化',
-    fix: '🐛 修复',
-    announcement: '📢 公告'
+    feature: '✨ Feature',
+    improvement: '🔧 Improvement',
+    fix: '🐛 Fix',
+    announcement: '📢 Announcement'
   };
   
   return `
@@ -209,7 +209,7 @@ function renderEventCard(event) {
             ${event.tags.slice(0, 3).map(tag => `<span class="event-tag">#${tag}</span>`).join('')}
           </div>
           <a href="${event.releaseUrl}" target="_blank" class="event-link" onclick="event.stopPropagation()">
-            查看详情 →
+            View Details →
           </a>
         </div>
       </div>
@@ -220,17 +220,17 @@ function renderEventCard(event) {
 // Open modal with event details
 function openModal(event) {
   const date = new Date(event.date);
-  const dateStr = date.toLocaleDateString('zh-CN', { 
+  const dateStr = date.toLocaleDateString('en-US', { 
     year: 'numeric', 
     month: 'long', 
     day: 'numeric' 
   });
   
   const typeLabels = {
-    feature: '✨ 新功能',
-    improvement: '🔧 优化',
-    fix: '🐛 修复',
-    announcement: '📢 公告'
+    feature: '✨ Feature',
+    improvement: '🔧 Improvement',
+    fix: '🐛 Fix',
+    announcement: '📢 Announcement'
   };
   
   elements.modalBody.innerHTML = `
@@ -245,7 +245,7 @@ function openModal(event) {
     </div>
     
     <div class="modal-highlights">
-      <h3>✨ 核心亮点</h3>
+      <h3>✨ Highlights</h3>
       <ul>
         ${event.highlights.map(h => `<li>${h}</li>`).join('')}
       </ul>
@@ -253,9 +253,9 @@ function openModal(event) {
     
     <div class="modal-actions">
       <a href="${event.releaseUrl}" target="_blank" class="btn btn-primary">
-        查看 GitHub Release
+        View GitHub Release
       </a>
-      <button class="btn btn-secondary" onclick="closeModal()">关闭</button>
+      <button class="btn btn-secondary" onclick="closeModal()">Close</button>
     </div>
   `;
   
@@ -269,18 +269,15 @@ function closeModal() {
   document.body.style.overflow = '';
 }
 
-// Format description (simple markdown-like parsing)
+// Format description
 function formatDescription(text) {
-  // Convert URLs to links
   text = text.replace(
     /(https?:\/\/[^\s]+)/g,
     '<a href="$1" target="_blank" style="color: var(--accent-blue);">$1</a>'
   );
   
-  // Convert code blocks
   text = text.replace(/`([^`]+)`/g, '<code style="background: var(--bg-secondary); padding: 2px 6px; border-radius: 4px; font-family: monospace;">$1</code>');
   
-  // Convert newlines to paragraphs
   const paragraphs = text.split('\n\n').filter(p => p.trim());
   return paragraphs.map(p => `<p>${p}</p>`).join('');
 }
@@ -296,5 +293,4 @@ function updateStats() {
   ).length;
 }
 
-// Expose closeModal globally
 window.closeModal = closeModal;

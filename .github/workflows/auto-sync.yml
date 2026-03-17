@@ -5,6 +5,10 @@ on:
   schedule:
     - cron: '0 * * * *'
   
+  # Release 发布时触发
+  repository_dispatch:
+    types: [release-published]
+  
   # 手动触发
   workflow_dispatch:
 
@@ -13,6 +17,10 @@ permissions:
   contents: write
   pages: write
   id-token: write
+
+concurrency:
+  group: "sync-and-deploy"
+  cancel-in-progress: true
 
 jobs:
   sync:
@@ -23,54 +31,70 @@ jobs:
       uses: actions/checkout@v4
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-      
+    
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
         node-version: '20'
-        
-    - name: Install dependencies
-      run: |
-        npm install playwright
-        npx playwright install chromium
-        
-    - name: Run Smart Sync
+    
+    # ========== 同步 GitHub Releases ==========
+    - name: Sync GitHub Releases
       env:
         GITHUB_OWNER: keyreply
         GITHUB_REPO: kira-cloudflare
         GITHUB_TOKEN: ${{ secrets.KIRA_CLOUDFLARE_TOKEN }}
       run: |
-        cd github-sync/scripts
-        node smart-sync.js
-        
-    - name: Check for changes
-      id: check_changes
+        echo "📊 Syncing GitHub releases..."
+        node scripts/sync-all-data.js
+        echo "✅ Sync complete"
+    
+    # ========== 检查是否有新 Release ==========
+    - name: Check for new releases
+      id: check_releases
       run: |
-        if [ -n "$(git status --porcelain)" ]; then
+        # 获取本地最新版本
+        LOCAL_VERSION=$(cat data/timeline-data.json | grep '"version"' | head -1 | sed 's/.*"version": "\([^"]*\)".*/\1/')
+        echo "local_version=$LOCAL_VERSION" >> $GITHUB_OUTPUT
+        
+        # 检查是否有变更
+        if [ -n "$(git status --porcelain data/)" ]; then
           echo "has_changes=true" >> $GITHUB_OUTPUT
+          echo "🆕 New release detected: $LOCAL_VERSION"
         else
           echo "has_changes=false" >> $GITHUB_OUTPUT
+          echo "✓ No new releases"
         fi
-        
-    - name: Commit and push changes
-      if: steps.check_changes.outputs.has_changes == 'true'
+    
+    # ========== 提交变更 ==========
+    - name: Commit changes
+      if: steps.check_releases.outputs.has_changes == 'true'
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}
-        git add -A
-        git commit -m "🤖 Auto sync: Update from kira-cloudflare releases
         
-        - Sync latest releases
-        - Capture feature screenshots
-        - Update website content" || echo "No changes to commit"
+        git add data/
+        
+        VERSION="${{ steps.check_releases.outputs.local_version }}"
+        git commit -m "🤖 Auto sync: Update to ${VERSION}
+
+        - Sync latest releases from keyreply/kira-cloudflare
+        - $(date -u '+%Y-%m-%d %H:%M UTC')" || echo "No changes to commit"
+        
         git push || echo "Nothing to push"
-        
-    - name: Deploy to GitHub Pages
-      if: steps.check_changes.outputs.has_changes == 'true'
+    
+    # ========== 触发网站部署 ==========
+    - name: Trigger Pages Deployment
+      if: steps.check_releases.outputs.has_changes == 'true'
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./src/updates
+        publish_dir: ./
+        exclude_assets: 'node_modules,scripts,.github'
+        
+    - name: Sync complete
+      if: steps.check_releases.outputs.has_changes == 'true'
+      run: |
+        echo "🚀 Synced to ${{ steps.check_releases.outputs.local_version }}"
+        echo "🔗 https://yansissi88-cyber.github.io/ai-platform-website/"

@@ -1,0 +1,52 @@
+{
+  "id": 293066137,
+  "tag_name": "v0.12.0",
+  "name": "v0.12.0 — AI-Native Livechat & Voice Pipeline Maturity",
+  "body": "## Highlights\n\n- **AI-Native Livechat**: Full contact center with AI seats, approvals, learning memory, and PTC baseline\n- **Voice Pipeline Hardening**: 100+ fixes across barge-in, audio quality, latency, and provider failover\n- **Arena Voice Testing**: CLI-driven voice testing with persona simulation\n- **LLM Benchmark**: Built-in TTFB benchmarking, all agents on Grok 4.1 Fast NR (666ms avg)\n\n## Features\n\n### Livechat (NEW)\n- AI-native seats, team inboxes, saved views, mentions, spam filtering\n- Seat approval policies and AI learning memory\n- PTC (Permission to Contact) sandbox baseline\n- 4 new D1 migrations (101-104) + PostgreSQL data plane migrations\n- Full CLI commands: \\`kira livechat\\`\n- Frontend: AISeatsPanel, ExecutionTab updates\n\n### Voice\n- IFS Gloria prompt v4 with arena variable injection\n- LLM TTFB benchmark endpoint + CLI (\\`kira voice benchmark\\`)\n- Speculative audio buffering + parallel TTS prefetch\n- TTS failover chain — automatic mid-call provider switching\n- EndOfTurn debounce — configurable thinking pause tolerance\n- Dynamic voice signals (hangup, callback, transfer, DNC, voicemail)\n- Conversational texture Phase 0 — continuation signals, TTS sanitizer\n- Per-call ephemeral memory bank\n- Arena voice testing with persona support (Ara, Rex, Sal, Eve, Leo)\n\n### Platform\n- 20 self-management MCP tools for GlobalAgent\n- MCP deployed as multi-tenant Cloudflare Worker\n- Tenant-level template variables\n- Script Genome system wired end-to-end\n- Secure support tenant switching with WorkOS group mapping\n- Inline contact editing with server-side persistence\n\n## Fixes\n\n### Voice Quality\n- Strip XML tags from LLM output before TTS\n- Audio recording codec mismatch fix (L16 PCM to proper WAV)\n- Browser audio clicks eliminated (native AudioContext, persistent normalizer)\n- Snap-forward instead of rebuffer for turn transitions\n- Grok Voice integration — 5 bugs fixed\n- Per-sentence ElevenLabs modulation crackling fix\n- 4 barge-in race conditions resolved\n- Echo detection and threshold tuning\n- Prototype pollution block in callMemory\n\n### API & Frontend\n- Default deploy to production env\n- Campaign UX + full dark mode + accessibility pass\n- 444+ hardcoded colors to semantic tokens\n- confirm() to AlertDialog migration\n- Call logs data plane routing + demo tenant scoping\n- Phone number E.164 normalization\n\n## Infrastructure\n- Wrangler upgraded to 4.70.0\n- D1 migrations 098-104 applied\n- PostgreSQL data plane migrations (001-005) via Hyperdrive\n\n**Full Changelog**: https://github.com/keyreply/kira-cloudflare/compare/v0.11.0...v0.12.0",
+  "published_at": "2026-03-04T16:32:07Z",
+  "html_url": "https://github.com/keyreply/kira-cloudflare/releases/tag/v0.12.0",
+  "features": [
+    {
+      "keyword": "campaign",
+      "path": "/campaigns",
+      "selector": "[data-testid=\"campaigns-page\"], .campaigns-container, main",
+      "release": "v0.12.0"
+    },
+    {
+      "keyword": "agent",
+      "path": "/agent-builder",
+      "selector": "[data-testid=\"agent-builder\"], .agent-builder, main",
+      "release": "v0.12.0"
+    },
+    {
+      "keyword": "contact",
+      "path": "/contacts",
+      "selector": "[data-testid=\"contacts\"], .contacts-page, main",
+      "release": "v0.12.0"
+    },
+    {
+      "keyword": "mcp",
+      "path": "/mcp-store",
+      "selector": "[data-testid=\"mcp-store\"], .mcp-store, main",
+      "release": "v0.12.0"
+    },
+    {
+      "keyword": "voice",
+      "path": "/testing",
+      "selector": "[data-testid=\"testing\"], .testing-page, main",
+      "release": "v0.12.0"
+    },
+    {
+      "keyword": "template",
+      "path": "/templates",
+      "selector": "[data-testid=\"templates\"], .templates-page",
+      "release": "v0.12.0"
+    },
+    {
+      "keyword": "inbox",
+      "path": "/inbox",
+      "selector": "[data-testid=\"inbox\"], .inbox-page, main",
+      "release": "v0.12.0"
+    }
+  ]
+}

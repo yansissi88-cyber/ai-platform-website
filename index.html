@@ -3,424 +3,2420 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>产品更新 - KeyReply Kira</title>
+  <title>KeyReply Kira - AI-Powered Customer Engagement Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    :root {
+      --bg-primary: #0a0e17;
+      --bg-secondary: #111827;
+      --bg-card: #1a1f2e;
+      --border-color: rgba(255,255,255,0.1);
+      --text-primary: #ffffff;
+      --text-secondary: #9ca3af;
+      --text-muted: #6b7280;
+      --accent-blue: #3b82f6;
+      --accent-cyan: #06b6d4;
+      --accent-purple: #8b5cf6;
+      --gradient-blue: linear-gradient(135deg, #3b82f6 0%, #06b6d4 100%);
+      --gradient-hero: radial-gradient(ellipse at 70% 30%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+                       radial-gradient(ellipse at 30% 70%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
     }
     
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-      background: #f8fafc;
-      color: #1e293b;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
       line-height: 1.6;
+      overflow-x: hidden;
     }
-    
-    .container {
-      max-width: 1200px;
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(10, 14, 23, 0.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .nav-container {
+      max-width: 1400px;
       margin: 0 auto;
-      padding: 40px 20px;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
     }
-    
-    header {
-      text-align: center;
-      margin-bottom: 60px;
-    }
-    
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-      background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    
-    header p {
-      color: #64748b;
-      font-size: 1.1rem;
-    }
-    
-    .last-updated {
-      display: inline-block;
-      background: #e0f2fe;
-      color: #0369a1;
-      padding: 6px 16px;
-      border-radius: 20px;
-      font-size: 0.875rem;
-      margin-top: 16px;
-    }
-    
-    .section {
-      background: white;
-      border-radius: 16px;
-      padding: 32px;
-      margin-bottom: 32px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-    }
-    
-    .section h2 {
-      font-size: 1.5rem;
-      margin-bottom: 24px;
-      color: #0f172a;
-    }
-    
-    /* GitHub Releases Section */
-    .releases-list {
-      display: grid;
-      gap: 20px;
-    }
-    
-    .release-card {
-      border: 1px solid #e2e8f0;
-      border-radius: 12px;
-      padding: 24px;
-      transition: all 0.2s;
-    }
-    
-    .release-card:hover {
-      border-color: #3b82f6;
-      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.1);
-    }
-    
-    .release-header {
+
+    .logo {
       display: flex;
       align-items: center;
       gap: 12px;
-      margin-bottom: 12px;
     }
-    
-    .release-tag {
-      background: #3b82f6;
-      color: white;
-      padding: 4px 12px;
-      border-radius: 20px;
-      font-size: 0.875rem;
-      font-weight: 600;
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--gradient-blue);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
     }
-    
-    .release-date {
-      color: #64748b;
-      font-size: 0.875rem;
-    }
-    
-    .release-title {
+
+    .logo-text {
+      font-weight: 700;
       font-size: 1.25rem;
+    }
+
+    .logo-text span {
+      color: var(--accent-cyan);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-primary);
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .nav-actions a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .btn {
+      padding: 10px 24px;
+      border-radius: 8px;
       font-weight: 600;
-      margin-bottom: 12px;
+      text-decoration: none;
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      border: none;
+      cursor: pointer;
     }
-    
-    .release-body {
-      color: #475569;
-      line-height: 1.6;
+
+    .btn-primary {
+      background: var(--gradient-blue);
+      color: white;
     }
-    
-    /* Features Grid */
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 20px;
-    }
-    
-    .feature-card {
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      border-radius: 12px;
-      padding: 24px;
-      transition: all 0.2s;
-    }
-    
-    .feature-card:hover {
+
+    .btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      box-shadow: 0 10px 40px rgba(59, 130, 246, 0.3);
     }
-    
-    .feature-card.highlight {
-      border-color: #3b82f6;
-      background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%);
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.1);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.2);
     }
-    
-    .feature-category {
-      display: inline-block;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: #64748b;
-      margin-bottom: 8px;
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.15);
     }
-    
-    .feature-card h3 {
-      font-size: 1.1rem;
-      margin-bottom: 8px;
-      color: #0f172a;
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text-primary);
+      border: 1px solid var(--border-color);
     }
-    
-    .feature-card p {
-      font-size: 0.95rem;
-      color: #64748b;
+
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.05);
     }
-    
-    /* Screenshots Gallery */
-    .screenshots-grid {
+
+    /* Hero Section */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 24px 80px;
+      background: var(--gradient-hero);
+      position: relative;
+    }
+
+    .hero-container {
+      max-width: 1400px;
+      margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 60px;
+      align-items: center;
     }
-    
-    .screenshot-item {
-      border-radius: 12px;
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: rgba(59, 130, 246, 0.1);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      border-radius: 20px;
+      font-size: 0.85rem;
+      color: var(--accent-blue);
+      margin-bottom: 24px;
+    }
+
+    .hero-badge::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      background: #10b981;
+      border-radius: 50%;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 span {
+      background: var(--gradient-blue);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+      font-weight: 400;
+    }
+
+    .hero-description {
+      font-size: 1rem;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      max-width: 500px;
+      line-height: 1.7;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .stat-item h3 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .stat-item p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .hero-phone {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .hero-phone a {
+      color: var(--accent-cyan);
+      text-decoration: none;
+    }
+
+    .hero-visual {
+      position: relative;
+      perspective: 1000px;
+    }
+
+    .hero-image-container {
+      position: relative;
+      border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      transition: transform 0.2s;
+      box-shadow: 0 50px 100px rgba(0,0,0,0.5);
+      transform: rotateY(-5deg) rotateX(5deg);
+      transition: transform 0.5s;
     }
-    
-    .screenshot-item:hover {
-      transform: scale(1.02);
+
+    .hero-image-container:hover {
+      transform: rotateY(0deg) rotateX(0deg);
     }
-    
-    .screenshot-item img {
+
+    .hero-image {
       width: 100%;
       height: auto;
       display: block;
     }
-    
-    .screenshot-label {
-      background: #0f172a;
-      color: white;
-      padding: 12px;
-      font-size: 0.875rem;
-      text-align: center;
+
+    .hero-float-card {
+      position: absolute;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 16px 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
     }
-    
-    /* Empty State */
-    .empty-state {
-      text-align: center;
-      padding: 60px 20px;
-      color: #64748b;
+
+    .float-card-top {
+      top: -20px;
+      right: -20px;
     }
-    
-    .empty-state svg {
-      width: 64px;
-      height: 64px;
-      margin-bottom: 16px;
-      opacity: 0.5;
-    }
-    
-    /* Sync Button */
-    .sync-actions {
+
+    .float-card-bottom {
+      bottom: 40px;
+      left: -30px;
       display: flex;
+      align-items: center;
       gap: 12px;
-      justify-content: center;
-      margin-top: 20px;
     }
-    
-    .btn {
+
+    .float-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .float-value {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #10b981;
+    }
+
+    .live-indicator {
+      width: 12px;
+      height: 12px;
+      background: #10b981;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .scroll-mouse {
+      width: 24px;
+      height: 40px;
+      border: 2px solid var(--border-color);
+      border-radius: 12px;
+      margin: 10px auto 0;
+      position: relative;
+    }
+
+    .scroll-mouse::after {
+      content: "";
+      position: absolute;
+      top: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      height: 8px;
+      background: var(--text-muted);
+      border-radius: 2px;
+      animation: scrollDown 2s infinite;
+    }
+
+    @keyframes scrollDown {
+      0%, 100% { top: 8px; opacity: 1; }
+      50% { top: 20px; opacity: 0; }
+    }
+
+    /* Section Styles */
+    section {
+      padding: 100px 24px;
+    }
+
+    .section-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-tag {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 12px 24px;
-      border-radius: 8px;
-      font-size: 0.95rem;
-      font-weight: 500;
-      text-decoration: none;
-      transition: all 0.2s;
+      padding: 8px 16px;
+      background: rgba(6, 182, 212, 0.1);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      border-radius: 20px;
+      font-size: 0.85rem;
+      color: var(--accent-cyan);
+      margin-bottom: 20px;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Feature Ecosystem */
+    .ecosystem {
+      background: var(--bg-secondary);
+    }
+
+    .ecosystem-container {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .feature-nav {
+      position: sticky;
+      top: 100px;
+    }
+
+    .feature-nav-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      border-radius: 10px;
       cursor: pointer;
-      border: none;
+      transition: all 0.3s;
+      margin-bottom: 4px;
+      color: var(--text-secondary);
     }
-    
-    .btn-primary {
-      background: #3b82f6;
-      color: white;
+
+    .feature-nav-item:hover,
+    .feature-nav-item.active {
+      background: rgba(59, 130, 246, 0.1);
+      color: var(--text-primary);
     }
-    
-    .btn-primary:hover {
-      background: #2563eb;
+
+    .feature-nav-item.active {
+      background: rgba(59, 130, 246, 0.2);
+      border-left: 3px solid var(--accent-blue);
     }
-    
-    .btn-secondary {
-      background: white;
-      color: #3b82f6;
-      border: 1px solid #3b82f6;
+
+    .feature-nav-icon {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.05);
+      border-radius: 8px;
+      font-size: 1.1rem;
     }
-    
-    .btn-secondary:hover {
-      background: #eff6ff;
+
+    .feature-nav-item.active .feature-nav-icon {
+      background: var(--accent-blue);
     }
-    
-    footer {
-      text-align: center;
+
+    .feature-nav-text {
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    .feature-showcase {
+      background: var(--bg-card);
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+    }
+
+    .feature-image {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .feature-info {
+      padding: 32px;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .feature-icon-large {
+      width: 56px;
+      height: 56px;
+      background: var(--gradient-blue);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .feature-text h3 {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+    }
+
+    .feature-text p {
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* AI Features Grid */
+    .ai-features {
+      background: var(--bg-primary);
+    }
+
+    .ai-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+    }
+
+    .ai-item {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
       padding: 40px;
-      color: #64748b;
-      font-size: 0.875rem;
+      background: var(--bg-card);
+      border-radius: 20px;
+      border: 1px solid var(--border-color);
     }
-    
+
+    .ai-item:nth-child(even) {
+      direction: rtl;
+    }
+
+    .ai-item:nth-child(even) > * {
+      direction: ltr;
+    }
+
+    .ai-item-full {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+
+    .ai-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent-cyan);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .ai-tag-icon {
+      width: 32px;
+      height: 32px;
+      background: rgba(6, 182, 212, 0.1);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ai-content h3 {
+      font-size: 1.75rem;
+      margin-bottom: 16px;
+    }
+
+    .ai-content p {
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+      line-height: 1.7;
+    }
+
+    .ai-list {
+      list-style: none;
+    }
+
+    .ai-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 0;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    .ai-list li::before {
+      content: "";
+      width: 20px;
+      height: 20px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%233b82f6'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 12l2 2 4-4'/%3E%3C/svg%3E") center/contain no-repeat;
+      flex-shrink: 0;
+    }
+
+    .ai-image {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+
+    .ai-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .ai-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      background: rgba(139, 92, 246, 0.1);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      border-radius: 20px;
+      font-size: 0.8rem;
+      color: var(--accent-purple);
+      margin-top: 16px;
+    }
+
+    /* Automation Section */
+    .automation {
+      background: var(--bg-secondary);
+    }
+
+    .automation-item {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 60px;
+      align-items: center;
+      margin-bottom: 80px;
+    }
+
+    .automation-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .automation-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .automation-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--gradient-blue);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+    }
+
+    .automation-title-group h3 {
+      font-size: 1.75rem;
+      margin-bottom: 4px;
+    }
+
+    .automation-title-group p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .automation-description {
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+      line-height: 1.7;
+      font-size: 1.05rem;
+    }
+
+    .automation-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .automation-stat {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .automation-stat h4 {
+      font-size: 1.75rem;
+      margin-bottom: 4px;
+    }
+
+    .automation-stat p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .capabilities-title {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+    }
+
+    .automation-image {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+      position: relative;
+    }
+
+    .automation-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .smart-badge {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      background: rgba(17, 24, 39, 0.9);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      font-size: 0.85rem;
+    }
+
+    .smart-badge-icon {
+      width: 20px;
+      height: 20px;
+      background: var(--gradient-blue);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+    }
+
+    /* Communication Section */
+    .communication {
+      background: var(--bg-primary);
+    }
+
+    .inbox-showcase {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 60px;
+      align-items: center;
+      margin-bottom: 80px;
+    }
+
+    .inbox-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .inbox-badge {
+      padding: 6px 12px;
+      background: rgba(139, 92, 246, 0.1);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      border-radius: 6px;
+      font-size: 0.8rem;
+      color: var(--accent-purple);
+    }
+
+    .inbox-title {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .inbox-description {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    .inbox-features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .inbox-feature {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .inbox-feature h4 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .inbox-feature p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .inbox-image {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+    }
+
+    .inbox-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Channels */
+    .channels-section {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .channels-section h3 {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+    }
+
+    .channels-section p {
+      color: var(--text-secondary);
+    }
+
+    .channels-grid {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 20px;
+      margin-bottom: 80px;
+    }
+
+    .channel-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 24px 16px;
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    .channel-item:hover {
+      border-color: var(--accent-blue);
+      transform: translateY(-5px);
+    }
+
+    .channel-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin: 0 auto 12px;
+    }
+
+    .channel-name {
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    /* Contact Management */
+    .contact-section {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .contact-image {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+    }
+
+    .contact-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .contact-header {
+      margin-bottom: 24px;
+    }
+
+    .contact-badge {
+      display: inline-block;
+      padding: 6px 12px;
+      background: rgba(59, 130, 246, 0.1);
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      border-radius: 6px;
+      font-size: 0.8rem;
+      color: var(--accent-blue);
+      margin-bottom: 12px;
+    }
+
+    .contact-title {
+      font-size: 1.75rem;
+      margin-bottom: 16px;
+    }
+
+    .contact-description {
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    .contact-features {
+      display: grid;
+      gap: 16px;
+    }
+
+    .contact-feature {
+      display: flex;
+      gap: 16px;
+      padding: 20px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+    }
+
+    .contact-feature-icon {
+      width: 44px;
+      height: 44px;
+      background: rgba(59, 130, 246, 0.1);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+
+    .contact-feature h4 {
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .contact-feature p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Knowledge Base */
+    .knowledge {
+      background: var(--bg-secondary);
+    }
+
+    .knowledge-showcase {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .knowledge-header {
+      margin-bottom: 24px;
+    }
+
+    .knowledge-badge {
+      display: inline-block;
+      padding: 6px 12px;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      border-radius: 6px;
+      font-size: 0.8rem;
+      color: #10b981;
+      margin-bottom: 12px;
+    }
+
+    .knowledge-title {
+      font-size: 1.75rem;
+      margin-bottom: 16px;
+    }
+
+    .knowledge-description {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    .knowledge-features {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .knowledge-feature {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+    }
+
+    .knowledge-feature-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(16, 185, 129, 0.1);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+
+    .knowledge-feature h4 {
+      font-size: 0.95rem;
+      margin-bottom: 4px;
+    }
+
+    .knowledge-feature p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .knowledge-stats {
+      display: flex;
+      gap: 24px;
+      padding: 20px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+    }
+
+    .knowledge-stat h4 {
+      font-size: 1.5rem;
+      margin-bottom: 4px;
+    }
+
+    .knowledge-stat p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .knowledge-image {
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+    }
+
+    .knowledge-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Roadmap */
+    .roadmap {
+      background: var(--bg-primary);
+    }
+
+    .roadmap-timeline {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .roadmap-timeline::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--accent-blue), var(--accent-cyan));
+      transform: translateX(-50%);
+    }
+
+    .roadmap-quarter {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 60px;
+      position: relative;
+    }
+
+    .roadmap-quarter:nth-child(even) .roadmap-content {
+      grid-column: 2;
+    }
+
+    .roadmap-quarter:nth-child(even) .roadmap-node {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .roadmap-node {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      transform: translateX(-50%);
+      width: 16px;
+      height: 16px;
+      background: var(--bg-primary);
+      border: 3px solid var(--accent-cyan);
+      border-radius: 50%;
+      z-index: 10;
+    }
+
+    .roadmap-content {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 32px;
+    }
+
+    .roadmap-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .roadmap-quarter-title {
+      font-size: 1.5rem;
+    }
+
+    .roadmap-status {
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .roadmap-status.development {
+      background: rgba(6, 182, 212, 0.1);
+      color: var(--accent-cyan);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+    }
+
+    .roadmap-status.planned {
+      background: rgba(107, 114, 128, 0.1);
+      color: var(--text-muted);
+      border: 1px solid var(--border-color);
+    }
+
+    .roadmap-items {
+      display: grid;
+      gap: 16px;
+    }
+
+    .roadmap-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 20px;
+      background: rgba(255,255,255,0.02);
+      border-radius: 12px;
+    }
+
+    .roadmap-item-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(59, 130, 246, 0.1);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+    }
+
+    .roadmap-item h4 {
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+
+    .roadmap-item p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* CTA Section */
+    .cta {
+      background: var(--bg-secondary);
+      text-align: center;
+    }
+
+    .cta-content {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .cta h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 20px;
+    }
+
+    .cta p {
+      color: var(--text-secondary);
+      margin-bottom: 40px;
+      font-size: 1.1rem;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Footer */
+    footer {
+      padding: 40px 24px;
+      text-align: center;
+      border-top: 1px solid var(--border-color);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: var(--accent-blue);
+      text-decoration: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 1200px) {
+      .channels-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    @media (max-width: 992px) {
+      .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .hero-actions {
+        justify-content: center;
+      }
+
+      .hero-visual {
+        order: -1;
+      }
+
+      .ecosystem-container {
+        grid-template-columns: 1fr;
+      }
+
+      .feature-nav {
+        position: static;
+        display: flex;
+        overflow-x: auto;
+        gap: 8px;
+        padding-bottom: 16px;
+      }
+
+      .feature-nav-item {
+        white-space: nowrap;
+        min-width: 200px;
+      }
+
+      .ai-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .ai-item,
+      .ai-item-full {
+        grid-template-columns: 1fr;
+      }
+
+      .ai-item:nth-child(even) {
+        direction: ltr;
+      }
+
+      .automation-item,
+      .inbox-showcase,
+      .contact-section,
+      .knowledge-showcase {
+        grid-template-columns: 1fr;
+      }
+
+      .automation-image,
+      .inbox-image,
+      .contact-image,
+      .knowledge-image {
+        order: -1;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .roadmap-timeline::before {
+        left: 20px;
+      }
+
+      .roadmap-quarter {
+        grid-template-columns: 1fr;
+        padding-left: 50px;
+      }
+
+      .roadmap-node {
+        left: 20px !important;
+        transform: translateX(-50%) !important;
+      }
+
+      .roadmap-quarter:nth-child(even) .roadmap-content {
+        grid-column: 1;
+      }
+    }
+
     @media (max-width: 768px) {
-      header h1 {
-        font-size: 2rem;
+      .channels-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
-      
-      .features-grid {
+
+      .automation-stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .inbox-features,
+      .knowledge-features {
         grid-template-columns: 1fr;
       }
-      
-      .screenshots-grid {
-        grid-template-columns: 1fr;
+
+      .knowledge-stats {
+        flex-direction: column;
+        gap: 16px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>🚀 产品更新中心</h1>
-      <p>跟踪 GitHub Releases 和参考网站最新功能</p>
-      <div class="last-updated" id="lastUpdated">最后更新: 加载中...</div>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <div class="logo">
+        <div class="logo-icon">🚀</div>
+        <div class="logo-text">KeyReply <span>Kira</span></div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="timeline.html">Timeline</a></li>
+        <li><a href="roadmap.html">Roadmap</a></li>
+        <li><a href="user-stories.html">Stories</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="timeline.html">📅 Updates</a>
+        <a href="#contact" class="btn btn-primary">Talk to Expert</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-container">
+      <div class="hero-content">
+        <div class="hero-badge">AI-Powered Engagement Platform</div>
+        <h1>KeyReply <span>Kira</span></h1>
+        <p class="hero-subtitle">Next-Generation Customer Engagement</p>
+        <p class="hero-description">Build smarter and more efficient customer communication systems with AI intelligent agents, automated workflows, and unified communication centers. Deliver 24/7 uninterrupted service while maintaining high-quality customer experiences.</p>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <h3>83M+</h3>
+            <p>AI Interactions</p>
+          </div>
+          <div class="stat-item">
+            <h3>94%</h3>
+            <p>Client Retention</p>
+          </div>
+          <div class="stat-item">
+            <h3>80%</h3>
+            <p>Faster Deployment</p>
+          </div>
+        </div>
+        <div class="hero-actions">
+          <a href="#features" class="btn btn-primary">Explore Features →</a>
+        </div>
+        <div class="hero-phone">
+          📞 Experience live: <a href="tel:+1510HEYKIRA">+1 510 HEY KIRA</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-image-container">
+          <video 
+            id="heroDemoVideo"
+            src="kira-demo.mp4" 
+            controls
+            muted
+            playsinline
+            loop
+            poster="./images/video-poster.png"
+            style="width: 100%; height: auto; display: block;">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="hero-float-card float-card-top">
+          <div class="float-label">Growth</div>
+          <div class="float-value">+12%</div>
+        </div>
+        <div class="hero-float-card float-card-bottom">
+          <div class="live-indicator"></div>
+          <div>
+            <div class="float-label">Status</div>
+            <div style="font-weight: 600;">Live Assistant</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      Scroll to explore
+      <div class="scroll-mouse"></div>
+    </div>
+  </section>
+
+  <!-- Product Demo Video Section - Prominent Placement -->
+  <section class="demo-video-section" id="demo">
+    <div class="section-container">
+      <div class="video-promo-header">
+        <div class="video-badge-large">🎬 Watch Demo</div>
+        <h2 class="video-title-large">See Kira in Action</h2>
+        <p class="video-desc-large">Experience how our AI-native platform transforms customer engagement with real-time voice AI, intelligent agents, and omnichannel messaging.</p>
+      </div>
       
-      <div class="sync-actions">
-        <a href="../../github-sync/README.md" class="btn btn-secondary">
-          <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
-          同步脚本
-        </a>
-      </div>
-    </header>
-
-    <!-- GitHub Releases Section -->
-    <section class="section">
-      <h2>📦 GitHub Releases</h2>
-      <div class="releases-list" id="releasesList">
-        <div class="empty-state">
-          <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
-          <p>暂无 Releases 数据</p>
-          <p style="font-size: 0.875rem; margin-top: 8px;">运行 <code>node github-sync/scripts/sync-releases.js</code> 同步</p>
+      <!-- Centered Large Video Player -->
+      <div class="video-player-container">
+        <div class="video-frame-large">
+          <div class="video-glow"></div>
+          <video 
+            id="demoVideo"
+            src="kira-demo.mp4" 
+            controls
+            muted
+            playsinline
+            poster="./images/new_dashboard.png"
+            style="width: 100%; height: auto; display: block;">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="video-caption">
+          <span class="video-tag">Product Demo</span>
+          <span class="video-duration">0:34</span>
         </div>
       </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="section">
-      <h2>✨ 参考功能分析 (kira.keyreply.com)</h2>
-      <div class="features-grid" id="featuresGrid">
-        <div class="empty-state">
-          <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg>
-          <p>加载中...</p>
+      
+      <!-- Key Features Row -->
+      <div class="key-features-row">
+        <div class="key-feature-item">
+          <div class="key-feature-icon">⚡</div>
+          <div class="key-feature-content">
+            <strong>300ms</strong>
+            <span>Voice Response</span>
+          </div>
+        </div>
+        <div class="key-feature-item">
+          <div class="key-feature-icon">🎯</div>
+          <div class="key-feature-content">
+            <strong>55+</strong>
+            <span>AI Skills</span>
+          </div>
+        </div>
+        <div class="key-feature-item">
+          <div class="key-feature-icon">🌐</div>
+          <div class="key-feature-content">
+            <strong>14</strong>
+            <span>Channels</span>
+          </div>
+        </div>
+        <div class="key-feature-item">
+          <div class="key-feature-icon">🚀</div>
+          <div class="key-feature-content">
+            <strong>275+</strong>
+            <span>Edge Nodes</span>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Screenshots Section -->
-    <section class="section">
-      <h2>📸 界面截图</h2>
-      <div class="screenshots-grid" id="screenshotsGrid">
-        <div class="empty-state">
-          <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"/></svg>
-          <p>加载中...</p>
+  <style>
+    .demo-video-section {
+      padding: 100px 0 80px;
+      background: linear-gradient(180deg, var(--bg-primary) 0%, rgba(17,24,39,0.8) 30%, rgba(59,130,246,0.05) 50%, rgba(17,24,39,0.8) 70%, var(--bg-primary) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .demo-video-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent-blue), transparent);
+      opacity: 0.5;
+    }
+    
+    .demo-video-section::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 800px;
+      height: 400px;
+      background: radial-gradient(ellipse, rgba(59,130,246,0.15) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    
+    /* Video Promo Header */
+    .video-promo-header {
+      text-align: center;
+      margin-bottom: 50px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .video-badge-large {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background: linear-gradient(135deg, rgba(59,130,246,0.2), rgba(139,92,246,0.2));
+      border: 1px solid rgba(59,130,246,0.4);
+      border-radius: 100px;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      animation: pulse-badge 2s ease-in-out infinite;
+    }
+    
+    @keyframes pulse-badge {
+      0%, 100% { box-shadow: 0 0 20px rgba(59,130,246,0.3); }
+      50% { box-shadow: 0 0 40px rgba(59,130,246,0.5); }
+    }
+    
+    .video-title-large {
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #fff 0%, #60a5fa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .video-desc-large {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    
+    /* Large Centered Video Player */
+    .video-player-container {
+      max-width: 1000px;
+      margin: 0 auto 50px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .video-frame-large {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 3px solid rgba(59,130,246,0.4);
+      box-shadow: 
+        0 0 80px rgba(59,130,246,0.3),
+        0 0 120px rgba(59,130,246,0.1),
+        0 30px 100px rgba(0,0,0,0.6);
+      transform: scale(1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .video-frame-large:hover {
+      transform: scale(1.01);
+      box-shadow: 
+        0 0 100px rgba(59,130,246,0.4),
+        0 0 150px rgba(59,130,246,0.2),
+        0 40px 120px rgba(0,0,0,0.7);
+    }
+    
+    .video-glow {
+      position: absolute;
+      inset: -3px;
+      background: linear-gradient(135deg, rgba(59,130,246,0.6), rgba(139,92,246,0.6), rgba(6,182,212,0.6));
+      border-radius: 24px;
+      z-index: -1;
+      filter: blur(30px);
+      opacity: 0.6;
+      animation: glow-pulse 3s ease-in-out infinite;
+    }
+    
+    @keyframes glow-pulse {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 0.8; }
+    }
+    
+    .video-caption {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      margin-top: 24px;
+    }
+    
+    .video-tag {
+      padding: 8px 20px;
+      background: rgba(59,130,246,0.15);
+      border: 1px solid rgba(59,130,246,0.3);
+      border-radius: 100px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--accent-blue);
+    }
+    
+    .video-duration {
+      padding: 8px 20px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 100px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
+    
+    /* Key Features Row */
+    .key-features-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .key-feature-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 20px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      transition: all 0.3s ease;
+    }
+    
+    .key-feature-item:hover {
+      border-color: var(--accent-blue);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(59,130,246,0.1);
+    }
+    
+    .key-feature-icon {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, rgba(59,130,246,0.2), rgba(139,92,246,0.2));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+    
+    .key-feature-content {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .key-feature-content strong {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    
+    .key-feature-content span {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+    
+    @media (max-width: 1024px) {
+      .video-title-large {
+        font-size: 2rem;
+      }
+      
+      .key-features-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .key-features-row {
+        grid-template-columns: 1fr;
+      }
+      
+      .video-frame-large {
+        border-radius: 16px;
+      }
+    }
+    
+    .video-info-left p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+    
+    .video-duration {
+      padding: 8px 16px;
+      background: rgba(59,130,246,0.1);
+      border: 1px solid rgba(59,130,246,0.3);
+      border-radius: 100px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--accent-blue);
+    }
+    
+    .demo-features {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .demo-feature {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 20px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      transition: all 0.3s ease;
+    }
+    
+    .demo-feature:hover {
+      border-color: var(--accent-blue);
+      transform: translateY(-3px);
+    }
+    
+    .demo-feature-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(59,130,246,0.1);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+    
+    .demo-feature-text {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .demo-feature-text strong {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+    
+    .demo-feature-text span {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+    
+    @media (max-width: 768px) {
+      .demo-features {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .video-info-bar {
+        flex-direction: column;
+        text-align: center;
+        gap: 16px;
+      }
+    }
+  </style>
+
+  <!-- Feature Ecosystem -->
+  <section class="ecosystem" id="features">
+    <div class="section-container">
+      <div class="section-header">
+        <h2 class="section-title">Complete Feature Ecosystem</h2>
+        <p class="section-subtitle">Explore the comprehensive suite of tools designed to transform your customer engagement strategy</p>
+      </div>
+      <div class="ecosystem-container">
+        <div class="feature-nav">
+          <div class="feature-nav-item active">
+            <div class="feature-nav-icon">📊</div>
+            <div class="feature-nav-text">Dashboard</div>
+          </div>
+          <div class="feature-nav-item">
+            <div class="feature-nav-icon">🤖</div>
+            <div class="feature-nav-text">Agent Builder</div>
+          </div>
+          <div class="feature-nav-item">
+            <div class="feature-nav-icon">️</div>
+            <div class="feature-nav-text">MCP Store</div>
+          </div>
+          <div class="feature-nav-item">
+            <div class="feature-nav-icon">🧠</div>
+            <div class="feature-nav-text">Synapse</div>
+          </div>
+          <div class="feature-nav-item">
+            <div class="feature-nav-icon">📋</div>
+            <div class="feature-nav-text">Campaigns</div>
+          </div>
+          <div class="feature-nav-item">
+            <div class="feature-nav-icon">📥</div>
+            <div class="feature-nav-text">Inbox</div>
+          </div>
+          <div class="feature-nav-item">
+            <div class="feature-nav-icon">👤</div>
+            <div class="feature-nav-text">Contacts</div>
+          </div>
+          <div class="feature-nav-item">
+            <div class="feature-nav-icon">📚</div>
+            <div class="feature-nav-text">Knowledge</div>
+          </div>
+          <div class="feature-nav-item">
+            <div class="feature-nav-icon">⚙️</div>
+            <div class="feature-nav-text">Settings</div>
+          </div>
+        </div>
+        <div class="feature-showcase">
+          <img src="./images/new_dashboard.png" alt="Analytics Dashboard" class="feature-image">
+          <div class="feature-info">
+            <div class="feature-icon-large">📊</div>
+            <div class="feature-text">
+              <h3>Analytics Dashboard</h3>
+              <p>Real-time monitoring of key business metrics and historical trend analysis. Features intuitive visual design with key metric cards, time range switching, and trend charts.</p>
+            </div>
+          </div>
         </div>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
 
+  <!-- AI Features -->
+  <section class="ai-features" id="ai">
+    <div class="section-container">
+      <div class="section-header">
+        <div class="section-tag">⚡ Powered by Advanced AI</div>
+        <h2 class="section-title">Leverage cutting-edge artificial intelligence</h2>
+        <p class="section-subtitle">to understand, engage, and serve your customers better</p>
+      </div>
+      <div class="ai-grid">
+        <!-- Agent Builder -->
+        <div class="ai-item ai-item-full">
+          <div class="ai-content">
+            <div class="ai-tag">
+              <div class="ai-tag-icon">🤖</div>
+              Create Intelligent AI Agents
+            </div>
+            <h3>Agent Builder</h3>
+            <p>Build custom AI agents with unique personalities, skills, and behavior patterns. Select from base models like qwen2.5-coder-32b and configure agent traits for specific business scenarios.</p>
+            <ul class="ai-list">
+              <li>Custom personality configuration</li>
+              <li>Multiple base model support</li>
+              <li>Skill and tool integration</li>
+              <li>Real-time agent testing</li>
+            </ul>
+          </div>
+          <div class="ai-image">
+            <img src="./images/new_agent_builder.png" alt="Agent Builder">
+          </div>
+        </div>
+
+        <!-- MCP Store -->
+        <div class="ai-item ai-item-full">
+          <div class="ai-image">
+            <img src="./images/mcp_store.png" alt="MCP Store">
+          </div>
+          <div class="ai-content">
+            <div class="ai-tag">
+              <div class="ai-tag-icon">🛒</div>
+              Integration Marketplace
+            </div>
+            <h3>MCP Store</h3>
+            <p>Extend AI agent capabilities through the Model Context Protocol Store. Connect to CRM, DevOps, Communication, Productivity, Healthcare, and AI services.</p>
+            <ul class="ai-list">
+              <li>50+ third-party integrations</li>
+              <li>CRM & Sales tools (Salesforce, HubSpot)</li>
+              <li>DevOps & Infrastructure (AWS, Azure)</li>
+              <li>AI & ML services (OpenAI, Claude)</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Synapse -->
+        <div class="ai-item">
+          <div class="ai-content">
+            <div class="ai-tag">
+              <div class="ai-tag-icon">🧠</div>
+              Cognitive State Analysis
+            </div>
+            <h3>Synapse</h3>
+            <p>Real-time emotional state and cognitive indicator analysis during conversations. Understand customer emotional changes and optimize engagement strategies.</p>
+            <ul class="ai-list">
+              <li>Curiosity detection</li>
+              <li>Fatigue monitoring</li>
+              <li>Confidence assessment</li>
+              <li>Engagement measurement</li>
+            </ul>
+          </div>
+          <div class="ai-image">
+            <img src="./images/synapse.png" alt="Synapse">
+            <div class="ai-badge">⚡ AI Powered</div>
+          </div>
+        </div>
+
+        <!-- Testing -->
+        <div class="ai-item">
+          <div class="ai-content">
+            <div class="ai-tag">
+              <div class="ai-tag-icon">🧪</div>
+              Optimize AI Response Accuracy
+            </div>
+            <h3>RAG Testing Lab</h3>
+            <p>Evaluate Retrieval-Augmented Generation quality with comprehensive testing tools. Test knowledge base retrieval effectiveness and track performance metrics.</p>
+            <ul class="ai-list">
+              <li>Similarity score configuration</li>
+              <li>Expected answer validation</li>
+              <li>Source document tracking</li>
+              <li>Performance analytics</li>
+            </ul>
+          </div>
+          <div class="ai-image">
+            <img src="./images/testing.png" alt="RAG Testing Lab">
+          </div>
+        </div>
+
+        <!-- Voice Testing -->
+        <div class="ai-item">
+          <div class="ai-content">
+            <div class="ai-tag">
+              <div class="ai-tag-icon">🎙️</div>
+              Real-time Audio Integration
+            </div>
+            <h3>Voice Testing</h3>
+            <p>Test Grok Voice API integration with real-time audio. Verify voice call quality, latency, and recognition accuracy with comprehensive session metrics.</p>
+            <ul class="ai-list">
+              <li>Multiple voice providers</li>
+              <li>Character voice selection</li>
+              <li>Session metrics tracking</li>
+              <li>Real-time conversation testing</li>
+            </ul>
+          </div>
+          <div class="ai-image">
+            <img src="./images/voice_testing.png" alt="Voice Testing">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Automation Section -->
+  <section class="automation" id="automation">
+    <div class="section-container">
+      <div class="section-header">
+        <div class="section-tag">⚡ Automation & Marketing</div>
+        <h2 class="section-title">Automate & Scale</h2>
+        <p class="section-subtitle">Streamline your marketing and business processes with intelligent automation tools</p>
+      </div>
+
+      <!-- Campaign Management -->
+      <div class="automation-item">
+        <div class="automation-content">
+          <div class="automation-header">
+            <div class="automation-icon">📋</div>
+            <div class="automation-title-group">
+              <h3>Campaign Management</h3>
+              <p>Outbound Marketing Campaigns</p>
+            </div>
+          </div>
+          <p class="automation-description">Central hub for outbound marketing campaigns with integrated script optimization. Design multi-channel campaigns, generate AI script variants, launch A/B tests, and manage voice call templates—all without leaving your campaign workflow.</p>
+          <div class="automation-stats">
+            <div class="automation-stat">
+              <h4>9</h4>
+              <p>Total Campaigns</p>
+            </div>
+            <div class="automation-stat">
+              <h4>1</h4>
+              <p>Active Now</p>
+            </div>
+            <div class="automation-stat">
+              <h4>2</h4>
+              <p>Completed</p>
+            </div>
+            <div class="automation-stat">
+              <h4>4</h4>
+              <p>Drafts</p>
+            </div>
+          </div>
+          <div class="capabilities-title">Key Capabilities</div>
+          <ul class="ai-list">
+            <li>Multi-channel campaigns (Voice, Email, WhatsApp)</li>
+            <li>Integrated script optimization with AI variants</li>
+            <li>A/B testing and experiment setup</li>
+            <li>Voice call template management</li>
+          </ul>
+        </div>
+        <div class="automation-image">
+          <img src="./images/new_campaigns.png" alt="Campaign Management">
+          <div class="smart-badge">
+            <div class="smart-badge-icon">⚡</div>
+            <span>Smart Automation</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Workflow Automation -->
+      <div class="automation-item">
+        <div class="automation-content">
+          <div class="automation-header">
+            <div class="automation-icon">⚙️</div>
+            <div class="automation-title-group">
+              <h3>Workflow Automation</h3>
+              <p>Visual Process Builder</p>
+            </div>
+          </div>
+          <p class="automation-description">Visually build automated business processes with complex combinations of triggers, conditions, and actions. Create sophisticated automation flows that connect your entire tech stack.</p>
+          <div class="capabilities-title">Key Capabilities</div>
+          <ul class="ai-list">
+            <li>Visual workflow builder</li>
+            <li>Multiple trigger types (Webhook, Timer, Event)</li>
+            <li>Conditional logic and branching</li>
+            <li>Action nodes (message, API, data update)</li>
+          </ul>
+        </div>
+        <div class="automation-image">
+          <img src="./images/new_workflows.png" alt="Workflow Automation">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Communication Section -->
+  <section class="communication" id="communication">
+    <div class="section-container">
+      <div class="section-header">
+        <h2 class="section-title">Unified Communication</h2>
+        <p class="section-subtitle">Manage all customer conversations across every channel from one powerful platform</p>
+      </div>
+
+      <!-- Unified Inbox -->
+      <div class="inbox-showcase">
+        <div class="inbox-content">
+          <div class="inbox-header">
+            <div class="inbox-badge">Core Workspace</div>
+          </div>
+          <h3 class="inbox-title">Unified Inbox</h3>
+          <p class="inbox-description">The heart of the Kira platform featuring a three-column layout design that integrates conversation list, real-time conversation thread, and customer details into a single view, significantly improving customer service efficiency.</p>
+          <div class="inbox-features">
+            <div class="inbox-feature">
+              <h4>Three-Column Layout</h4>
+              <p>Conversation list, real-time thread, and customer details in a single view</p>
+            </div>
+            <div class="inbox-feature">
+              <h4>AI-Assisted Replies</h4>
+              <p>Smart reply suggestions based on conversation context</p>
+            </div>
+            <div class="inbox-feature">
+              <h4>Conversation Summary</h4>
+              <p>Automatically generated key points summary</p>
+            </div>
+            <div class="inbox-feature">
+              <h4>Customer Tags</h4>
+              <p>AI automatically identifies and tags customer characteristics</p>
+            </div>
+          </div>
+        </div>
+        <div class="inbox-image">
+          <img src="./images/new_inbox.png" alt="Unified Inbox">
+        </div>
+      </div>
+
+      <!-- Channel Management -->
+      <div class="channels-section">
+        <h3>Channel Management</h3>
+        <p>Connect and manage all your communication channels</p>
+      </div>
+      <div class="channels-grid">
+        <div class="channel-item">
+          <div class="channel-icon" style="background: #3b82f6;">📧</div>
+          <div class="channel-name">Email</div>
+        </div>
+        <div class="channel-item">
+          <div class="channel-icon" style="background: #10b981;">💬</div>
+          <div class="channel-name">SMS</div>
+        </div>
+        <div class="channel-item">
+          <div class="channel-icon" style="background: #22c55e;">📱</div>
+          <div class="channel-name">WhatsApp</div>
+        </div>
+        <div class="channel-item">
+          <div class="channel-icon" style="background: #8b5cf6;">📞</div>
+          <div class="channel-name">Voice</div>
+        </div>
+        <div class="channel-item">
+          <div class="channel-icon" style="background: #3b82f6;">✈️</div>
+          <div class="channel-name">Telegram</div>
+        </div>
+        <div class="channel-item">
+          <div class="channel-icon" style="background: #ef4444;">💼</div>
+          <div class="channel-name">Slack</div>
+        </div>
+        <div class="channel-item">
+          <div class="channel-icon" style="background: #3b82f6;">👥</div>
+          <div class="channel-name">Teams</div>
+        </div>
+        <div class="channel-item">
+          <div class="channel-icon" style="background: #22c55e;">💚</div>
+          <div class="channel-name">WeChat</div>
+        </div>
+      </div>
+
+      <!-- Contact Management -->
+      <div class="contact-section">
+        <div class="contact-image">
+          <img src="./images/new_contacts.png" alt="Contact Management">
+        </div>
+        <div class="contact-content">
+          <div class="contact-header">
+            <div class="contact-badge">AI-Native Hub</div>
+            <h3 class="contact-title">Contact Management</h3>
+            <p class="contact-description">The AI-native contact intelligence hub that helps you know your customer before you call. The new Contact Detail view provides instant DISC personality profiling and behavioral insights, allowing your agents to adapt their tone for maximum conversion.</p>
+          </div>
+          <div class="contact-features">
+            <div class="contact-feature">
+              <div class="contact-feature-icon">🎯</div>
+              <div>
+                <h4>DISC Personality Profiling</h4>
+                <p>Know your customer before you call. AI analyzes interactions to categorize personality types.</p>
+              </div>
+            </div>
+            <div class="contact-feature">
+              <div class="contact-feature-icon">🔍</div>
+              <div>
+                <h4>Behavioral Insights</h4>
+                <p>Smart tags like "High Dominance", "Quick Decision Maker" guide agent tone for maximum conversion.</p>
+              </div>
+            </div>
+            <div class="contact-feature">
+              <div class="contact-feature-icon">📊</div>
+              <div>
+                <h4>Contact Intelligence</h4>
+                <p>Comprehensive customer profile with demographics, company info, and interaction patterns.</p>
+              </div>
+            </div>
+            <div class="contact-feature">
+              <div class="contact-feature-icon">📅</div>
+              <div>
+                <h4>Activity Timeline</h4>
+                <p>Complete history of sessions, calls, and messages with engagement metrics.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Knowledge Base Section -->
+  <section class="knowledge" id="knowledge">
+    <div class="section-container">
+      <div class="section-header">
+        <h2 class="section-title">Centralized Knowledge Base</h2>
+        <p class="section-subtitle">Power your AI agents with comprehensive knowledge management and RAG capabilities</p>
+      </div>
+      <div class="knowledge-showcase">
+        <div class="knowledge-content">
+          <div class="knowledge-header">
+            <div class="knowledge-badge">Tenant-Aware Center</div>
+            <h3 class="knowledge-title">Knowledge Base</h3>
+            <p class="knowledge-description">The tenant-aware knowledge center of the Kira platform, used for centralized management of all documents supporting AI Retrieval-Augmented Generation (RAG). The system automatically indexes uploaded documents, making them retrievable and referenceable by AI agents.</p>
+          </div>
+          <div class="knowledge-features">
+            <div class="knowledge-feature">
+              <div class="knowledge-feature-icon">📄</div>
+              <div>
+                <h4>Document Upload</h4>
+                <p>Upload PDF, Word, Markdown files</p>
+              </div>
+            </div>
+            <div class="knowledge-feature">
+              <div class="knowledge-feature-icon">📝</div>
+              <div>
+                <h4>Internal Articles</h4>
+                <p>Create self-service knowledge documents</p>
+              </div>
+            </div>
+            <div class="knowledge-feature">
+              <div class="knowledge-feature-icon">🔗</div>
+              <div>
+                <h4>External Integrations</h4>
+                <p>Connect Zendesk, Notion, Confluence</p>
+              </div>
+            </div>
+            <div class="knowledge-feature">
+              <div class="knowledge-feature-icon">🤖</div>
+              <div>
+                <h4>AI RAG Support</h4>
+                <p>Automatic indexing and retrieval</p>
+              </div>
+            </div>
+          </div>
+          <div class="knowledge-stats">
+            <div class="knowledge-stat">
+              <h4>45%</h4>
+              <p>Storage Used</p>
+            </div>
+            <div class="knowledge-stat">
+              <h4>12</h4>
+              <p>Documents</p>
+            </div>
+            <div class="knowledge-stat">
+              <h4>8</h4>
+              <p>Articles</p>
+            </div>
+          </div>
+        </div>
+        <div class="knowledge-image">
+          <img src="./images/new_knowledge.png" alt="Knowledge Base">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Roadmap Section -->
+  <section class="roadmap" id="roadmap">
+    <div class="section-container">
+      <div class="section-header">
+        <h2 class="section-title">What's Coming Next</h2>
+        <p class="section-subtitle">We are committed to providing customers with the most advanced AI customer engagement solutions through continuous innovation</p>
+      </div>
+      <div class="roadmap-timeline">
+        <!-- Q2 2026 -->
+        <div class="roadmap-quarter">
+          <div class="roadmap-node"></div>
+          <div class="roadmap-content">
+            <div class="roadmap-header">
+              <h3 class="roadmap-quarter-title">Q2 2026</h3>
+              <span class="roadmap-status development">🕐 In Development</span>
+            </div>
+            <div class="roadmap-items">
+              <div class="roadmap-item">
+                <div class="roadmap-item-icon">🎙️</div>
+                <div>
+                  <h4>Voice Integration</h4>
+                  <p>Support for voice calls and IVR functionality</p>
+                </div>
+              </div>
+              <div class="roadmap-item">
+                <div class="roadmap-item-icon">📈</div>
+                <div>
+                  <h4>Advanced Analytics</h4>
+                  <p>Predictive analytics and custom report builder</p>
+                </div>
+              </div>
+              <div class="roadmap-item">
+                <div class="roadmap-item-icon">🔌</div>
+                <div>
+                  <h4>API Gateway</h4>
+                  <p>Public API for third-party integrations</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Q3 2026 -->
+        <div class="roadmap-quarter">
+          <div class="roadmap-node"></div>
+          <div class="roadmap-content">
+            <div class="roadmap-header">
+              <h3 class="roadmap-quarter-title">Q3 2026</h3>
+              <span class="roadmap-status planned">○ Planned</span>
+            </div>
+            <div class="roadmap-items">
+              <div class="roadmap-item">
+                <div class="roadmap-item-icon">📱</div>
+                <div>
+                  <h4>Mobile App</h4>
+                  <p>Native iOS and Android applications</p>
+                </div>
+              </div>
+              <div class="roadmap-item">
+                <div class="roadmap-item-icon">🔄</div>
+                <div>
+                  <h4>CRM Integration</h4>
+                  <p>Native integrations with Salesforce, HubSpot</p>
+                </div>
+              </div>
+              <div class="roadmap-item">
+                <div class="roadmap-item-icon">🌐</div>
+                <div>
+                  <h4>Multi-language AI</h4>
+                  <p>Support for 50+ languages in AI responses</p>
+                </div>
+              </div>
+              <div class="roadmap-item">
+                <div class="roadmap-item-icon">📹</div>
+                <div>
+                  <h4>Video Chat</h4>
+                  <p>In-app video calling capabilities</p>
+                </div>
+              </div>
+              <div class="roadmap-item">
+                <div class="roadmap-item-icon">⚡</div>
+                <div>
+                  <h4>Advanced Workflow</h4>
+                  <p>Conditional logic and custom triggers</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta" id="contact">
+    <div class="section-container">
+      <div class="cta-content">
+        <h2>Ready to Transform Your Customer Engagement?</h2>
+        <p>Join leading organizations worldwide using KeyReply Kira to deliver exceptional customer experiences with AI-powered engagement.</p>
+        <div class="cta-buttons">
+          <a href="https://github.com/keyreply/kira-cloudflare/releases/tag/v0.9.0" class="btn btn-primary" target="_blank">📦 View v0.9.0 Release</a>
+          <a href="./src/updates/" class="btn btn-outline">📋 View All Updates</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer>
-    <p>数据来源: GitHub Releases & <a href="https://kira.keyreply.com/" target="_blank" style="color: #3b82f6;">kira.keyreply.com</a></p>
-    <p style="margin-top: 8px;">自动同步工具位于 <code>github-sync/</code> 目录</p>
+    <p>© 2026 KeyReply Kira. Auto-synced from <a href="https://github.com/keyreply/kira-cloudflare" target="_blank">keyreply/kira-cloudflare</a></p>
   </footer>
 
   <script>
-    // 加载功能数据
-    async function loadFeatures() {
-      try {
-        const response = await fetch('kira-features.json');
-        const data = await response.json();
+    // Feature navigation
+    const featureNavItems = document.querySelectorAll('.feature-nav-item');
+    const featureImage = document.querySelector('.feature-image');
+    const featureTitle = document.querySelector('.feature-text h3');
+    const featureDesc = document.querySelector('.feature-text p');
+
+    const featureData = {
+      'Dashboard': { img: './images/new_dashboard.png', title: 'Analytics Dashboard', desc: 'Real-time monitoring of key business metrics and historical trend analysis. Features intuitive visual design with key metric cards, time range switching, and trend charts.' },
+      'Agent Builder': { img: './images/new_agent_builder.png', title: 'Agent Builder', desc: 'Create and configure intelligent AI agents with custom personalities, skills, and capabilities. Supports multiple base models and real-time testing.' },
+      'MCP Store': { img: './images/mcp_store.png', title: 'MCP Store', desc: 'Browse and install MCP servers to extend your agents capabilities. Connect to CRM, DevOps, Communication, Productivity, Healthcare, and AI services.' },
+      'Synapse': { img: './images/synapse.png', title: 'Synapse', desc: 'Real-time emotional state and cognitive indicator analysis. Understand customer emotional changes and optimize engagement strategies.' },
+      'Campaigns': { img: './images/new_campaigns.png', title: 'Campaign Management', desc: 'Central hub for outbound marketing campaigns with integrated script optimization, A/B testing, and multi-channel support.' },
+      'Inbox': { img: './images/new_inbox.png', title: 'Unified Inbox', desc: 'Three-column layout integrating conversation list, real-time thread, and customer details into a single view for maximum efficiency.' },
+      'Contacts': { img: './images/new_contacts.png', title: 'Contact Management', desc: 'AI-native contact intelligence hub with DISC personality profiling and behavioral insights for personalized engagement.' },
+      'Knowledge': { img: './images/new_knowledge.png', title: 'Knowledge Base', desc: 'Tenant-aware knowledge center supporting AI Retrieval-Augmented Generation (RAG) with automatic document indexing.' },
+      'Settings': { img: './images/new_settings.png', title: 'Settings', desc: 'Comprehensive platform configuration including channels, integrations, team management, and system preferences.' }
+    };
+
+    featureNavItems.forEach(item => {
+      item.addEventListener('click', () => {
+        featureNavItems.forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
         
-        // 更新最后更新时间
-        document.getElementById('lastUpdated').textContent = 
-          `最后更新: ${new Date(data.last_updated).toLocaleString('zh-CN')}`;
-        
-        // 渲染功能列表
-        const featuresGrid = document.getElementById('featuresGrid');
-        featuresGrid.innerHTML = data.features.map(feature => `
-          <div class="feature-card ${feature.highlight ? 'highlight' : ''}">
-            <span class="feature-category">${getCategoryName(feature.category, data.categories)}</span>
-            <h3>${feature.name}</h3>
-            <p>${feature.description}</p>
-          </div>
-        `).join('');
-        
-        // 渲染截图
-        const screenshotsGrid = document.getElementById('screenshotsGrid');
-        const screenshotItems = [
-          { key: 'desktop_hero', label: '🖥️ 桌面端首页' },
-          { key: 'mobile_hero', label: '📱 移动端首页' },
-          { key: 'tablet_hero', label: '💻 平板端首页' },
-        ];
-        
-        screenshotsGrid.innerHTML = screenshotItems.map(item => {
-          const path = data.screenshots[item.key];
-          return path ? `
-            <div class="screenshot-item">
-              <img src="../../${path}" alt="${item.label}" loading="lazy">
-              <div class="screenshot-label">${item.label}</div>
-            </div>
-          ` : '';
-        }).join('');
-        
-      } catch (error) {
-        console.error('Error loading features:', error);
-        document.getElementById('featuresGrid').innerHTML = `
-          <div class="empty-state">
-            <p>无法加载功能数据</p>
-            <p style="font-size: 0.875rem;">${error.message}</p>
-          </div>
-        `;
-      }
-    }
-    
-    // 加载 Releases 数据
-    async function loadReleases() {
-      try {
-        const response = await fetch('releases.json');
-        const data = await response.json();
-        
-        if (data.releases && data.releases.length > 0) {
-          const releasesList = document.getElementById('releasesList');
-          releasesList.innerHTML = data.releases.map(release => `
-            <div class="release-card">
-              <div class="release-header">
-                <span class="release-tag">${release.version}</span>
-                <span class="release-date">${new Date(release.date).toLocaleDateString('zh-CN')}</span>
-              </div>
-              <h3 class="release-title">${release.title}</h3>
-              <div class="release-body">${formatMarkdown(release.content)}</div>
-              <a href="${release.url}" target="_blank" style="color: #3b82f6; font-size: 0.875rem;">查看详情 →</a>
-            </div>
-          `).join('');
+        const featureName = item.querySelector('.feature-nav-text').textContent;
+        const data = featureData[featureName];
+        if (data) {
+          featureImage.src = data.img;
+          featureTitle.textContent = data.title;
+          featureDesc.textContent = data.desc;
         }
-      } catch (error) {
-        console.log('No releases data yet');
+      });
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Nav background on scroll
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('nav');
+      if (window.scrollY > 100) {
+        nav.style.background = 'rgba(10, 14, 23, 0.95)';
+      } else {
+        nav.style.background = 'rgba(10, 14, 23, 0.8)';
       }
-    }
-    
-    // 辅助函数
-    function getCategoryName(categoryId, categories) {
-      const cat = categories.find(c => c.id === categoryId);
-      return cat ? cat.name : categoryId;
-    }
-    
-    function formatMarkdown(text) {
-      if (!text) return '';
-      return text
-        .replace(/\n/g, '<br>')
-        .replace(/#{1,6}\s?(.+)/g, '<strong>$1</strong>')
-        .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
-        .replace(/\*(.+?)\*/g, '<em>$1</em>')
-        .replace(/- \[x\] /g, '☑️ ')
-        .replace(/- \[ \] /g, '⬜ ')
-        .substring(0, 300) + (text.length > 300 ? '...' : '');
-    }
-    
-    // 初始化
-    loadFeatures();
-    loadReleases();
+    });
   </script>
 </body>
 </html>

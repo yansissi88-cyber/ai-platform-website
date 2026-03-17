@@ -1,296 +1,489 @@
 /**
- * Timeline Page JavaScript
- * Handles data loading, filtering, and rendering of timeline events
+ * Timeline Module - Product History Visualization
+ * Enhanced with deep content: metrics, architecture, customer feedback
  */
 
-// State management
-let timelineData = { events: [] };
-let filteredEvents = [];
-let filters = {
-  year: 'all',
-  category: 'all',
-  type: 'all'
+let timelineData = null;
+let currentFilter = 'all';
+
+// Icons mapping
+const icons = {
+  feature: '✨',
+  improvement: '🔧',
+  fix: '🐛',
+  healthcare: '🏥',
+  platform: '🏗️',
+  campaign: '📢',
+  livechat: '💬',
+  voice: '🎙️',
+  analytics: '📊',
+  mobile: '📱'
 };
 
-// DOM Elements
-const elements = {
-  timelineContent: document.getElementById('timelineContent'),
-  lastUpdated: document.getElementById('lastUpdated'),
-  totalReleases: document.getElementById('totalReleases'),
-  totalFeatures: document.getElementById('totalFeatures'),
-  thisYear: document.getElementById('thisYear'),
-  yearFilter: document.getElementById('yearFilter'),
-  categoryFilter: document.getElementById('categoryFilter'),
-  typeFilter: document.getElementById('typeFilter'),
-  emptyState: document.getElementById('emptyState'),
-  eventModal: document.getElementById('eventModal'),
-  modalBody: document.getElementById('modalBody'),
-  modalClose: document.querySelector('.modal-close'),
-  modalOverlay: document.querySelector('.modal-overlay')
-};
-
-// Initialize
-document.addEventListener('DOMContentLoaded', async () => {
-  await loadData();
-  setupEventListeners();
-});
-
-// Load timeline data
-async function loadData() {
+// Initialize timeline
+async function initTimeline() {
   try {
     const response = await fetch('data/timeline-data.json');
-    if (!response.ok) throw new Error('Failed to load timeline data');
-    
-    timelineData = await response.json();
-    filteredEvents = [...timelineData.events];
-    
-    // Update last updated text
-    const date = new Date(timelineData.lastUpdated);
-    elements.lastUpdated.textContent = `Updated: ${date.toLocaleDateString('en-US')} ${date.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}`;
-    
-    // Populate year filter
-    populateYearFilter();
-    
-    // Render timeline
-    renderTimeline();
-    updateStats();
+    const data = await response.json();
+    timelineData = data;
+    renderTimeline(data.events);
+    setupFilters();
+    updateLastUpdated(data.lastUpdated);
   } catch (error) {
-    console.error('Error loading timeline data:', error);
-    elements.timelineContent.innerHTML = `
-      <div class="empty-state">
-        <div class="empty-icon">⚠️</div>
-        <h3>Failed to load data</h3>
-        <p>Please refresh the page to try again</p>
+    console.error('Failed to load timeline data:', error);
+    document.getElementById('timeline').innerHTML = `
+      <div class="error-message">
+        <p>Unable to load timeline data. Please try again later.</p>
       </div>
     `;
   }
 }
 
-// Populate year filter options
-function populateYearFilter() {
-  const years = [...new Set(timelineData.events.map(e => new Date(e.date).getFullYear()))].sort((a, b) => b - a);
+// Render timeline events
+function renderTimeline(events) {
+  const container = document.getElementById('timeline');
+  container.innerHTML = '';
   
-  years.forEach(year => {
-    const option = document.createElement('option');
-    option.value = year;
-    option.textContent = year;
-    elements.yearFilter.appendChild(option);
-  });
-}
-
-// Setup event listeners
-function setupEventListeners() {
-  // Filter changes
-  elements.yearFilter.addEventListener('change', (e) => {
-    filters.year = e.target.value;
-    applyFilters();
-  });
-  
-  elements.categoryFilter.addEventListener('change', (e) => {
-    filters.category = e.target.value;
-    applyFilters();
-  });
-  
-  elements.typeFilter.addEventListener('change', (e) => {
-    filters.type = e.target.value;
-    applyFilters();
-  });
-  
-  // Modal close
-  elements.modalClose.addEventListener('click', closeModal);
-  elements.modalOverlay.addEventListener('click', closeModal);
-  
-  // Close modal on escape key
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeModal();
-  });
-}
-
-// Apply filters
-function applyFilters() {
-  filteredEvents = timelineData.events.filter(event => {
-    const eventDate = new Date(event.date);
-    const eventYear = eventDate.getFullYear().toString();
-    
-    const yearMatch = filters.year === 'all' || eventYear === filters.year;
-    const categoryMatch = filters.category === 'all' || event.category === filters.category;
-    const typeMatch = filters.type === 'all' || event.type === filters.type;
-    
-    return yearMatch && categoryMatch && typeMatch;
-  });
-  
-  renderTimeline();
-}
-
-// Group events by year
-function groupByYear(events) {
-  const groups = {};
-  
-  events.forEach(event => {
-    const year = new Date(event.date).getFullYear();
-    if (!groups[year]) {
-      groups[year] = [];
-    }
-    groups[year].push(event);
-  });
-  
-  // Sort years descending
-  return Object.entries(groups)
-    .sort(([a], [b]) => b - a)
-    .map(([year, events]) => ({
-      year: parseInt(year),
-      events: events.sort((a, b) => new Date(b.date) - new Date(a.date))
-    }));
-}
-
-// Render timeline
-function renderTimeline() {
-  if (filteredEvents.length === 0) {
-    elements.timelineContent.innerHTML = '';
-    elements.emptyState.style.display = 'block';
+  if (events.length === 0) {
+    container.innerHTML = '<div class="no-results">No events match your filter.</div>';
     return;
   }
   
-  elements.emptyState.style.display = 'none';
-  const grouped = groupByYear(filteredEvents);
-  
-  elements.timelineContent.innerHTML = grouped.map(({ year, events }) => `
-    <div class="timeline-year">
-      <h3 class="year-label">${year}</h3>
-      <div class="timeline-events">
-        ${events.map(event => renderEventCard(event)).join('')}
-      </div>
-    </div>
-  `).join('');
-  
-  // Add click handlers
-  document.querySelectorAll('.event-card').forEach(card => {
-    card.addEventListener('click', () => {
-      const eventId = card.dataset.eventId;
-      const event = timelineData.events.find(e => e.id === eventId);
-      if (event) openModal(event);
-    });
+  events.forEach((event, index) => {
+    const card = createTimelineCard(event, index % 2 === 0 ? 'left' : 'right');
+    container.appendChild(card);
   });
+  
+  // Animate cards on scroll
+  setupScrollAnimation();
 }
 
-// Render single event card
-function renderEventCard(event) {
+// Create timeline card element
+function createTimelineCard(event, position) {
+  const card = document.createElement('div');
+  card.className = `timeline-card ${position}`;
+  card.dataset.id = event.id;
+  
   const date = new Date(event.date);
-  const dateStr = date.toLocaleDateString('en-US', { 
-    year: 'numeric', 
-    month: 'long', 
-    day: 'numeric' 
+  const formattedDate = date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric'
   });
   
-  const typeLabels = {
-    feature: '✨ Feature',
-    improvement: '🔧 Improvement',
-    fix: '🐛 Fix',
-    announcement: '📢 Announcement'
-  };
+  const categoryIcon = icons[event.category] || icons[event.type] || '📦';
+  
+  card.innerHTML = `
+    <div class="timeline-date">
+      <span class="date-badge">${formattedDate}</span>
+      <span class="version-badge">${event.version}</span>
+    </div>
+    <div class="timeline-content">
+      <div class="card-header">
+        <span class="category-icon">${categoryIcon}</span>
+        <div class="header-text">
+          <h3>${event.title}</h3>
+          <div class="tags">
+            ${event.tags.slice(0, 3).map(tag => `<span class="tag">${tag}</span>`).join('')}
+          </div>
+        </div>
+      </div>
+      
+      ${event.valueProposition ? `
+        <div class="value-prop">
+          <p>${event.valueProposition}</p>
+        </div>
+      ` : ''}
+      
+      <div class="highlights">
+        ${event.highlights.slice(0, 3).map(h => `<div class="highlight">${h}</div>`).join('')}
+      </div>
+      
+      ${renderBusinessImpact(event.businessImpact)}
+      
+      <div class="card-actions">
+        <button class="btn-details" onclick="openEventDetails('${event.id}')">
+          View Details
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </button>
+        ${event.releaseUrl ? `
+          <a href="${event.releaseUrl}" target="_blank" class="btn-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
+            </svg>
+            GitHub
+          </a>
+        ` : ''}
+      </div>
+    </div>
+  `;
+  
+  return card;
+}
+
+// Render business impact metrics
+function renderBusinessImpact(impact) {
+  if (!impact || impact.length === 0) return '';
   
   return `
-    <div class="timeline-event" data-type="${event.type}" data-event-id="${event.id}">
-      <div class="event-card">
-        <div class="event-header">
-          <span class="event-version">${event.version}</span>
-          <span class="event-type ${event.type}">${typeLabels[event.type]}</span>
-          <span class="event-category">${event.category}</span>
-        </div>
-        <h4 class="event-title">${event.title}</h4>
-        <p class="event-date">${dateStr}</p>
-        <p class="event-description">${event.description}</p>
-        <div class="event-highlights">
-          ${event.highlights.slice(0, 3).map(h => `<span class="highlight-tag">${h}</span>`).join('')}
-          ${event.highlights.length > 3 ? `<span class="highlight-tag">+${event.highlights.length - 3}</span>` : ''}
-        </div>
-        <div class="event-footer">
-          <div class="event-tags">
-            ${event.tags.slice(0, 3).map(tag => `<span class="event-tag">#${tag}</span>`).join('')}
+    <div class="business-impact">
+      <h4>Business Impact</h4>
+      <div class="impact-metrics">
+        ${impact.map(m => `
+          <div class="impact-metric">
+            <span class="metric-name">${m.metric}</span>
+            <div class="metric-values">
+              <span class="before">${m.before}</span>
+              <span class="arrow">→</span>
+              <span class="after">${m.after}</span>
+              <span class="improvement">${m.improvement}</span>
+            </div>
           </div>
-          <a href="${event.releaseUrl}" target="_blank" class="event-link" onclick="event.stopPropagation()">
-            View Details →
-          </a>
-        </div>
+        `).join('')}
       </div>
     </div>
   `;
 }
 
-// Open modal with event details
-function openModal(event) {
+// Open event details modal
+function openEventDetails(eventId) {
+  const event = timelineData.events.find(e => e.id === eventId);
+  if (!event) return;
+  
+  const modal = document.getElementById('event-modal') || createModal();
+  const content = modal.querySelector('.modal-content');
+  
+  content.innerHTML = renderEventDetailContent(event);
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+// Create modal if not exists
+function createModal() {
+  const modal = document.createElement('div');
+  modal.id = 'event-modal';
+  modal.className = 'modal';
+  modal.innerHTML = `
+    <div class="modal-overlay" onclick="closeEventDetails()"></div>
+    <div class="modal-container">
+      <button class="modal-close" onclick="closeEventDetails()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 6L6 18M6 6l12 12"/>
+        </svg>
+      </button>
+      <div class="modal-content"></div>
+    </div>
+  `;
+  document.body.appendChild(modal);
+  return modal;
+}
+
+// Close event details
+function closeEventDetails() {
+  const modal = document.getElementById('event-modal');
+  if (modal) {
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+}
+
+// Render detailed event content
+function renderEventDetailContent(event) {
   const date = new Date(event.date);
-  const dateStr = date.toLocaleDateString('en-US', { 
-    year: 'numeric', 
-    month: 'long', 
-    day: 'numeric' 
-  });
+  const categoryIcon = icons[event.category] || icons[event.type] || '📦';
   
-  const typeLabels = {
-    feature: '✨ Feature',
-    improvement: '🔧 Improvement',
-    fix: '🐛 Fix',
-    announcement: '📢 Announcement'
-  };
-  
-  elements.modalBody.innerHTML = `
-    <div class="modal-header">
-      <span class="event-version">${event.version}</span>
-      <h2>${event.title}</h2>
-      <p class="event-date">${dateStr} · ${typeLabels[event.type]} · ${event.category}</p>
+  return `
+    <div class="detail-header">
+      <div class="detail-meta">
+        <span class="version-tag">${event.version}</span>
+        <span class="date">${date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+      </div>
+      <h2><span class="category-icon">${categoryIcon}</span> ${event.title}</h2>
+      <div class="detail-tags">
+        ${event.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+      </div>
     </div>
     
-    <div class="modal-description">
-      ${formatDescription(event.description)}
-    </div>
+    ${event.valueProposition ? `
+      <div class="detail-section value-proposition">
+        <h3>💡 Value Proposition</h3>
+        <p class="lead">${event.valueProposition}</p>
+      </div>
+    ` : ''}
     
-    <div class="modal-highlights">
-      <h3>✨ Highlights</h3>
+    ${event.problemStatement ? `
+      <div class="detail-section problem-statement">
+        <h3>🎯 Problem Statement</h3>
+        <p>${event.problemStatement}</p>
+      </div>
+    ` : ''}
+    
+    ${event.solutionOverview ? `
+      <div class="detail-section solution-overview">
+        <h3>✅ Solution Overview</h3>
+        <p>${event.solutionOverview}</p>
+      </div>
+    ` : ''}
+    
+    <div class="detail-section highlights">
+      <h3>✨ Key Highlights</h3>
       <ul>
         ${event.highlights.map(h => `<li>${h}</li>`).join('')}
       </ul>
     </div>
     
-    <div class="modal-actions">
-      <a href="${event.releaseUrl}" target="_blank" class="btn btn-primary">
-        View GitHub Release
-      </a>
-      <button class="btn btn-secondary" onclick="closeModal()">Close</button>
+    ${event.businessImpact ? renderBusinessImpactDetailed(event.businessImpact) : ''}
+    
+    ${event.architecture ? renderArchitectureSection(event.architecture) : ''}
+    
+    ${event.technicalHighlights ? `
+      <div class="detail-section technical-highlights">
+        <h3>🔧 Technical Highlights</h3>
+        <ul>
+          ${event.technicalHighlights.map(h => `<li>${h}</li>`).join('')}
+        </ul>
+      </div>
+    ` : ''}
+    
+    ${event.customerQuotes && event.customerQuotes.length > 0 ? renderCustomerQuotes(event.customerQuotes) : ''}
+    
+    ${event.comparisonWithPrevious && event.comparisonWithPrevious.length > 0 ? renderComparisonTable(event.comparisonWithPrevious) : ''}
+    
+    ${event.migrationGuide ? `
+      <div class="detail-section migration">
+        <h3>🚀 Migration Guide</h3>
+        <p>${event.migrationGuide}</p>
+      </div>
+    ` : ''}
+    
+    ${event.breakingChanges && event.breakingChanges.length > 0 ? `
+      <div class="detail-section breaking-changes">
+        <h3>⚠️ Breaking Changes</h3>
+        <ul>
+          ${event.breakingChanges.map(c => `<li>${c}</li>`).join('')}
+        </ul>
+      </div>
+    ` : ''}
+    
+    ${event.resources && event.resources.length > 0 ? renderResources(event.resources) : ''}
+    
+    <div class="detail-footer">
+      ${event.releaseUrl ? `
+        <a href="${event.releaseUrl}" target="_blank" class="btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
+          </svg>
+          View on GitHub
+        </a>
+      ` : ''}
     </div>
   `;
-  
-  elements.eventModal.classList.add('active');
-  document.body.style.overflow = 'hidden';
 }
 
-// Close modal
-function closeModal() {
-  elements.eventModal.classList.remove('active');
-  document.body.style.overflow = '';
+// Render detailed business impact
+function renderBusinessImpactDetailed(impact) {
+  return `
+    <div class="detail-section business-impact-detailed">
+      <h3>📊 Business Impact</h3>
+      <div class="impact-grid">
+        ${impact.map(m => `
+          <div class="impact-card">
+            <div class="impact-metric-name">${m.metric}</div>
+            <div class="impact-values">
+              <div class="before-value">
+                <span class="label">Before</span>
+                <span class="value">${m.before}</span>
+              </div>
+              <div class="arrow-divider">→</div>
+              <div class="after-value">
+                <span class="label">After</span>
+                <span class="value">${m.after}</span>
+              </div>
+            </div>
+            <div class="improvement-badge">${m.improvement}</div>
+            ${m.description ? `<div class="impact-description">${m.description}</div>` : ''}
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `;
 }
 
-// Format description
-function formatDescription(text) {
-  text = text.replace(
-    /(https?:\/\/[^\s]+)/g,
-    '<a href="$1" target="_blank" style="color: var(--accent-blue);">$1</a>'
-  );
-  
-  text = text.replace(/`([^`]+)`/g, '<code style="background: var(--bg-secondary); padding: 2px 6px; border-radius: 4px; font-family: monospace;">$1</code>');
-  
-  const paragraphs = text.split('\n\n').filter(p => p.trim());
-  return paragraphs.map(p => `<p>${p}</p>`).join('');
+// Render architecture section
+function renderArchitectureSection(arch) {
+  return `
+    <div class="detail-section architecture">
+      <h3>🏗️ Architecture</h3>
+      <p>${arch.description}</p>
+      ${arch.components ? `
+        <div class="arch-components">
+          <h4>Key Components</h4>
+          <div class="component-tags">
+            ${arch.components.map(c => `<span class="component-tag">${c}</span>`).join('')}
+          </div>
+        </div>
+      ` : ''}
+      ${arch.technologies ? `
+        <div class="arch-technologies">
+          <h4>Technologies</h4>
+          <div class="tech-tags">
+            ${arch.technologies.map(t => `<span class="tech-tag">${t}</span>`).join('')}
+          </div>
+        </div>
+      ` : ''}
+    </div>
+  `;
 }
 
-// Update statistics
-function updateStats() {
-  elements.totalReleases.textContent = timelineData.events.length;
-  elements.totalFeatures.textContent = timelineData.events.filter(e => e.type === 'feature').length;
-  
-  const currentYear = new Date().getFullYear();
-  elements.thisYear.textContent = timelineData.events.filter(e => 
-    new Date(e.date).getFullYear() === currentYear
-  ).length;
+// Render customer quotes
+function renderCustomerQuotes(quotes) {
+  return `
+    <div class="detail-section customer-quotes">
+      <h3>💬 Customer Feedback</h3>
+      <div class="quotes-container">
+        ${quotes.map(q => `
+          <blockquote class="customer-quote">
+            <p>"${q.quote}"</p>
+            <footer>
+              <div class="quote-author">
+                <strong>${q.author}</strong>
+                <span>${q.role}${q.company ? `, ${q.company}` : ''}</span>
+              </div>
+            </footer>
+          </blockquote>
+        `).join('')}
+      </div>
+    </div>
+  `;
 }
 
-window.closeModal = closeModal;
+// Render comparison table
+function renderComparisonTable(comparisons) {
+  return `
+    <div class="detail-section comparison">
+      <h3>📈 Evolution</h3>
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Aspect</th>
+            <th>Previous</th>
+            <th>Current</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${comparisons.map(c => `
+            <tr>
+              <td>${c.aspect}</td>
+              <td class="previous">${c.previous}</td>
+              <td class="current">${c.current}</td>
+            </tr>
+          `).join('')}
+        </tbody>
+      </table>
+    </div>
+  `;
+}
+
+// Render resources
+function renderResources(resources) {
+  const iconMap = {
+    documentation: '📚',
+    api: '🔌',
+    tutorial: '🎓',
+    blog: '📝',
+    video: '🎬'
+  };
+  
+  return `
+    <div class="detail-section resources">
+      <h3>📚 Resources</h3>
+      <div class="resources-list">
+        ${resources.map(r => `
+          <a href="${r.url}" target="_blank" class="resource-link">
+            <span class="resource-icon">${iconMap[r.type] || '📄'}</span>
+            <span class="resource-title">${r.title}</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/>
+            </svg>
+          </a>
+        `).join('')}
+      </div>
+    </div>
+  `;
+}
+
+// Setup filters
+function setupFilters() {
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      
+      const filter = btn.dataset.filter;
+      applyFilter(filter);
+    });
+  });
+}
+
+// Apply filter
+function applyFilter(filter) {
+  currentFilter = filter;
+  
+  if (!timelineData) return;
+  
+  let filtered = timelineData.events;
+  
+  if (filter === 'feature') {
+    filtered = timelineData.events.filter(e => e.type === 'feature');
+  } else if (filter === 'fix') {
+    filtered = timelineData.events.filter(e => e.type === 'fix' || e.type === 'improvement');
+  } else if (filter === '2026') {
+    filtered = timelineData.events.filter(e => new Date(e.date).getFullYear() === 2026);
+  }
+  
+  renderTimeline(filtered);
+}
+
+// Update last updated timestamp
+function updateLastUpdated(timestamp) {
+  const element = document.getElementById('last-updated');
+  if (element && timestamp) {
+    const date = new Date(timestamp);
+    element.textContent = `Last updated: ${date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric'
+    })}`;
+  }
+}
+
+// Setup scroll animation
+function setupScrollAnimation() {
+  const cards = document.querySelectorAll('.timeline-card');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  });
+  
+  cards.forEach(card => observer.observe(card));
+}
+
+// Close modal on escape key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    closeEventDetails();
+  }
+});
+
+// Initialize on DOM ready
+document.addEventListener('DOMContentLoaded', initTimeline);

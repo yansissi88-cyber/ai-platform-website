@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-03-21T21:22:21.438Z",
+  "lastUpdated": "2026-03-21T21:46:35.559Z",
   "events": [
     {
       "id": "evt-v0.18.0",
@@ -97,7 +97,7 @@
         "POST /v1/fhir/Appointment/$find — search available slots (R4 in, R4 Bundle out)",
         "POST /v1/fhir/Appointment/$book — book a slot (R4 in, booked R4 Appointment out)",
         "GET /v1/fhir/metadata — custom CapabilityStatement advertising Epic proxy support",
-        "Epic STU3 proxy: R4↔STU3 field mapping (reasonCode���reason, basedOn→incomingReferral, comment field)",
+        "Epic STU3 proxy: R4↔STU3 field mapping (reasonCode→reason, basedOn→incomingReferral, comment field)",
         "FNV-1a idempotency key on $book; duplicate requests return existing appointment"
       ],
       "screenshot": null,

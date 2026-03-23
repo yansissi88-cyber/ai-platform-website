@@ -1,6 +1,27 @@
 {
-  "lastUpdated": "2026-03-23T12:01:03.603Z",
+  "lastUpdated": "2026-03-23T12:36:09.063Z",
   "events": [
+    {
+      "id": "evt-v0.20.0",
+      "date": "2026-03-23T12:11:45Z",
+      "version": "v0.20.0",
+      "type": "fix",
+      "category": "agent",
+      "title": "v0.20.0 - Stronger access controls and smoother widget experience",
+      "description": "This release improves how teams manage access, support operations, and customer-facing widget experiences across Kira.\n\nHighlights\n- Stronger access controls and tenant-aware permissions for safer operations across teams\n- Improved support operator login and support mode feedback for internal workflows\n- Better widget setup experience with a cleaner agent selector and easier preview options\n- New hosted widget preview pages for desktop and mobile, making customer-site testing simpler and more re...",
+      "highlights": [
+        "Stronger access controls and tenant-aware permissions for safer operations across teams",
+        "Improved support operator login and support mode feedback for internal workflows",
+        "Better widget setup experience with a cleaner agent selector and easier preview options",
+        "New hosted widget preview pages for desktop and mobile, making customer-site testing simpler and more reliable",
+        "More polished navigation with nested, collapsible sidebar sections"
+      ],
+      "screenshot": null,
+      "releaseUrl": "https://github.com/keyreply/kira-cloudflare/releases/tag/v0.20.0",
+      "tags": [
+        "Platform"
+      ]
+    },
     {
       "id": "evt-v0.19.0",
       "date": "2026-03-22T13:32:19Z",

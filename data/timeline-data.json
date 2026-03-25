@@ -1,14 +1,14 @@
 {
-  "lastUpdated": "2026-03-25T16:08:26.795Z",
+  "lastUpdated": "2026-03-25T16:54:51.111Z",
   "events": [
     {
       "id": "evt-v0.21.0",
-      "date": "2026-03-25T15:56:01Z",
+      "date": "2026-03-25T16:31:22Z",
       "version": "v0.21.0",
       "type": "fix",
       "category": "voice",
       "title": "v0.21.0 — Enterprise Authentication & Security Overhaul",
-      "description": "## Highlights\n\n### Secure, Enterprise-Grade Login with WorkOS AuthKit\nReplaced the custom login flow with WorkOS AuthKit Hosted UI. Users now sign in through a professionally-hosted authentication page that supports email + password, magic link, SSO, and MFA — all managed through the WorkOS dashboard.\n\n### Centralized Secrets Management with WorkOS Vault\nAPI keys, third-party credentials, and integration secrets are now stored in WorkOS Vault instead of plain environment variables. Every tenant ...",
+      "description": "## Highlights\n\n### Secure, Enterprise-Grade Login with WorkOS AuthKit\nReplaced the custom login flow with WorkOS AuthKit Hosted UI. Users now sign in through a professionally-hosted authentication page supporting email + password, magic link, SSO, and MFA — all managed through the WorkOS dashboard.\n\n### Centralized Secrets Management with WorkOS Vault\nAPI keys, third-party credentials, and integration secrets are now stored in WorkOS Vault. Every tenant gets encrypted, auditable secret storage w...",
       "highlights": [
         "WorkOS AuthKit Hosted UI — SSO, magic auth, and org selection handled by WorkOS",
         "WorkOS Vault — Secure secret registry for tenant credentials and API keys",

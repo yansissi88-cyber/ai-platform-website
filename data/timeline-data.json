@@ -1,6 +1,27 @@
 {
-  "lastUpdated": "2026-03-28T17:54:59.197Z",
+  "lastUpdated": "2026-03-28T18:22:07.204Z",
   "events": [
+    {
+      "id": "evt-v0.22.0",
+      "date": "2026-03-28T18:15:46Z",
+      "version": "v0.22.0",
+      "type": "fix",
+      "category": "voice",
+      "title": "v0.22.0",
+      "description": "# Kira v0.22.0 Release Candidate\n\n**Prepared:** 2026-03-29  \n**Baseline:** [v0.21.0](../../.git/refs/tags/v0.21.0)  \n**Audience:** Product, sales, solutions, engineering, and operations\n\n## Executive Summary\n\nThis release candidate moves Kira from an authentication-hardening cycle into a\nlaunch-readiness, voice-platform expansion, and agent-runtime modernization\ncycle.\n\nThe biggest customer-facing shift is that Kira now supports a broader and more\ncompetitive voice stack for live AI agents:\n\n- G...",
+      "highlights": [
+        "Gemini gemini-3.1-flash-live-preview",
+        "Grok Voice with grok-4-1",
+        "OpenAI Realtime gpt-realtime-1.5",
+        "OpenAI Realtime gpt-realtime-mini-2025-12-15",
+        "Custom Azure pipeline: Microsoft Omni HD + Azure OpenAI gpt-5.4-nano"
+      ],
+      "screenshot": null,
+      "releaseUrl": "https://github.com/keyreply/kira-cloudflare/releases/tag/v0.22.0",
+      "tags": [
+        "Platform"
+      ]
+    },
     {
       "id": "evt-v0.21.0",
       "date": "2026-03-25T16:31:22Z",

@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-03-30T21:30:51.460Z",
+  "lastUpdated": "2026-03-30T21:39:29.492Z",
   "events": [
     {
       "id": "evt-v0.23.0",
@@ -113,7 +113,7 @@
       "type": "feature",
       "category": "livechat",
       "title": "v0.18.0 — Live Knowledge: Web Search with Citations",
-      "description": "## What's New\n\n### Live Knowledge — Real-Time Web Search\n\nAgents can now search approved websites in real time to answer customer questions with up-to-date information and source citations.\n\n**How it works:**\n- Configure a list of approved domains per agent (e.g., `geneco.sg`, `get.geneco.sg`)\n- When a customer asks a question, the agent searches those websites live and includes the information in its response\n- Every answer includes clickable source links so customers can verify information the...",
+      "description": "## What's New\n\n### Live Knowledge �� Real-Time Web Search\n\nAgents can now search approved websites in real time to answer customer questions with up-to-date information and source citations.\n\n**How it works:**\n- Configure a list of approved domains per agent (e.g., `geneco.sg`, `get.geneco.sg`)\n- When a customer asks a question, the agent searches those websites live and includes the information in its response\n- Every answer includes clickable source links so customers can verify information th...",
       "highlights": [
         "Configure a list of approved domains per agent (e.g., geneco.sg, get.geneco.sg)",
         "When a customer asks a question, the agent searches those websites live and includes the information in its response",

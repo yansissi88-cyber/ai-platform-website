@@ -1,6 +1,27 @@
 {
-  "lastUpdated": "2026-03-30T14:17:42.835Z",
+  "lastUpdated": "2026-03-30T14:48:25.410Z",
   "events": [
+    {
+      "id": "evt-v0.23.0",
+      "date": "2026-03-30T14:25:30Z",
+      "version": "v0.23.0",
+      "type": "fix",
+      "category": "livechat",
+      "title": "v0.23.0 — Healthcare Provider Workspace, Agent Builder Polish & UI Consistency",
+      "description": "## What's New\n\n### Healthcare Provider Workspace\n\nKira now hosts a full **Medplum Provider workspace** within the Healthcare module — clinicians and care coordinators can access patient scheduling, encounter management, and FHIR-based workflows directly from the Kira platform without switching tools.\n\n- Provider workspace launches from the Healthcare module at `/module/healthcare/provider`\n- Tenant admins can configure and bind their Medplum environment via CLI (`kira ehr config set`)\n- Readines...",
+      "highlights": [
+        "Provider workspace launches from the Healthcare module at /module/healthcare/provider",
+        "Tenant admins can configure and bind their Medplum environment via CLI (kira ehr config set)",
+        "Readiness checklist guides operators through setup — configuration, organization binding, and access policy attachment",
+        "Workspace launch requirements simplified — project binding is no longer a hard prerequisite",
+        "Goals editor now displays Success Metrics and Failure Conditions side-by-side on wider screens"
+      ],
+      "screenshot": null,
+      "releaseUrl": "https://github.com/keyreply/kira-cloudflare/releases/tag/v0.23.0",
+      "tags": [
+        "Platform"
+      ]
+    },
     {
       "id": "evt-v0.22.0",
       "date": "2026-03-28T18:15:46Z",

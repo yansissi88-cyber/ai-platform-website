@@ -1,6 +1,27 @@
 {
-  "lastUpdated": "2026-04-02T15:58:31.117Z",
+  "lastUpdated": "2026-04-02T16:42:04.760Z",
   "events": [
+    {
+      "id": "evt-v0.24.0",
+      "date": "2026-04-02T16:32:21Z",
+      "version": "v0.24.0",
+      "type": "fix",
+      "category": "livechat",
+      "title": "v0.24.0 — Agentic Commerce, AI Gateway, Announcements & Security Hardening",
+      "description": "## What's New for Your Business\n\n### Sell through AI agents\nKira now supports **Agentic Commerce** — your AI agents can guide customers through purchases, handle payments, and track orders end-to-end. Enable the module for your tenant and your agents gain checkout, payment delegation, and order update capabilities out of the box.\n\n### Keep your team informed with announcements\nAdmins can now post **announcement banners** visible to everyone in the organization — perfect for scheduled maintenance...",
+      "highlights": [
+        "Public ACP merchant gateway at spec-native routes (checkout sessions, delegate payment)",
+        "Module-owned persistence, deterministic service layer, buyer-side agent tools",
+        "Idempotency conflict detection, terminal session enforcement, seller-backed handler gating",
+        "MCP support for tenant-scoped dashboard, config, sessions, orders",
+        "CLI: kira modules agentic-commerce status|enable|disable|dashboard|config|sessions|orders|rotate-key"
+      ],
+      "screenshot": null,
+      "releaseUrl": "https://github.com/keyreply/kira-cloudflare/releases/tag/v0.24.0",
+      "tags": [
+        "Platform"
+      ]
+    },
     {
       "id": "evt-v0.23.0",
       "date": "2026-03-30T14:25:30Z",

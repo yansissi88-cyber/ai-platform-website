@@ -1,6 +1,27 @@
 {
-  "lastUpdated": "2026-04-05T17:20:00.903Z",
+  "lastUpdated": "2026-04-05T17:28:02.155Z",
   "events": [
+    {
+      "id": "evt-v0.25.0",
+      "date": "2026-04-05T17:24:20Z",
+      "version": "v0.25.0",
+      "type": "fix",
+      "category": "livechat",
+      "title": "v0.25.0",
+      "description": "\nRelease focused on operational maturity across arena voice validation, generic\npost-call automation, agent management UX, security cleanup, and platform\ntype/build hardening. This entry summarizes the full delta since `v0.24.0`.\n\n### Voice, Arena & Post-Call Automation\n\n- **Generic post-call processing pipeline** now persists call analysis after\n  finalization and emits `call.post_call_processed` for downstream workflows\n- **Arena hard gates** can now require real post-call workflow side effect...",
+      "highlights": [
+        "Generic post-call processing pipeline now persists call analysis after",
+        "Arena hard gates can now require real post-call workflow side effects in",
+        "Arena caller profiles support post-call expectations and richer SGH-style",
+        "Arena run details now include call recording playback similar to Call Logs",
+        "Voice workflow lifecycle auth fixed so worker-to-worker call lifecycle"
+      ],
+      "screenshot": null,
+      "releaseUrl": "https://github.com/keyreply/kira-cloudflare/releases/tag/v0.25.0",
+      "tags": [
+        "Platform"
+      ]
+    },
     {
       "id": "evt-v0.24.1",
       "date": "2026-04-05T05:55:29Z",

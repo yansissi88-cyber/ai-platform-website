@@ -1,6 +1,27 @@
 {
-  "lastUpdated": "2026-04-05T04:59:28.259Z",
+  "lastUpdated": "2026-04-05T06:07:22.659Z",
   "events": [
+    {
+      "id": "evt-v0.24.1",
+      "date": "2026-04-05T05:55:29Z",
+      "version": "v0.24.1",
+      "type": "fix",
+      "category": "voice",
+      "title": "v0.24.1 — SSO Login, Announcements Settings & Auth Fixes",
+      "description": "## What's New for Your Business\n\n### SSO login now works seamlessly\nIf your organization uses Entra ID (Azure AD) or any SAML provider, the CLI and web login now work end-to-end — even for users who belong to multiple organizations. No more \"choose an organization\" roadblocks.\n\n### Manage announcements from Settings\nAdmins can now create and manage announcement banners directly from **Settings → Organization → Announcements**. Post maintenance notices, feature announcements, or warnings — your t...",
+      "highlights": [
+        "CLI SSO login end-to-end — kira auth login --org <org> opens browser for Entra/SAML SSO, receives token via localhost callback",
+        "buildSsoAuthUrl crash fixed for non-authkit providers",
+        "kira auth verify — two-step magic auth for non-interactive shells",
+        "--org required on login and verify commands",
+        "SSO-only orgs rejected upfront by kira auth verify"
+      ],
+      "screenshot": null,
+      "releaseUrl": "https://github.com/keyreply/kira-cloudflare/releases/tag/v0.24.1",
+      "tags": [
+        "Platform"
+      ]
+    },
     {
       "id": "evt-v0.24.0",
       "date": "2026-04-02T16:32:21Z",

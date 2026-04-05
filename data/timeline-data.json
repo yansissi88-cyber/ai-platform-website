@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-05T18:25:29.466Z",
+  "lastUpdated": "2026-04-05T18:55:53.947Z",
   "events": [
     {
       "id": "evt-v0.25.0",
@@ -200,7 +200,7 @@
       "description": "## What's New\n\n### Holiday Calendar — Multi-Country Support\n- **10 countries supported out of the box**: Singapore, United States, Brazil, Australia, Malaysia, Philippines, Japan, South Korea, Taiwan, and China — each with their full public holiday calendar\n- **One-click import**: Select a country and import all public holidays for the year instantly, including moveable holidays like Lunar New Year, Hari Raya, Easter, and Thanksgiving\n- **Country flag icons**: Visual flag indicators throughout t...",
       "highlights": [
         "Country flag icons: Visual flag indicators throughout the calendar UI make it easy to identify and filter holidays by country at a glance",
-        "CLI support: Manage holidays from the command line with kira holidays — list, create, delete, check dates, and bulk-import by country",
+        "CLI support: Manage holidays from the command line with kira holidays �� list, create, delete, check dates, and bulk-import by country",
         "Resolved critical security findings in FHIR, MCP, and EHR configuration handling",
         "Addressed medium-severity code review items across the platform",
         "Cleaned up TypeScript type-checking surfaces for improved build reliability"

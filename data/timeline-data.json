@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-06T11:26:24.580Z",
+  "lastUpdated": "2026-04-06T11:38:41.581Z",
   "events": [
     {
       "id": "evt-v0.25.0",
@@ -478,7 +478,7 @@
       "type": "fix",
       "category": "livechat",
       "title": "v0.4.0 - Testing, OpenAPI & Security",
-      "description": "## Highlights\r\n\r\nThis release adds comprehensive test coverage, API schema validation, and critical security fixes.\r\n\r\n## 🧪 Testing Infrastructure\r\n\r\n- Added **Vitest** with React Testing Library\r\n- **56 new test files** covering frontend components and API routes\r\n- Test utilities: setup, factories, and API mocks\r\n- Coverage thresholds enforced at 60%\r\n\r\n```bash\r\nbun run test           # Run all tests\r\nbun run test:watch     # Watch mode\r\nbun run test:coverage  # Coverage report\r\nbun run test:...",
+      "description": "## Highlights\r\n\r\nThis release adds comprehensive test coverage, API schema validation, and critical security fixes.\r\n\r\n## ��� Testing Infrastructure\r\n\r\n- Added **Vitest** with React Testing Library\r\n- **56 new test files** covering frontend components and API routes\r\n- Test utilities: setup, factories, and API mocks\r\n- Coverage thresholds enforced at 60%\r\n\r\n```bash\r\nbun run test           # Run all tests\r\nbun run test:watch     # Watch mode\r\nbun run test:coverage  # Coverage report\r\nbun run test...",
       "highlights": [
         "Added Vitest with React Testing Library",
         "56 new test files covering frontend components and API routes",

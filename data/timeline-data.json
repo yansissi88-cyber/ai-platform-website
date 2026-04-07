@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-07T19:47:07.084Z",
+  "lastUpdated": "2026-04-07T20:05:08.166Z",
   "events": [
     {
       "id": "evt-v0.25.0",
@@ -218,7 +218,7 @@
       "type": "fix",
       "category": "livechat",
       "title": "v0.16.0",
-      "description": "## What's New\n\n### Geneco PoC — Live Customer Support Integration\n- **CRM-connected chat widget**: The Geneco customer-facing widget can now look up account balances and raise support cases directly in Dynamics CRM, with no agent involvement required for routine inquiries\n- **Two-agent setup**: A public-facing support agent (chat) and an internal agent (voice) share the same CRM connection but with separate permission scopes — internal agents have full case visibility including listing and retri...",
+      "description": "## What's New\n\n### Geneco PoC ��� Live Customer Support Integration\n- **CRM-connected chat widget**: The Geneco customer-facing widget can now look up account balances and raise support cases directly in Dynamics CRM, with no agent involvement required for routine inquiries\n- **Two-agent setup**: A public-facing support agent (chat) and an internal agent (voice) share the same CRM connection but with separate permission scopes — internal agents have full case visibility including listing and ret...",
       "highlights": [
         "Inbox routing UI: Supervisors can now configure how incoming conversations are routed to queues and agents through a dedicated settings screen",
         "Agent status picker: Agents can set their availability status (Online, Busy, Away, Offline) directly from the sidebar",

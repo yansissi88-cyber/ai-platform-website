@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-08T16:05:42.019Z",
+  "lastUpdated": "2026-04-08T16:58:12.753Z",
   "events": [
     {
       "id": "evt-v0.25.0",
@@ -119,7 +119,7 @@
         "WorkOS Vault — Secure secret registry for tenant credentials and API keys",
         "WorkOS Pipes — Connected account platform for third-party integrations",
         "WorkOS Audit Events — Audit logging through WorkOS for unified compliance trails",
-        "Embedded Account Widgets �� Profile, security, team management, and API keys powered by WorkOS widgets in Settings"
+        "Embedded Account Widgets — Profile, security, team management, and API keys powered by WorkOS widgets in Settings"
       ],
       "screenshot": null,
       "releaseUrl": "https://github.com/keyreply/kira-cloudflare/releases/tag/v0.21.0",
@@ -200,7 +200,7 @@
       "description": "## What's New\n\n### Holiday Calendar — Multi-Country Support\n- **10 countries supported out of the box**: Singapore, United States, Brazil, Australia, Malaysia, Philippines, Japan, South Korea, Taiwan, and China — each with their full public holiday calendar\n- **One-click import**: Select a country and import all public holidays for the year instantly, including moveable holidays like Lunar New Year, Hari Raya, Easter, and Thanksgiving\n- **Country flag icons**: Visual flag indicators throughout t...",
       "highlights": [
         "Country flag icons: Visual flag indicators throughout the calendar UI make it easy to identify and filter holidays by country at a glance",
-        "CLI support: Manage holidays from the command line with kira holidays �� list, create, delete, check dates, and bulk-import by country",
+        "CLI support: Manage holidays from the command line with kira holidays — list, create, delete, check dates, and bulk-import by country",
         "Resolved critical security findings in FHIR, MCP, and EHR configuration handling",
         "Addressed medium-severity code review items across the platform",
         "Cleaned up TypeScript type-checking surfaces for improved build reliability"

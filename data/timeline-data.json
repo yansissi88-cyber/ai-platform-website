@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-08T19:46:05.530Z",
+  "lastUpdated": "2026-04-08T19:58:35.057Z",
   "events": [
     {
       "id": "evt-v0.25.0",
@@ -325,10 +325,10 @@
       "type": "fix",
       "category": "voice",
       "title": "v0.11.0",
-      "description": "## v0.11.0: Campaign dry-run, provider validation registry, voice quality hardening\n\n**46 commits** | **134 files changed** | **+14,169 / -3,071 lines**\n\nIncremental release focused on campaign validation, telephony provider abstraction, and voice pipeline stability.\n\n### Features\n- **Campaign dry-run validation** — server-side pre-launch checks (agent config, DNC, phone numbers, dispositions) with CLI `kira campaigns validate`\n- **Campaign audience management** ��� Overview & Audience tabs in U...",
+      "description": "## v0.11.0: Campaign dry-run, provider validation registry, voice quality hardening\n\n**46 commits** | **134 files changed** | **+14,169 / -3,071 lines**\n\nIncremental release focused on campaign validation, telephony provider abstraction, and voice pipeline stability.\n\n### Features\n- **Campaign dry-run validation** — server-side pre-launch checks (agent config, DNC, phone numbers, dispositions) with CLI `kira campaigns validate`\n- **Campaign audience management** — Overview & Audience tabs in UI,...",
       "highlights": [
         "Campaign dry-run validation — server-side pre-launch checks (agent config, DNC, phone numbers, dispositions) with CLI kira campaigns validate",
-        "Campaign audience management ��� Overview & Audience tabs in UI, audience CRUD, dispositions CLI",
+        "Campaign audience management — Overview & Audience tabs in UI, audience CRUD, dispositions CLI",
         "Telephony provider validation registry — pluggable validators for Telnyx, Twilio, Vonage, and SIP providers",
         "Per-tenant Telnyx credentials — campaign contacts now carry tenant-scoped telephony credentials",
         "PATCH endpoints — update commands for campaigns & workflows via CLI and API"

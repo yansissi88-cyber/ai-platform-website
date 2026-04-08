@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-07T23:26:50.009Z",
+  "lastUpdated": "2026-04-08T00:01:29.994Z",
   "events": [
     {
       "id": "evt-v0.25.0",
@@ -181,7 +181,7 @@
         "Configure a list of approved domains per agent (e.g., geneco.sg, get.geneco.sg)",
         "When a customer asks a question, the agent searches those websites live and includes the information in its response",
         "Every answer includes clickable source links so customers can verify information themselves",
-        "The agent can only search domains you approve �� it never accesses the open web",
+        "The agent can only search domains you approve — it never accesses the open web",
         "Answer questions about current promotions, pricing, and plans from your website"
       ],
       "screenshot": null,

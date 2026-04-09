@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-09T21:36:01.291Z",
+  "lastUpdated": "2026-04-09T22:03:44.582Z",
   "events": [
     {
       "id": "evt-v0.26.0",
@@ -280,7 +280,7 @@
       "version": "v0.14.0",
       "type": "fix",
       "category": "livechat",
-      "title": "v0.14.0 ��� FHIR R4 Healthcare Scheduling via Medplum + Epic",
+      "title": "v0.14.0 — FHIR R4 Healthcare Scheduling via Medplum + Epic",
       "description": "Healthcare appointment scheduling via a clean FHIR R4 interface backed by Medplum, with optional Epic STU3 proxy for production EMR write-back.\n\n## Why This Feature Exists\n\nHealthcare is one of the highest-value verticals for AI-assisted engagement. Patients routinely contact providers to book, reschedule, or ask about appointments — interactions that today require a human agent or a fragmented self-service portal. This release makes Kira a first-class participant in that workflow.\n\n**The core p...",
       "highlights": [
         "POST /v1/fhir/Appointment/$find — search available slots (R4 in, R4 Bundle out)",

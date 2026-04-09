@@ -1,6 +1,27 @@
 {
-  "lastUpdated": "2026-04-09T04:40:47.158Z",
+  "lastUpdated": "2026-04-09T06:12:45.789Z",
   "events": [
+    {
+      "id": "evt-v0.26.0",
+      "date": "2026-04-09T05:18:55Z",
+      "version": "v0.26.0",
+      "type": "improvement",
+      "category": "livechat",
+      "title": "v0.26.0 — Faster Channel Launches, Voice Personalization & Smoother Operator Workflows",
+      "description": "This release is focused on three business outcomes: getting channels live\nfaster, reducing operator friction across organizations, and giving teams more\ncontrol over how customer-facing AI agents sound and behave.\n\n## Business Highlights\n\n### Faster Channel Launches\n\n- Embedded WhatsApp signup and number acquisition now let teams move from setup\n  to a live number inside Kira with fewer external handoffs\n- New onboarding fallback, recovery, and review tooling makes it easier to\n  diagnose and un...",
+      "highlights": [
+        "Embedded WhatsApp signup and number acquisition now let teams move from setup",
+        "New onboarding fallback, recovery, and review tooling makes it easier to",
+        "Unified setup flows reduce ambiguity across channel OAuth, onboarding, and",
+        "Shorter time-to-launch for WhatsApp and phone-based programs",
+        "Less operational back-and-forth during setup"
+      ],
+      "screenshot": null,
+      "releaseUrl": "https://github.com/keyreply/kira-cloudflare/releases/tag/v0.26.0",
+      "tags": [
+        "Platform"
+      ]
+    },
     {
       "id": "evt-v0.25.0",
       "date": "2026-04-05T17:24:20Z",
@@ -265,7 +286,7 @@
         "POST /v1/fhir/Appointment/$find — search available slots (R4 in, R4 Bundle out)",
         "POST /v1/fhir/Appointment/$book — book a slot (R4 in, booked R4 Appointment out)",
         "GET /v1/fhir/metadata — custom CapabilityStatement advertising Epic proxy support",
-        "Epic STU3 proxy: R4↔STU3 field mapping (reasonCode→reason, basedOn���incomingReferral, comment field)",
+        "Epic STU3 proxy: R4↔STU3 field mapping (reasonCode→reason, basedOn→incomingReferral, comment field)",
         "FNV-1a idempotency key on $book; duplicate requests return existing appointment"
       ],
       "screenshot": null,

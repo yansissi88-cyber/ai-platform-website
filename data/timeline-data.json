@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-09T11:54:35.547Z",
+  "lastUpdated": "2026-04-09T12:53:26.399Z",
   "events": [
     {
       "id": "evt-v0.26.0",
@@ -322,7 +322,7 @@
       "version": "v0.12.0",
       "type": "fix",
       "category": "livechat",
-      "title": "v0.12.0 ��� AI-Native Livechat & Voice Pipeline Maturity",
+      "title": "v0.12.0 — AI-Native Livechat & Voice Pipeline Maturity",
       "description": "## Highlights\n\n- **AI-Native Livechat**: Full contact center with AI seats, approvals, learning memory, and PTC baseline\n- **Voice Pipeline Hardening**: 100+ fixes across barge-in, audio quality, latency, and provider failover\n- **Arena Voice Testing**: CLI-driven voice testing with persona simulation\n- **LLM Benchmark**: Built-in TTFB benchmarking, all agents on Grok 4.1 Fast NR (666ms avg)\n\n## Features\n\n### Livechat (NEW)\n- AI-native seats, team inboxes, saved views, mentions, spam filtering\n-...",
       "highlights": [
         "AI-Native Livechat: Full contact center with AI seats, approvals, learning memory, and PTC baseline",

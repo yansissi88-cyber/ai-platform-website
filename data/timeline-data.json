@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-09T16:47:00.017Z",
+  "lastUpdated": "2026-04-09T17:50:51.302Z",
   "events": [
     {
       "id": "evt-v0.26.0",
@@ -280,7 +280,7 @@
       "version": "v0.14.0",
       "type": "fix",
       "category": "livechat",
-      "title": "v0.14.0 ��� FHIR R4 Healthcare Scheduling via Medplum + Epic",
+      "title": "v0.14.0 — FHIR R4 Healthcare Scheduling via Medplum + Epic",
       "description": "Healthcare appointment scheduling via a clean FHIR R4 interface backed by Medplum, with optional Epic STU3 proxy for production EMR write-back.\n\n## Why This Feature Exists\n\nHealthcare is one of the highest-value verticals for AI-assisted engagement. Patients routinely contact providers to book, reschedule, or ask about appointments — interactions that today require a human agent or a fragmented self-service portal. This release makes Kira a first-class participant in that workflow.\n\n**The core p...",
       "highlights": [
         "POST /v1/fhir/Appointment/$find — search available slots (R4 in, R4 Bundle out)",
@@ -499,7 +499,7 @@
       "type": "fix",
       "category": "livechat",
       "title": "v0.4.0 - Testing, OpenAPI & Security",
-      "description": "## Highlights\r\n\r\nThis release adds comprehensive test coverage, API schema validation, and critical security fixes.\r\n\r\n## 🧪 Testing Infrastructure\r\n\r\n- Added **Vitest** with React Testing Library\r\n- **56 new test files** covering frontend components and API routes\r\n- Test utilities: setup, factories, and API mocks\r\n- Coverage thresholds enforced at 60%\r\n\r\n```bash\r\nbun run test           # Run all tests\r\nbun run test:watch     # Watch mode\r\nbun run test:coverage  # Coverage report\r\nbun run test:...",
+      "description": "## Highlights\r\n\r\nThis release adds comprehensive test coverage, API schema validation, and critical security fixes.\r\n\r\n## ���� Testing Infrastructure\r\n\r\n- Added **Vitest** with React Testing Library\r\n- **56 new test files** covering frontend components and API routes\r\n- Test utilities: setup, factories, and API mocks\r\n- Coverage thresholds enforced at 60%\r\n\r\n```bash\r\nbun run test           # Run all tests\r\nbun run test:watch     # Watch mode\r\nbun run test:coverage  # Coverage report\r\nbun run tes...",
       "highlights": [
         "Added Vitest with React Testing Library",
         "56 new test files covering frontend components and API routes",

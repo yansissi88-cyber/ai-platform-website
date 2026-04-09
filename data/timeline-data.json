@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-09T08:00:46.574Z",
+  "lastUpdated": "2026-04-09T08:08:14.172Z",
   "events": [
     {
       "id": "evt-v0.26.0",
@@ -202,7 +202,7 @@
         "Configure a list of approved domains per agent (e.g., geneco.sg, get.geneco.sg)",
         "When a customer asks a question, the agent searches those websites live and includes the information in its response",
         "Every answer includes clickable source links so customers can verify information themselves",
-        "The agent can only search domains you approve — it never accesses the open web",
+        "The agent can only search domains you approve ��� it never accesses the open web",
         "Answer questions about current promotions, pricing, and plans from your website"
       ],
       "screenshot": null,
@@ -322,7 +322,7 @@
       "version": "v0.12.0",
       "type": "fix",
       "category": "livechat",
-      "title": "v0.12.0 �� AI-Native Livechat & Voice Pipeline Maturity",
+      "title": "v0.12.0 — AI-Native Livechat & Voice Pipeline Maturity",
       "description": "## Highlights\n\n- **AI-Native Livechat**: Full contact center with AI seats, approvals, learning memory, and PTC baseline\n- **Voice Pipeline Hardening**: 100+ fixes across barge-in, audio quality, latency, and provider failover\n- **Arena Voice Testing**: CLI-driven voice testing with persona simulation\n- **LLM Benchmark**: Built-in TTFB benchmarking, all agents on Grok 4.1 Fast NR (666ms avg)\n\n## Features\n\n### Livechat (NEW)\n- AI-native seats, team inboxes, saved views, mentions, spam filtering\n-...",
       "highlights": [
         "AI-Native Livechat: Full contact center with AI seats, approvals, learning memory, and PTC baseline",

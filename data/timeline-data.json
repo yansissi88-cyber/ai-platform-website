@@ -1,6 +1,27 @@
 {
-  "lastUpdated": "2026-04-10T10:06:06.295Z",
+  "lastUpdated": "2026-04-10T10:45:46.443Z",
   "events": [
+    {
+      "id": "evt-v0.27.0",
+      "date": "2026-04-10T10:18:08Z",
+      "version": "v0.27.0",
+      "type": "announcement",
+      "category": "livechat",
+      "title": "v0.27.0 — Livechat Coach Runtime, Agent Assist Templates & Dependency Hardening",
+      "description": "\nThis release focuses on making livechat coaching agent-specific at\nruntime, exposing that model cleanly in the builder and CLI, and hardening the\nrepo's AI/dependency stack after the `v0.26.0` cut.\n\n### Livechat Coach Runtime\n\n- **Coach suggestions now resolve the active AI coach seat at runtime** instead\n  of always using a built-in prompt and model\n- **Bound agent prompt, model, reasoning settings, and grounded web-search\n  domains now flow into coach suggestions**, so livechat coaching can b...",
+      "highlights": [
+        "Coach suggestions now resolve the active AI coach seat at runtime instead",
+        "Bound agent prompt, model, reasoning settings, and grounded web-search",
+        "Coach-seat matching now respects channel selection, allowing different AI",
+        "Operators can receive guidance that matches the intended coaching persona and",
+        "Tenant teams can govern coaching behavior through the normal agent model and"
+      ],
+      "screenshot": null,
+      "releaseUrl": "https://github.com/keyreply/kira-cloudflare/releases/tag/v0.27.0",
+      "tags": [
+        "Platform"
+      ]
+    },
     {
       "id": "evt-v0.26.0",
       "date": "2026-04-09T05:18:55Z",
@@ -280,7 +301,7 @@
       "version": "v0.14.0",
       "type": "fix",
       "category": "livechat",
-      "title": "v0.14.0 ��� FHIR R4 Healthcare Scheduling via Medplum + Epic",
+      "title": "v0.14.0 — FHIR R4 Healthcare Scheduling via Medplum + Epic",
       "description": "Healthcare appointment scheduling via a clean FHIR R4 interface backed by Medplum, with optional Epic STU3 proxy for production EMR write-back.\n\n## Why This Feature Exists\n\nHealthcare is one of the highest-value verticals for AI-assisted engagement. Patients routinely contact providers to book, reschedule, or ask about appointments — interactions that today require a human agent or a fragmented self-service portal. This release makes Kira a first-class participant in that workflow.\n\n**The core p...",
       "highlights": [
         "POST /v1/fhir/Appointment/$find — search available slots (R4 in, R4 Bundle out)",

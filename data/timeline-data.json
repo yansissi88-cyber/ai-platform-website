@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-12T05:09:51.056Z",
+  "lastUpdated": "2026-04-12T06:16:53.117Z",
   "events": [
     {
       "id": "evt-v0.27.0",
@@ -371,7 +371,7 @@
       "highlights": [
         "Campaign dry-run validation — server-side pre-launch checks (agent config, DNC, phone numbers, dispositions) with CLI kira campaigns validate",
         "Campaign audience management — Overview & Audience tabs in UI, audience CRUD, dispositions CLI",
-        "Telephony provider validation registry �� pluggable validators for Telnyx, Twilio, Vonage, and SIP providers",
+        "Telephony provider validation registry — pluggable validators for Telnyx, Twilio, Vonage, and SIP providers",
         "Per-tenant Telnyx credentials — campaign contacts now carry tenant-scoped telephony credentials",
         "PATCH endpoints — update commands for campaigns & workflows via CLI and API"
       ],

@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-14T19:09:58.292Z",
+  "lastUpdated": "2026-04-14T19:57:51.072Z",
   "events": [
     {
       "id": "evt-v0.28.0",
@@ -159,7 +159,7 @@
       "highlights": [
         "Provider workspace launches from the Healthcare module at /module/healthcare/provider",
         "Tenant admins can configure and bind their Medplum environment via CLI (kira ehr config set)",
-        "Readiness checklist guides operators through setup — configuration, organization binding, and access policy attachment",
+        "Readiness checklist guides operators through setup �� configuration, organization binding, and access policy attachment",
         "Workspace launch requirements simplified — project binding is no longer a hard prerequisite",
         "Goals editor now displays Success Metrics and Failure Conditions side-by-side on wider screens"
       ],

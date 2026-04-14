@@ -1,6 +1,48 @@
 {
-  "lastUpdated": "2026-04-14T14:59:42.581Z",
+  "lastUpdated": "2026-04-14T15:58:35.248Z",
   "events": [
+    {
+      "id": "evt-v0.28.0",
+      "date": "2026-04-14T15:50:41Z",
+      "version": "v0.28.0",
+      "type": "fix",
+      "category": "livechat",
+      "title": "v0.28.0",
+      "description": "## v0.28.0 (2026-04-14) - Apps Platform Expansion, Multichannel Reach & Mobile UX Polish\n\nThis release turns a large set of operator, builder, channel, and runtime work\ninto a single publishable milestone. The headline themes are a much more\ncapable spreadsheet-backed Apps platform, broader channel and voice coverage,\nbetter mobile behavior across the operator surfaces, and stronger release\nhardening around dependency hygiene and version alignment.\n\n### Apps Platform & Spreadsheet Runtime\n\n- **I...",
+      "highlights": [
+        "Introduced a fuller spreadsheet-backed Apps workflow across import,",
+        "App Builder and App Runtime received a significant UI/UX overhaul, with",
+        "Spreadsheet import previewing and runtime shaping are materially stronger,",
+        "App lifecycle management now includes archive/restore semantics so teams",
+        "Location-aware spreadsheet apps now surface Google Maps links for inferred"
+      ],
+      "screenshot": null,
+      "releaseUrl": "https://github.com/keyreply/kira-cloudflare/releases/tag/v0.28.0",
+      "tags": [
+        "Platform"
+      ]
+    },
+    {
+      "id": "evt-v0.27.1",
+      "date": "2026-04-14T15:44:22Z",
+      "version": "v0.27.1",
+      "type": "announcement",
+      "category": "livechat",
+      "title": "v0.27.1",
+      "description": "## v0.27.1 (2026-04-12) - Model Refresh Nudges & Catalog Cleanup\n\nThis release refreshes the agent builder's execution catalog around current\nvendor aliases, adds in-product same-family upgrade nudges, and keeps the\nrefresh conservative by avoiding unbenchmarked production default flips.\n\n### Release Metadata & Dependency Audit\n\n- **Spreadsheet import/export no longer depends on the vulnerable `xlsx` package**\n  in either the frontend or API worker. Browser exports now use\n  `write-excel-file`, ...",
+      "highlights": [
+        "Spreadsheet import/export no longer depends on the vulnerable xlsx package",
+        "Workspace esbuild resolution is pinned through the root overrides so the",
+        "Internal workspace package versions and host metadata are aligned to",
+        "bun audit",
+        "bun run test -- src/components/data-table/__tests__/export.test.ts src/components/data-table/__tests__/data-table-export.test.tsx"
+      ],
+      "screenshot": null,
+      "releaseUrl": "https://github.com/keyreply/kira-cloudflare/releases/tag/v0.27.1",
+      "tags": [
+        "Platform"
+      ]
+    },
     {
       "id": "evt-v0.27.0",
       "date": "2026-04-10T10:18:08Z",

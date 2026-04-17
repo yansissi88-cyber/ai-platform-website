@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-17T11:50:02.483Z",
+  "lastUpdated": "2026-04-17T12:49:38.524Z",
   "events": [
     {
       "id": "evt-v0.28.0",
@@ -540,7 +540,7 @@
       "type": "improvement",
       "category": "voice",
       "title": "v0.5.0 - MCP Server Store & Agent Integration",
-      "description": "# MCP Server Store & Agent Integration\n\nThis release introduces full MCP (Model Context Protocol) support, enabling agents to connect to external services through a standardized protocol. Inspired by [Salesforce's MCP announcement](https://developer.salesforce.com/blogs/2025/06/introducing-mcp-support-across-salesforce).\n\n## ✨ New Features\n\n### MCP Server Store\n- **Marketplace UI**: Browse and install MCP servers from a curated store\n- **Category Navigation**: Organized by CRM, DevOps, Integrati...",
+      "description": "# MCP Server Store & Agent Integration\n\nThis release introduces full MCP (Model Context Protocol) support, enabling agents to connect to external services through a standardized protocol. Inspired by [Salesforce's MCP announcement](https://developer.salesforce.com/blogs/2025/06/introducing-mcp-support-across-salesforce).\n\n## �� New Features\n\n### MCP Server Store\n- **Marketplace UI**: Browse and install MCP servers from a curated store\n- **Category Navigation**: Organized by CRM, DevOps, Integrat...",
       "highlights": [
         "Marketplace UI: Browse and install MCP servers from a curated store",
         "Category Navigation: Organized by CRM, DevOps, Integration, Communication, Productivity, Storage, AI, Analytics",

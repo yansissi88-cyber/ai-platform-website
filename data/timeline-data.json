@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-23T12:53:54.456Z",
+  "lastUpdated": "2026-04-23T13:22:16.948Z",
   "events": [
     {
       "id": "evt-v0.28.0",
@@ -7,14 +7,14 @@
       "version": "v0.28.0",
       "type": "fix",
       "category": "livechat",
-      "title": "v0.28.0",
-      "description": "## v0.28.0 (2026-04-14) - Apps Platform Expansion, Multichannel Reach & Mobile UX Polish\n\nThis release turns a large set of operator, builder, channel, and runtime work\ninto a single publishable milestone. The headline themes are a much more\ncapable spreadsheet-backed Apps platform, broader channel and voice coverage,\nbetter mobile behavior across the operator surfaces, and stronger release\nhardening around dependency hygiene and version alignment.\n\n### Apps Platform & Spreadsheet Runtime\n\n- **I...",
+      "title": "v0.28.0 — Apps Platform, Voice Intelligence & Channel Delivery",
+      "description": "## v0.28.0 (updated 2026-04-23) - Apps Platform, Voice Intelligence & Channel Delivery\n\nThis release now includes the original v0.28.0 milestone plus the production follow-up work merged through `4a024a16`. The release focus is a broader Apps/runtime platform, stronger voice and model coverage, production hardening for channel onboarding and livechat delivery, and cleaner operator surfaces for testing and rollout.\n\n### Highlights\n\n- Expanded the spreadsheet-backed Apps platform with stronger imp...",
       "highlights": [
-        "Introduced a fuller spreadsheet-backed Apps workflow across import,",
-        "App Builder and App Runtime received a significant UI/UX overhaul, with",
-        "Spreadsheet import previewing and runtime shaping are materially stronger,",
-        "App lifecycle management now includes archive/restore semantics so teams",
-        "Location-aware spreadsheet apps now surface Google Maps links for inferred"
+        "Added browser-rendering workflow support, workflow editor save/delete regression fixes, and call-tree/throughput hardening.",
+        "Spreadsheet-backed Apps now have a more complete path from imported operational data to tenant-facing runtime experiences.",
+        "Builder/runtime layouts are cleaner on constrained surfaces, with better handling for embedded and panel-based views.",
+        "Agent Builder filters, voice profile controls, and voice test call surfaces were polished to make test configuration and model selection clearer.",
+        "WhatsApp onboarding now supports Meta display-name-only virtual numbers and Cloud API phone-number registration from Kira."
       ],
       "screenshot": null,
       "releaseUrl": "https://github.com/keyreply/kira-cloudflare/releases/tag/v0.28.0",

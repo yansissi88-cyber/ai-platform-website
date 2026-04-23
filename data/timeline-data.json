@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-23T20:49:12.160Z",
+  "lastUpdated": "2026-04-23T20:50:22.294Z",
   "events": [
     {
       "id": "evt-v0.28.0",
@@ -306,7 +306,7 @@
       "highlights": [
         "Inbox routing UI: Supervisors can now configure how incoming conversations are routed to queues and agents through a dedicated settings screen",
         "Agent status picker: Agents can set their availability status (Online, Busy, Away, Offline) directly from the sidebar",
-        "The widget is now draggable — teams can reposition it anywhere on screen to suit their workflow",
+        "The widget is now draggable ��� teams can reposition it anywhere on screen to suit their workflow",
         "Once moved manually, the auto-slide behaviour disables so the widget stays where it was placed",
         "All pages in the app now have bookmarkable URLs (e.g. /settings/inbox-routing, /brands/new, /brands/:id)"
       ],

@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-24T01:18:44.573Z",
+  "lastUpdated": "2026-04-24T02:25:36.982Z",
   "events": [
     {
       "id": "evt-v0.28.0",
@@ -431,7 +431,7 @@
       "type": "fix",
       "category": "livechat",
       "title": "v0.10.0 - Provider AMD, Export Templates, SIP Trunk & Campaign Enhancements",
-      "description": "# Kira v0.10.0 Release Notes\n\n**314 commits since v0.9.0** — focused on production-readiness for voice calls, campaign compliance, and platform extensibility.\n\n---\n\n## 1. Voice Pipeline\n\n- **Provider-level AMD**: Answering machine detection at the telephony layer (~3s detection vs 5–10s transcript-based), with automatic voicemail disposition.\n- **Echo suppression overhaul**: Generation-counter gating, active-source tracking, and transcript echo filtering eliminate self-talk loops across all code...",
+      "description": "# Kira v0.10.0 Release Notes\n\n**314 commits since v0.9.0** ��� focused on production-readiness for voice calls, campaign compliance, and platform extensibility.\n\n---\n\n## 1. Voice Pipeline\n\n- **Provider-level AMD**: Answering machine detection at the telephony layer (~3s detection vs 5–10s transcript-based), with automatic voicemail disposition.\n- **Echo suppression overhaul**: Generation-counter gating, active-source tracking, and transcript echo filtering eliminate self-talk loops across all co...",
       "highlights": [
         "Greeting prewarm: Pre-generates the first LLM response during greeting playback, cutting perceived latency on call connect.",
         "Inbound call handling: Full inbound Telnyx path with WebSocket media bridging, barge-in detection, and dead-air circuit breaker.",

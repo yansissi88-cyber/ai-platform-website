@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-26T13:00:23.757Z",
+  "lastUpdated": "2026-04-26T13:56:48.699Z",
   "events": [
     {
       "id": "evt-v0.28.0",
@@ -281,7 +281,7 @@
       "type": "fix",
       "category": "livechat",
       "title": "v0.17.0",
-      "description": "## What's New\n\n### Holiday Calendar — Multi-Country Support\n- **10 countries supported out of the box**: Singapore, United States, Brazil, Australia, Malaysia, Philippines, Japan, South Korea, Taiwan, and China — each with their full public holiday calendar\n- **One-click import**: Select a country and import all public holidays for the year instantly, including moveable holidays like Lunar New Year, Hari Raya, Easter, and Thanksgiving\n- **Country flag icons**: Visual flag indicators throughout t...",
+      "description": "## What's New\n\n### Holiday Calendar ��� Multi-Country Support\n- **10 countries supported out of the box**: Singapore, United States, Brazil, Australia, Malaysia, Philippines, Japan, South Korea, Taiwan, and China — each with their full public holiday calendar\n- **One-click import**: Select a country and import all public holidays for the year instantly, including moveable holidays like Lunar New Year, Hari Raya, Easter, and Thanksgiving\n- **Country flag icons**: Visual flag indicators throughout...",
       "highlights": [
         "Country flag icons: Visual flag indicators throughout the calendar UI make it easy to identify and filter holidays by country at a glance",
         "CLI support: Manage holidays from the command line with kira holidays — list, create, delete, check dates, and bulk-import by country",
